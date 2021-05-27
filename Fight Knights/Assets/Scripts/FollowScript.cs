@@ -14,6 +14,6 @@ public class FollowScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.transform.position = followTarget.position;
+        this.transform.localPosition = Vector3.MoveTowards(this.transform.localPosition, followTarget.position, 50f * Time.deltaTime);
     }
 }

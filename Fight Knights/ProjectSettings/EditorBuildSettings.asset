@@ -12,28 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterSelect.unity
     guid: 98f9f63bf8c33454394c89c41b2e05de
   - enabled: 0
-    path: Assets/Scenes/HubScene.unity
-    guid: 60bf3cd6258240c47a384396050821c4
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
     path: Assets/PolygonDungeon/Scenes/Cave.unity
     guid: 7dd3b3b67a8b56d4e8640fa6891eaf3b
   - enabled: 0
-    path: Assets/Scenes/Soccer.unity
-    guid: 14dc3171a71d4b5488593d5d37238529
-  - enabled: 0
-    path: Assets/Scenes/Victory Screen.unity
-    guid: 0d2c261b71795984fbace201856a2589
-  - enabled: 0
-    path: Assets/Scenes/Fort.unity
-    guid: 6292c7f62a16c314ca3446913a29e660
-  - enabled: 0
-    path: Assets/Scenes/Billiards.unity
-    guid: dfe156da521a4e240bd2c74918ef521f
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/NetworkMenuScene.unity
     guid: f95afe6c6091a3a458daeaebd3c57a30
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 9c2a8c2b6b349364195836b28584099a, type: 2}
+  m_configObjects: {}

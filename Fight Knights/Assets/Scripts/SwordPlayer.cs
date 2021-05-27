@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SwordPlayer : PlayerController
 {
-    [SerializeField] GameObject swordSlash, swordThrustParticle, swordThrustSword, swordSlashSword, smokeTeleportPrefab;
+    [SerializeField] GameObject swordSlash, swordThrustParticle, swordThrustSword, swordSlashSword, smokeTeleportPrefab, heavySlashPrefab;
     [SerializeField] Transform swordCrit, thrustPosition;
+    bool recoveringFromDash = false;
     float dashDistance;
     [SerializeField] LayerMask wallForDash;
     protected override void Update()
     {
+       
         switch (state)
         {
             case State.Normal:
@@ -45,7 +47,6 @@ public class SwordPlayer : PlayerController
             case State.Dashing:
                 HandleDash();
                 HandleThrowingHands();
-                HandleMovement();
                 break;
             case State.Grabbed:
                 HandleGrabbed();
@@ -86,6 +87,7 @@ public class SwordPlayer : PlayerController
                 break;
             case State.Dashing:
                 //FixedHandleMovement();
+                FixedHandleDash();
                 break;
         }
     }
@@ -236,31 +238,55 @@ public class SwordPlayer : PlayerController
     protected override void Dash(Vector3 dashDirection)
     {
 
-        dashDistance = 8f;
+        StartCoroutine(DashRoutine(.525f));
+        recoveringFromDash = false;
         if (!CanMove(dashDirection, dashDistance))
         {
-            Instantiate(smokeTeleportPrefab, this.transform.position, Quaternion.identity);
             isDashing = true;
             shielding = false;
-            punchedRight = true;
+            punchedRight = false;
             returningRight = false;
-            transform.position += dashDirection * dashDistance;
             state = State.Dashing;
         }
-           
-       
-        
-       
 
+
+
+
+
+    }
+
+    IEnumerator DashRoutine(float timeSent)
+    {
+        yield return new WaitForSeconds(timeSent);
+        recoveringFromDash = true;
+        GameObject heavySlash = Instantiate(heavySlashPrefab, GrabPosition.position, Quaternion.identity);
+        heavySlash.transform.right = transform.right;
+        HandleCollider handleCollider = heavySlash.GetComponent<HandleCollider>();
+        handleCollider.SetPlayer(this, leftHandParent);
+        StartCoroutine(DashRecoveryRoutine(.525f));
+    }
+    IEnumerator DashRecoveryRoutine(float timeSent)
+    {
+        yield return new WaitForSeconds(timeSent);
+        recoveringFromDash = false;
+        state = State.Normal;
+    }
+
+    protected void FixedHandleDash()
+    {
+        if (!recoveringFromDash)
+        {
+            Vector3 newVelocity = new Vector3(transform.right.normalized.x * 40, rb.velocity.y, transform.right.normalized.z * 30);
+            rb.velocity = newVelocity;
+        }
+        else
+        {
+            Vector3 newVelocityy = new Vector3(0, rb.velocity.y, 0);
+            rb.velocity = newVelocityy;
+        }
     }
     protected override void HandleDash()
     {
-        rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
-        if (rightHandTransform.localPosition.x <= 0 && punchedRight == false)
-        {
-            isDashing = false;
-            state = State.Normal;
-        }
     }
 
     private bool CanMove(Vector3 dir, float distance)
@@ -376,7 +402,7 @@ public class SwordPlayer : PlayerController
         if (state == State.Stunned) return;
         if (grabbing) return;
         if (state == State.Grabbed) return;
-        
+
         //check if hasdashedtimer is good to go if not return
 
         //then if dash buffer is greater than 0 dash
@@ -388,7 +414,8 @@ public class SwordPlayer : PlayerController
                 transform.right = lookTowards;
             }
             dashBuffer = 0;
-            Dash(transform.right.normalized);
+            animatorUpdated.SetTrigger("Dash");
+            Dash(transform.right);
         }
     }
 

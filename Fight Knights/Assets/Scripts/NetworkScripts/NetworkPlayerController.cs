@@ -94,6 +94,7 @@ public class NetworkPlayerController : NetworkBehaviour
             state = State.Normal;
             return;
         }
+        
         switch (state)
         {
             case State.Normal:
@@ -361,7 +362,7 @@ public class NetworkPlayerController : NetworkBehaviour
         }
         if (punchedLeft || punchedRight || returningLeft || returningRight)
         {
-            moveSpeed = moveSpeedSetter - 8f;
+            moveSpeed = moveSpeedSetter - moveSpeedSetter + 6;
         }
         if (!punchedLeft && !punchedRight && !returningLeft && !returningRight)
         {
@@ -410,7 +411,7 @@ public class NetworkPlayerController : NetworkBehaviour
     {
         if (waveDashBool)
         {
-            WaveDash(lastMoveDir, 60f);
+            WaveDash(lastMoveDir, 70f);
             if (animatorUpdated != null)
             {
                 animatorUpdated.SetBool("Rolling", true);
@@ -507,7 +508,7 @@ public class NetworkPlayerController : NetworkBehaviour
             //brakeSpeed = brakeSpeed + (100f * Time.deltaTime);
             //rb.AddForce(oppositeForce * Time.deltaTime * brakeSpeed);
             //rb.AddForce(movement * .05f); //DI*/
-            rb.drag = 1.3f;
+            rb.drag = .8f;
         }
 
         Vector3 knockbackLook = new Vector3(oppositeForce.x, 0, oppositeForce.z);
@@ -544,13 +545,13 @@ public class NetworkPlayerController : NetworkBehaviour
 
         punchedRight = false;
         returningRight = true;
-        rightHandTransform.gameObject.GetComponent<Collider>().enabled = false;
+        //rightHandTransform.gameObject.GetComponent<Collider>().enabled = false;
     }
     protected virtual void EndPunchLeft()
     {
         punchedLeft = false;
         returningLeft = true;
-        leftHandTransform.gameObject.GetComponent<Collider>().enabled = false;
+        //leftHandTransform.gameObject.GetComponent<Collider>().enabled = false;
     }
 
     protected void HandleShielding()
@@ -739,22 +740,32 @@ public class NetworkPlayerController : NetworkBehaviour
     {
         transform.right = lastMoveDir;
         Time.timeScale = 1;
-        float powerDashSpeedMulti = 4f;
+        float powerDashSpeedMulti = 3f;
         powerDashSpeed -= powerDashSpeed * powerDashSpeedMulti * Time.deltaTime;
 
-        float powerDashMinSpeed = 10f;
+        float powerDashMinSpeed = 20f;
         if (powerDashSpeed < powerDashMinSpeed)
         {
             if (animatorUpdated != null)
             {
                 animatorUpdated.SetBool("Rolling", false);
             }
+
             state = State.Normal;
         }
     }
     protected virtual void FixedHandleWaveDashing()
     {
-        rb.velocity = new Vector3(powerDashTowards.x * powerDashSpeed, rb.velocity.y, powerDashTowards.z * powerDashSpeed);
+        float yVelo;
+        if (rb.velocity.y < 0)
+        {
+            yVelo = rb.velocity.y;
+        }
+        else
+        {
+            yVelo = 0f;
+        }
+        rb.velocity = new Vector3(powerDashTowards.x * powerDashSpeed, yVelo, powerDashTowards.z * powerDashSpeed);
     }
 
     public void ParryStun()
@@ -1013,7 +1024,7 @@ public class NetworkPlayerController : NetworkBehaviour
     }
 
     #region inputRegion
-    void OnMove(InputValue value)
+    protected virtual void OnMove(InputValue value)
     {
         inputMovement = value.Get<Vector2>();
 
@@ -1175,6 +1186,7 @@ public class NetworkPlayerController : NetworkBehaviour
 
     }
 
+
     void OnReset()
     {
         if (GameConfigurationManager.Instance != null)
@@ -1190,9 +1202,11 @@ public class NetworkPlayerController : NetworkBehaviour
         GameConfigurationManager.Instance.Pause();
     }
 
+
+    
     protected virtual void FaceLookDirection()
     {
-        if (punchedLeft || punchedRight || leftHandTransform.localPosition.x > 1f && returningLeft || rightHandTransform.localPosition.x > 1f && returningRight) if (state != State.Grabbing) return;
+        if (punchedLeft || punchedRight || returningLeft || returningRight) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
 

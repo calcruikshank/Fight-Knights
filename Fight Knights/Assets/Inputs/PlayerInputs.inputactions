@@ -156,6 +156,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "c1a0f791-f389-4f48-aa8f-44ec4d610485",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "HeavyRelease",
+                    "type": "Button",
+                    "id": "4afb5afa-e231-4351-adc7-1dfe9485b93d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -530,6 +546,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "StartButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f23fb64-eeb9-4872-a347-7d215dc68243",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7f6d9cc-280a-4ea5-8c30-0a0769d76a80",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HeavyRelease",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

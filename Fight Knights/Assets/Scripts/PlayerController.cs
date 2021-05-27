@@ -405,7 +405,7 @@ public class PlayerController : MonoBehaviour
     {
         if (waveDashBool)
         {
-            WaveDash(lastMoveDir, 60f);
+            WaveDash(lastMoveDir, 70f);
             if (animatorUpdated != null)
             {
                 animatorUpdated.SetBool("Rolling", true);
@@ -502,7 +502,7 @@ public class PlayerController : MonoBehaviour
             //brakeSpeed = brakeSpeed + (100f * Time.deltaTime);
             //rb.AddForce(oppositeForce * Time.deltaTime * brakeSpeed);
             //rb.AddForce(movement * .05f); //DI*/
-            rb.drag = 1.3f;
+            rb.drag = .8f;
         }
 
         Vector3 knockbackLook = new Vector3(oppositeForce.x, 0, oppositeForce.z);
@@ -734,10 +734,11 @@ public class PlayerController : MonoBehaviour
     {
         transform.right = lastMoveDir;
         Time.timeScale = 1;
-        float powerDashSpeedMulti = 4f;
+
+        float powerDashSpeedMulti = 3f;
         powerDashSpeed -= powerDashSpeed * powerDashSpeedMulti * Time.deltaTime;
 
-        float powerDashMinSpeed = 10f;
+        float powerDashMinSpeed = 20f;
         if (powerDashSpeed < powerDashMinSpeed)
         {
             if (animatorUpdated != null)
@@ -749,7 +750,16 @@ public class PlayerController : MonoBehaviour
     }
     protected virtual void FixedHandleWaveDashing()
     {
-        rb.velocity = new Vector3(powerDashTowards.x * powerDashSpeed, rb.velocity.y, powerDashTowards.z * powerDashSpeed);
+        float yVelo;
+        if (rb.velocity.y < 0)
+        {
+            yVelo = rb.velocity.y;   
+        }
+        else
+        {
+            yVelo = 0f;
+        }
+        rb.velocity = new Vector3(powerDashTowards.x * powerDashSpeed, yVelo, powerDashTowards.z * powerDashSpeed);
     }
 
     public void ParryStun()
