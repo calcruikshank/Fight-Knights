@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject arrow;
     public bool lostStock = false;
     string currentControlScheme;
-
+   
     public State state;
     public enum State
     {

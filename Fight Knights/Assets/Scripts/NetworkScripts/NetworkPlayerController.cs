@@ -63,7 +63,7 @@ public class NetworkPlayerController : NetworkBehaviour
 
     public virtual void Awake()
     {
-        Application.targetFrameRate = 600;
+        Application.targetFrameRate = 120;
         
         rb = GetComponent<Rigidbody>();
         state = State.Normal;
@@ -91,7 +91,6 @@ public class NetworkPlayerController : NetworkBehaviour
         if (!IsOwner)
         {
             rb.velocity = Vector3.zero;
-            state = State.Normal;
             return;
         }
         
@@ -561,18 +560,25 @@ public class NetworkPlayerController : NetworkBehaviour
             parryTimer += Time.deltaTime;
             if (parryTimer <= parryTimerThreshold)
             {
-                isParrying = true;
+                //ParryingServerRpc(true);
+                //isParrying = true;
             }
             if (parryTimer > parryTimerThreshold)
             {
-                isParrying = false;
+
+                //ParryingServerRpc(false);
+                //isParrying = false;
+                SetParryStatusServerRpc(false);
             }
-            shield.gameObject.SetActive(true);
+            //shield.gameObject.SetActive(true);
         }
         if (!shielding && state != State.ParryState)
         {
+
+            //ParryingServerRpc(false);
             isParrying = false;
-            shield.gameObject.SetActive(false);
+            //SetParryStatusServerRpc(false);
+            //shield.gameObject.SetActive(false);
         }
     }
     public void Parry()
@@ -584,6 +590,7 @@ public class NetworkPlayerController : NetworkBehaviour
         returningLeft = false;
         leftHandTransform.localPosition = Vector3.zero;
         rightHandTransform.localPosition = Vector3.zero;
+        //ParryParticleServerRpc();
         GameObject parryParticle = Instantiate(parryIndicator, transform.position, Quaternion.identity);
         if (state == State.ParryState) return;
         rb.velocity = Vector3.zero;
@@ -592,8 +599,8 @@ public class NetworkPlayerController : NetworkBehaviour
         {
             SetAnimatorToIdle();
         }
-        state = State.ParryState;
 
+        state = State.ParryState;
     }
     protected void HandleParry()
     {
@@ -611,7 +618,8 @@ public class NetworkPlayerController : NetworkBehaviour
         }
         if (isParryingTimer > .2f && inputMovement.magnitude > .8f)
         {
-            shielding = false;
+            if (shielding) ShieldingServerRpc(false);
+            //shielding = false;
             Time.timeScale = 1;
 
             arrow.SetActive(false);
@@ -629,7 +637,8 @@ public class NetworkPlayerController : NetworkBehaviour
         if (punchedLeft || punchedRight && inputMovement.magnitude > .8f)
         {
             Time.timeScale = 1;
-            shielding = false;
+            if (shielding) ShieldingServerRpc(false);
+            //shielding = false;
             arrow.SetActive(false);
             PowerDash(inputMovement, 80f);
             return;
@@ -664,7 +673,8 @@ public class NetworkPlayerController : NetworkBehaviour
 
     protected void PowerDash(Vector3 powerDashDirection, float sentSpeed)
     {
-        shielding = false;
+        //shielding = false;
+        if (shielding) ShieldingServerRpc(false);
         canShieldAgainTimer = 0f;
         powerDashSpeed = sentSpeed;
         powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.velocity.y, powerDashDirection.normalized.y);
@@ -703,7 +713,8 @@ public class NetworkPlayerController : NetworkBehaviour
         continuedStunSpawned = Instantiate(continuedStunParticle, transform.position, Quaternion.identity);
         EndPunchLeft();
         EndPunchRight();
-        shielding = false;
+        if (shielding) ShieldingServerRpc(false);
+        //shielding = false;
         HitImpact(Vector3.zero);
         state = State.Stunned;
     }
@@ -728,7 +739,8 @@ public class NetworkPlayerController : NetworkBehaviour
     {
         EndPunchLeft();
         EndPunchRight();
-        shielding = false;
+        //shielding = false;
+        if (shielding) ShieldingServerRpc(false);
         transform.right = lastMoveDir;
         shielding = false;
         canShieldAgainTimer = 0f;
@@ -770,12 +782,14 @@ public class NetworkPlayerController : NetworkBehaviour
 
     public void ParryStun()
     {
-        parryStunnedTimer = 0f;
-        state = State.ParryStunned;
+        //parryStunnedTimer = 0f;
+        SetStateServerRpc(State.ParryStunned);
+        //state = State.ParryStunned;
     }
 
     protected void HandleParryStunned()
     {
+        //Debug.Log("Parry stunned ");
         rb.velocity = Vector3.zero;
         if (punchedRight)
         {
@@ -889,7 +903,8 @@ public class NetworkPlayerController : NetworkBehaviour
 
     public void Grabbed(NetworkPlayerController playerGrabbing, Transform grabbedTransform)
     {
-        shielding = false;
+        //shielding = false;
+        if (shielding) ShieldingServerRpc(false);
         EndPunchLeft();
         EndPunchRight();
         grabbedPositionTransform = grabbedTransform;
@@ -899,7 +914,8 @@ public class NetworkPlayerController : NetworkBehaviour
     protected void HandleGrabbed()
     {
 
-        shielding = false;
+        //shielding = false;
+        if (shielding) ShieldingServerRpc(false);
         rb.velocity = Vector3.zero;
         if (grabbedPositionTransform != null)
             this.transform.position = grabbedPositionTransform.position;
@@ -980,6 +996,8 @@ public class NetworkPlayerController : NetworkBehaviour
     }
     protected void AirDodge()
     {
+
+        //ParryingServerRpc(true);
         isParrying = true;
         shield.gameObject.SetActive(true);
         parryTimer = 0f;
@@ -990,9 +1008,13 @@ public class NetworkPlayerController : NetworkBehaviour
         parryTimer += Time.deltaTime;
         if (parryTimer > parryTimerThreshold && isParrying == true)
         {
-            isParrying = false;
+
+            //ParryingServerRpc(false);
+            //isParrying = false;
+            //SetParryStatusServerRpc(false);
             shield.gameObject.SetActive(false);
-            shielding = false;
+            //shielding = false;
+            if (shielding) ShieldingServerRpc(false);
         }
     }
 
@@ -1253,6 +1275,7 @@ public class NetworkPlayerController : NetworkBehaviour
             pressedLeft = false;
         }
 
+        if (state == State.AirDodging) return;
         if (returningLeft || punchedLeft) return;
         if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
 
@@ -1273,7 +1296,7 @@ public class NetworkPlayerController : NetworkBehaviour
                 SpawnLeftParticleServerRpc(leftHandParent.position, transform.right);
 
             }
-            if (shielding) shielding = false;
+            if (shielding) ShieldingServerRpc(false);
             punchedLeft = true;
             punchedLeftTimer = 0;
         }
@@ -1291,6 +1314,7 @@ public class NetworkPlayerController : NetworkBehaviour
             pressedRight = false;
         }
 
+        if (state == State.AirDodging) return;
         if (returningRight || punchedRight) return;
         if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
 
@@ -1305,7 +1329,7 @@ public class NetworkPlayerController : NetworkBehaviour
                 Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
                 transform.right = lookTowards;
             }
-            if (shielding) shielding = false;
+            if (shielding) ShieldingServerRpc(false);
             if (splatterPrefab != null)
             {
                 SpawnRightParticleServerRpc(rightHandParent.position, transform.right);
@@ -1328,13 +1352,15 @@ public class NetworkPlayerController : NetworkBehaviour
                 canShieldAgainTimer = inputBuffer;
 
             }
-            shielding = false;
+            if (shielding) ShieldingServerRpc(false);
+            //shielding = false;
 
 
         }
         if (punchedRight && punchedLeft)
         {
-            shielding = false;
+            //shielding = false;
+            if (shielding) ShieldingServerRpc(false);
             return;
         }
         if (state == State.Stunned) return;
@@ -1348,7 +1374,9 @@ public class NetworkPlayerController : NetworkBehaviour
             if (canShieldAgainTimer > 0f) return;
             pressedShield = false;
             parryTimer = 0;
-            shielding = true;
+            ShieldingServerRpc(true);
+            //ParryingServerRpc(true);
+            //shielding = true;
         }
     }
     protected virtual void CheckForDash()
@@ -1370,6 +1398,7 @@ public class NetworkPlayerController : NetworkBehaviour
             dashBuffer -= Time.deltaTime;
         }
 
+        if (state == State.AirDodging) return;
         //return area
         if (state != State.Normal) return;
         if (state == State.Dashing) return;
@@ -1419,6 +1448,8 @@ public class NetworkPlayerController : NetworkBehaviour
             waveDashTimer = inputBuffer;
             pressedWaveDash = false;
         }
+
+        if (state == State.AirDodging) return;
         if (lastMoveDir.magnitude == 0f) return;
         if (state == State.WaveDahsing) return;
         if (state == State.Stunned) return;
@@ -1462,20 +1493,44 @@ public class NetworkPlayerController : NetworkBehaviour
         HandleColliderNetwork handleCollider = splatter.GetComponent<HandleColliderNetwork>();
         handleCollider.SetPlayer(this, leftHandParent);
     }
-
     [ServerRpc]
-    private void SetOpponentsVeloServerRpc(Vector3 velo)
+    protected void ShieldingServerRpc(bool shieldStatus)
     {
-        SetOpponentsVeloClientRpc(velo);
+        ShieldingClientRpc(shieldStatus);
     }
     [ClientRpc]
-    private void SetOpponentsVeloClientRpc(Vector3 velo)
+    protected void ShieldingClientRpc(bool shieldStatus)
     {
-        if (!IsOwner)
-        {
-            rb.velocity = velo;
-            Debug.Log(velo);
-        }
+        shielding = shieldStatus;
+        shield.gameObject.SetActive(shieldStatus);
+        isParrying = shieldStatus;
+    }
+    [ServerRpc]
+    protected void SetStateServerRpc(State sentState)
+    {
+
+        parryStunnedTimer = 0f;
+        SetStateClientRpc(sentState);
+    }
+    [ClientRpc]
+    protected void SetStateClientRpc(State sentState)
+    {
+        state = sentState;
+
+        parryStunnedTimer = 0f;
+        state = State.ParryStunned;
+    }
+    
+    [ServerRpc]
+    public void SetParryStatusServerRpc(bool parryStatus)
+    {
+        SetParryStatusClientRpc(parryStatus);
+    }
+
+    [ClientRpc]
+    protected void SetParryStatusClientRpc(bool parryStatus)
+    {
+        isParrying = parryStatus;
     }
     #endregion
 }

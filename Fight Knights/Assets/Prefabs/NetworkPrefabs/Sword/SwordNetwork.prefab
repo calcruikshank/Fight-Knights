@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 67037156700091672}
   - component: {fileID: 632461524252137229}
   - component: {fileID: 3891375879897984922}
-  - component: {fileID: 8340291432771011016}
+  - component: {fileID: 8780262388483647120}
   m_Layer: 0
   m_Name: SwordNetwork
   m_TagString: Untagged
@@ -242,7 +242,7 @@ MonoBehaviour:
   grabbedPositionTransform: {fileID: 0}
   splatterPrefab: {fileID: 0}
   fistIndicator: {fileID: 0}
-  parryIndicator: {fileID: 0}
+  parryIndicator: {fileID: 4813566379121663498, guid: 1ab4d7f44ea85ba43842a96bd395010f, type: 3}
   initialStunParticle: {fileID: 0}
   continuedStunParticle: {fileID: 0}
   continuedStunSpawned: {fileID: 0}
@@ -252,7 +252,7 @@ MonoBehaviour:
   dashStartParticle: {fileID: 0}
   respawnParticlePrefab: {fileID: 0}
   knockbackSmoke: {fileID: 0}
-  punchSpeed: 40
+  punchSpeed: 22
   layerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   PrefabHashGenerator: SwordNetwork
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
---- !u!114 &8340291432771011016
+--- !u!114 &8780262388483647120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,7 +320,7 @@ MonoBehaviour:
   FixedSendsPerSecond: 20
   AssumeSyncedSends: 1
   InterpolatePosition: 1
-  SnapDistance: 5
+  SnapDistance: 10
   InterpolateServer: 1
   MinMeters: 0.15
   MinDegrees: 1.5
@@ -1377,43 +1377,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.487
+      value: -0.47531593
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.094
+      value: -0.07496263
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: -0.054696493
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7085585
+      value: 0.72448695
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.050338242
+      value: 0.28435504
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.03189679
+      value: 0.27611792
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7031313
+      value: -0.56393236
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 1.517
+      value: 46.34
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -6.663
+      value: 6.602
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -89.648
+      value: -72.966
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 8f843050e4b6881448617286a301e703, type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -7,15 +7,19 @@ public class SirKnightNetwork : NetworkPlayerController
 {
     [SerializeField] GameObject swordSlash, swordThrustParticle, swordThrustSword, swordSlashSword, smokeTeleportPrefab, heavySlashPrefab;
     [SerializeField] Transform swordCrit, thrustPosition;
+    float startPunchLeftTimer;
     bool recoveringFromDash = false;
     float dashDistance;
+
+    bool dashed;
+    float dashedTimer;
+    float dashedRecoverTimer;
     [SerializeField] LayerMask wallForDash;
     protected override void Update()
     {
         if (!IsOwner)
         {
             rb.velocity = Vector3.zero;
-            state = State.Normal;
             return;
         }
         switch (state)
@@ -83,7 +87,6 @@ public class SirKnightNetwork : NetworkPlayerController
         if (!IsOwner)
         {
             rb.velocity = Vector3.zero;
-            state = State.Normal;
             return;
         }
         switch (state)
@@ -146,13 +149,12 @@ public class SirKnightNetwork : NetworkPlayerController
             animatorUpdated.SetBool("Rolling", false);
             punchedLeftTimer = 0;
             //leftHandCollider.enabled = true;
-            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), (punchSpeed - 20) * Time.deltaTime);
+            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), (punchSpeed - 10) * Time.deltaTime);
             if (leftHandTransform.localPosition.x >= punchRange)
             {
                 if (swordSlash != null)
                 {
 
-                    SpawnLeftParticleServerRpc(thrustPosition.position, transform.right);
                 }
                 returningLeft = true;
             }
@@ -193,7 +195,6 @@ public class SirKnightNetwork : NetworkPlayerController
                 if (swordSlash != null)
                 {
 
-                    SpawnRightParticleServerRpc(GrabPosition.position, transform.right);
                 }
 
                 returningRight = true;
@@ -216,7 +217,7 @@ public class SirKnightNetwork : NetworkPlayerController
 
         if (punchedLeft || punchedRight)
         {
-            moveSpeed = moveSpeedSetter / 2;
+            moveSpeed = 0;
         }
 
         if (!punchedLeft && !punchedRight)
@@ -246,12 +247,14 @@ public class SirKnightNetwork : NetworkPlayerController
 
     protected override void Dash(Vector3 dashDirection)
     {
-        StartCoroutine(DashRoutine(.525f));
+        dashedTimer = 0f;
+        dashedRecoverTimer = 0f;
         recoveringFromDash = false;
         if (!CanMove(dashDirection, dashDistance))
         {
             isDashing = true;
-            shielding = false;
+            if (shielding) ShieldingServerRpc(false);
+            //shielding = false;
             punchedRight = false;
             returningRight = false;
             state = State.Dashing;
@@ -259,12 +262,14 @@ public class SirKnightNetwork : NetworkPlayerController
     }
     protected void FixedHandleDash()
     {
+       
         if (!recoveringFromDash)
         {
             Vector3 newVelocity = new Vector3(transform.right.normalized.x * 40, rb.velocity.y, transform.right.normalized.z * 30);
             rb.velocity = newVelocity;
+            
         }
-        else
+        if(recoveringFromDash)
         {
             Vector3 newVelocityy = new Vector3(0, rb.velocity.y, 0);
             rb.velocity = newVelocityy;
@@ -276,7 +281,6 @@ public class SirKnightNetwork : NetworkPlayerController
         yield return new WaitForSeconds(timeSent);
         recoveringFromDash = true;
 
-        SpawnHeavyParticleServerRpc(GrabPosition.position, transform.right);
         StartCoroutine(DashRecoveryRoutine(.525f));
     }
     IEnumerator DashRecoveryRoutine(float timeSent)
@@ -287,7 +291,19 @@ public class SirKnightNetwork : NetworkPlayerController
     }
     protected override void HandleDash()
     {
-        
+        dashedRecoverTimer += Time.deltaTime;
+        if (dashedRecoverTimer >= .525f && recoveringFromDash == false)
+        {
+            recoveringFromDash = true;
+
+            SpawnHeavyParticleServerRpc(GrabPosition.position, transform.right);
+            recoveringFromDash = true;
+        }
+        if (dashedRecoverTimer >= 1.05f)
+        {
+            state = State.Normal;
+            isDashing = false; 
+        }
     }
 
     private bool CanMove(Vector3 dir, float distance)
@@ -300,7 +316,7 @@ public class SirKnightNetwork : NetworkPlayerController
 
     protected override void FaceLookDirection()
     {
-        if (punchedLeft || punchedRight || returningLeft || rightHandTransform.localPosition.x > 2f && returningRight) if (state != State.Grabbing) return;
+        if (punchedLeft || punchedRight) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (state == State.Dashing) return;
 
@@ -324,7 +340,7 @@ public class SirKnightNetwork : NetworkPlayerController
             punchedLeftTimer = inputBuffer;
             pressedLeft = false;
         }
-
+        if (state == State.AirDodging) return;
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (punchedRight || returningRight) return;
@@ -338,12 +354,19 @@ public class SirKnightNetwork : NetworkPlayerController
                 Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
                 transform.right = lookTowards;
             }
+            StartCoroutine(LeftThrustRoutine(.10f));
 
-
-            if (shielding) shielding = false;
+            if (shielding) ShieldingServerRpc(false);
             punchedLeft = true;
             punchedLeftTimer = 0;
         }
+    }
+
+    IEnumerator LeftThrustRoutine(float timeSent)
+    {
+        yield return new WaitForSeconds(timeSent);
+        SpawnLeftParticleServerRpc(thrustPosition.position, transform.right);
+        
     }
     protected override void CheckForPunchRight()
     {
@@ -357,6 +380,7 @@ public class SirKnightNetwork : NetworkPlayerController
             pressedRight = false;
         }
 
+        if (state == State.AirDodging) return;
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (returningRight || punchedRight) return;
@@ -372,7 +396,8 @@ public class SirKnightNetwork : NetworkPlayerController
                 transform.right = lookTowards;
             }
 
-            if (shielding) shielding = false;
+            SpawnRightParticleServerRpc(GrabPosition.position, transform.right);
+            if (shielding) ShieldingServerRpc(false);
             punchedRight = true;
             punchedRightTimer = 0;
         }
@@ -397,6 +422,7 @@ public class SirKnightNetwork : NetworkPlayerController
             dashBuffer -= Time.deltaTime;
         }
 
+        if (state == State.AirDodging) return;
         //return area
         if (state != State.Normal) return;
         if (state == State.Dashing) return;

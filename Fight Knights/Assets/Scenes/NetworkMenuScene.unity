@@ -75642,10 +75642,10 @@ MonoBehaviour:
     PlayerPrefabHash:
       id: 0
     CreatePlayerPrefab: 1
-    ReceiveTickrate: 62
+    ReceiveTickrate: 64
     NetworkTickIntervalSec: 0.05
     MaxReceiveEventsPerTickRate: 500
-    EventTickrate: 62
+    EventTickrate: 64
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
     ConnectionData: 
@@ -78543,7 +78543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1938588429
 MonoBehaviour:
   m_ObjectHideFlags: 0
