@@ -58,9 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitID: 0
-  damage: 8
+  damage: 12
   stunDamage: 0
-  colliderThreshold: 0.2
+  colliderThreshold: 0.1
   moreDamageIfStunned: 0
   activateAfterSeconds: 0
 --- !u!1 &4651812403991643803
@@ -157,7 +157,8 @@ MonoBehaviour:
   player: {fileID: 0}
   greatestDamage: 0
   destroyedOnImpact: 0
-  breaksShield: 0
+  breaksShield: 1
+  stunTime: 1
 --- !u!1001 &8280257425354008474
 PrefabInstance:
   m_ObjectHideFlags: 0

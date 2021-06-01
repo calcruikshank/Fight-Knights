@@ -459,6 +459,12 @@ public class NetworkPlayerController : NetworkBehaviour
         HitImpact(direction);
         state = State.Knockback;
     }
+    public virtual void AddDamage(float damage)
+    {
+        currentPercentage += damage;
+
+        Debug.Log("Adding Damage " + damage + " now " + currentPercentage);
+    }
     protected virtual void HandleKnockback()
     {
         if (knockbackSmoke != null)
@@ -623,7 +629,7 @@ public class NetworkPlayerController : NetworkBehaviour
             Time.timeScale = 1;
 
             arrow.SetActive(false);
-            PowerDash(inputMovement, 80f);
+            PowerDash(inputMovement, 70f);
             return;
         }
         if (isParryingTimer > .2f && inputMovement.magnitude <= .8f)
@@ -640,7 +646,7 @@ public class NetworkPlayerController : NetworkBehaviour
             if (shielding) ShieldingServerRpc(false);
             //shielding = false;
             arrow.SetActive(false);
-            PowerDash(inputMovement, 80f);
+            PowerDash(inputMovement, 70f);
             return;
         }
         if (punchedLeft || punchedRight)
@@ -655,7 +661,7 @@ public class NetworkPlayerController : NetworkBehaviour
         {
 
             Time.timeScale = 1;
-            PowerDash(inputMovement, 80f);
+            PowerDash(inputMovement, 70f);
 
             arrow.SetActive(false);
             return;
@@ -688,10 +694,10 @@ public class NetworkPlayerController : NetworkBehaviour
     protected void HandlePowerDashing()
     {
         Time.timeScale = 1;
-        float powerDashSpeedMulti = 6f;
+        float powerDashSpeedMulti = 3f;
         powerDashSpeed -= powerDashSpeed * powerDashSpeedMulti * Time.deltaTime;
 
-        float powerDashMinSpeed = 10f;
+        float powerDashMinSpeed = 30f;
         if (powerDashSpeed < powerDashMinSpeed)
         {
             state = State.Normal;

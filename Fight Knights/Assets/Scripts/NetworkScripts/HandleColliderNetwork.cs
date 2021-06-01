@@ -12,6 +12,7 @@ public class HandleColliderNetwork : MonoBehaviour
     bool setDirection = false;
     [SerializeField] bool destroyedOnImpact = false;
     public bool breaksShield = false;
+    [SerializeField]float stunTime = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,9 +63,15 @@ public class HandleColliderNetwork : MonoBehaviour
                 return;
             }
 
+            if (breaksShield && opponent.shielding)
+            {
 
+                opponent.Stunned(stunTime, damage);
+                opponentHit = sentOpponent;
+                opponent.AddDamage(damage);
+                return;
 
-            Debug.Log(breaksShield);
+            }
             if (opponent.shielding && !breaksShield)
             {
                 if (destroyedOnImpact)

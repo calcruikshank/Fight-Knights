@@ -3,10 +3,10 @@
 Character Pack optimized for Mobile Action RPG Games!
 
 ---------------------------------------------------------------
-Three kingdoms - Additional Hero Osibo
+Three kingdoms - Additional Hero Osib Yug
 
-Polys: 4863
-Verts: 3720
+Polys: 5237
+Verts: 4309
 Texture: 512X512-4 (4 Color variations)
 
 Animation Type : Generic, Humanoid
