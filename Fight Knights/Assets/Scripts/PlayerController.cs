@@ -188,8 +188,16 @@ public class PlayerController : MonoBehaviour
     }
     protected virtual void FixedHandleMovement()
     {
-
-        Vector3 newVelocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+        float yVelo;
+        if (rb.velocity.y < 0)
+        {
+            yVelo = rb.velocity.y;
+        }
+        else
+        {
+            yVelo = 0f;
+        }
+        Vector3 newVelocity = new Vector3(movement.x * moveSpeed, yVelo, movement.z * moveSpeed);
         rb.velocity = newVelocity;
 
     }
@@ -357,7 +365,7 @@ public class PlayerController : MonoBehaviour
         }
         if (punchedLeft || punchedRight || returningLeft || returningRight)
         {
-            moveSpeed = moveSpeedSetter - 8f;
+            moveSpeed = 0f;
         }
         if (!punchedLeft && !punchedRight && !returningLeft && !returningRight)
         {
@@ -445,7 +453,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(damage + " damage");
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
-        float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 14; //knockback that scales
+        float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 25; //knockback that scales
         rb.velocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
         if (GameConfigurationManager.Instance != null)
         {
@@ -456,12 +464,14 @@ public class PlayerController : MonoBehaviour
     }
     protected virtual void HandleKnockback()
     {
+        
+
         if (knockbackSmoke != null)
         {
             knockbackSmoke.gameObject.SetActive(true);
             
         }
-        if (rb.velocity.magnitude < 20f && !hasChangedFromKnockbackToFallingAnimation)
+        if (rb.velocity.magnitude < 25f && !hasChangedFromKnockbackToFallingAnimation)
         {
             if (animatorUpdated != null)
             {
@@ -473,7 +483,7 @@ public class PlayerController : MonoBehaviour
             hasLanded = false;
         }
 
-        if (rb.velocity.magnitude < 20f)
+        if (rb.velocity.magnitude < 25f)
         {
             landingTime += Time.deltaTime;
             if (landingTime > .4f)
@@ -504,7 +514,16 @@ public class PlayerController : MonoBehaviour
             //rb.AddForce(movement * .05f); //DI*/
             rb.drag = .8f;
         }
-
+        float yVelo;
+        if (rb.velocity.y < 0)
+        {
+            yVelo = rb.velocity.y;
+        }
+        else
+        {
+            yVelo = 0f;
+        }
+        rb.velocity = new Vector3(rb.velocity.x, yVelo, rb.velocity.z);
         Vector3 knockbackLook = new Vector3(oppositeForce.x, 0, oppositeForce.z);
         transform.right = knockbackLook;
     }
@@ -688,7 +707,12 @@ public class PlayerController : MonoBehaviour
 
     public void Stunned(float stunTime, float damage)
     {
-        
+
+        Debug.Log("Initial parry stun");
+        if(animatorUpdated != null)
+        {
+            SetAnimatorToStunned();
+        }
         stunTimerThreshold = stunTime;
         stunTimer = 0f;
         Debug.Log("Stunned");
@@ -1010,11 +1034,31 @@ public class PlayerController : MonoBehaviour
         animatorUpdated.SetBool("Rolling", false);
         animatorUpdated.SetFloat("MoveSpeed", 0f);
         animatorUpdated.SetBool("Knockback", false);
+
+        animatorUpdated.SetBool("Landing", true);
+        animatorUpdated.SetBool("Landing", false);
+
+        animatorUpdated.SetBool("Stunned", false);
+        animatorUpdated.SetBool("Dashing", false);
+        hasChangedFromKnockbackToFallingAnimation = false;
+        if (knockbackSmoke != null) knockbackSmoke.Stop();
+    }
+    protected void SetAnimatorToStunned()
+    {
+        animatorUpdated.SetBool("punchingLeft", false);
+        animatorUpdated.SetBool("punchingRight", false);
+        animatorUpdated.SetBool("Rolling", false);
+        animatorUpdated.SetFloat("MoveSpeed", 0f);
+        animatorUpdated.SetBool("Knockback", false);
+
+        animatorUpdated.SetBool("Landing", true);
         animatorUpdated.SetBool("Landing", false);
 
         animatorUpdated.SetBool("Dashing", false);
         hasChangedFromKnockbackToFallingAnimation = false;
         if (knockbackSmoke != null) knockbackSmoke.Stop();
+        Debug.Log("Parry stunned animator");
+        animatorUpdated.SetTrigger("Stunned");
     }
 
     #region inputRegion
@@ -1308,7 +1352,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        if (punchedRight && punchedLeft)
+        if (punchedRight || punchedLeft)
         {
             shielding = false;
             return;
@@ -1350,6 +1394,7 @@ public class PlayerController : MonoBehaviour
         if (state != State.Normal) return;
         if (state == State.Dashing) return;
         if (state == State.Stunned) return;
+
         if (!canDash) return;
         if (grabbing) return;
         if (state == State.Grabbed) return;
@@ -1401,6 +1446,7 @@ public class PlayerController : MonoBehaviour
         if (state == State.Dashing) return;
         if (state == State.Grabbed) return;
         if (state == State.Knockback) return;
+        if (punchedRight || punchedLeft) return;
         if (grabbing) return;
         if (waveDashTimer > 0)
         {

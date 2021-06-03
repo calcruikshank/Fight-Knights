@@ -247,7 +247,7 @@ public class FirePlayer : PlayerController
         StartCoroutine(StartDashCooldown(12f));
         isDashing = true;
         dashTimer = 3f;
-        startDashTimer = 1f;
+        startDashTimer = .75f;
         dashBallSpawned = false;
         state = State.Dashing;
         if (bigInstantiated != null) Destroy(bigInstantiated);
@@ -296,7 +296,8 @@ public class FirePlayer : PlayerController
 
         if (bigInstantiated != null)
         {
-            bigInstantiated.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 3.5f, this.transform.position.z);
+            bigInstantiated.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
+            bigInstantiated.transform.right = this.transform.right;
             if (!bigInstantiated.GetComponentInChildren<ParticleSystem>().isPlaying)
             {
                 fireballInHand.SetActive(true);
@@ -358,7 +359,7 @@ public class FirePlayer : PlayerController
         // Debug.Log(damage + " damage");
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
-        float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 14; //knockback that scales
+        float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 25; //knockback that scales
         rb.velocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
         if (GameConfigurationManager.Instance != null)
         {

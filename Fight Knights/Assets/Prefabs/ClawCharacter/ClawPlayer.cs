@@ -205,7 +205,7 @@ public class ClawPlayer : PlayerController
 
         if (punchedRight)
         {
-            moveSpeed = moveSpeedSetter - 8f;
+            moveSpeed = 0;
         }
 
         if (punchedLeft || returningLeft)

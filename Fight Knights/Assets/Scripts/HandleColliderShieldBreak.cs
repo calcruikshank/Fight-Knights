@@ -6,7 +6,7 @@ public class HandleColliderShieldBreak : MonoBehaviour
 {
     public PlayerController player;
     PlayerController opponent;
-    PlayerController opponentHit;
+    public PlayerController opponentHit;
     float greatestDamage = 0f;
     Vector3 punchTowards;
     [SerializeField] bool explodeAfterColliding = false;
@@ -61,12 +61,11 @@ public class HandleColliderShieldBreak : MonoBehaviour
                 opponentHit = sentOpponent;
                 return;
             }
-            
-            
+
+
+            punchTowards = new Vector3(this.transform.right.normalized.x, 0, this.transform.right.normalized.z);
             if (punchTowards == null || punchTowards == Vector3.zero)
             {
-
-                punchTowards = new Vector3(player.transform.right.normalized.x, 0, player.transform.right.normalized.z);
             }
 
             if (player.isDashing)

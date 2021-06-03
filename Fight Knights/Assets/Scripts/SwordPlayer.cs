@@ -134,7 +134,7 @@ public class SwordPlayer : PlayerController
             animatorUpdated.SetBool("Rolling", false);
             punchedLeftTimer = 0;
             //leftHandCollider.enabled = true;
-            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), (punchSpeed - 20) * Time.deltaTime);
+            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), (punchSpeed - 5) * Time.deltaTime);
             if (leftHandTransform.localPosition.x >= punchRange)
             {
                 if (swordSlash != null)
@@ -205,11 +205,12 @@ public class SwordPlayer : PlayerController
             }
         }
 
+
         if (punchedLeft || punchedRight)
         {
-            moveSpeed = moveSpeedSetter - 8f;
+            moveSpeed = 0;
         }
-        
+
         if (!punchedLeft && !punchedRight)
         {
             moveSpeed = moveSpeedSetter;
@@ -299,7 +300,7 @@ public class SwordPlayer : PlayerController
 
     protected override void FaceLookDirection()
     {
-        if (punchedLeft || punchedRight || returningLeft || rightHandTransform.localPosition.x > 2f && returningRight) if (state != State.Grabbing) return;
+        if (punchedLeft || punchedRight || returningLeft ||  returningRight) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (state == State.Dashing) return;
 
