@@ -8,6 +8,9 @@ public class SwordPlayer : PlayerController
     [SerializeField] Transform swordCrit, thrustPosition;
     bool recoveringFromDash = false;
     float dashDistance;
+
+    float dashedTimer;
+    float dashedRecoverTimer;
     [SerializeField] LayerMask wallForDash;
     protected override void Update()
     {
@@ -222,7 +225,7 @@ public class SwordPlayer : PlayerController
 
         if (state == State.Normal)
         {
-            returnSpeed = 8f;
+            returnSpeed = 10f;
         }
         if (returningLeft && returningRight)
         {
@@ -238,22 +241,16 @@ public class SwordPlayer : PlayerController
 
     protected override void Dash(Vector3 dashDirection)
     {
-
-        StartCoroutine(DashRoutine(.525f));
+        dashedTimer = 0f;
+        dashedRecoverTimer = 0f;
         recoveringFromDash = false;
-        if (!CanMove(dashDirection, dashDistance))
-        {
+        
             isDashing = true;
-            shielding = false;
+            if (shielding) shielding = false;
+            //shielding = false;
             punchedRight = false;
             returningRight = false;
             state = State.Dashing;
-        }
-
-
-
-
-
     }
 
     IEnumerator DashRoutine(float timeSent)
@@ -288,6 +285,20 @@ public class SwordPlayer : PlayerController
     }
     protected override void HandleDash()
     {
+        dashedRecoverTimer += Time.deltaTime;
+        if (dashedRecoverTimer >= .525f && recoveringFromDash == false)
+        {
+            recoveringFromDash = true;
+            GameObject heavySlash = Instantiate(heavySlashPrefab, GrabPosition.position, Quaternion.identity);
+            heavySlash.transform.right = transform.right;
+            HandleCollider handleCollider = heavySlash.GetComponent<HandleCollider>();
+            handleCollider.SetPlayer(this, leftHandParent);
+        }
+        if (dashedRecoverTimer >= 1.05f)
+        {
+            state = State.Normal;
+            isDashing = false;
+        }
     }
 
     private bool CanMove(Vector3 dir, float distance)
@@ -300,7 +311,7 @@ public class SwordPlayer : PlayerController
 
     protected override void FaceLookDirection()
     {
-        if (punchedLeft || punchedRight || returningLeft ||  returningRight) if (state != State.Grabbing) return;
+        if (punchedLeft || punchedRight || returningRight || returningLeft) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (state == State.Dashing) return;
 
@@ -324,7 +335,7 @@ public class SwordPlayer : PlayerController
             punchedLeftTimer = inputBuffer;
             pressedLeft = false;
         }
-
+        if (state != State.Normal && state != State.PowerDashing) return;
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (punchedRight || returningRight) return;
@@ -356,7 +367,7 @@ public class SwordPlayer : PlayerController
             punchedRightTimer = inputBuffer;
             pressedRight = false;
         }
-
+        if (state != State.Normal && state != State.PowerDashing) return;
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (returningRight || punchedRight) return;
@@ -403,6 +414,8 @@ public class SwordPlayer : PlayerController
         if (state == State.Stunned) return;
         if (grabbing) return;
         if (state == State.Grabbed) return;
+        if (punchedRight || punchedLeft || returningLeft || returningRight) return;
+
 
         //check if hasdashedtimer is good to go if not return
 

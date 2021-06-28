@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fort.unity
     guid: 6292c7f62a16c314ca3446913a29e660
+  - enabled: 1
+    path: Assets/Scenes/FallPeople.unity
+    guid: 70155725e9304e043b61bc9e3ac48f64
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9c2a8c2b6b349364195836b28584099a, type: 2}

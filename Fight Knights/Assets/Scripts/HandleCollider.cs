@@ -11,7 +11,9 @@ public class HandleCollider : MonoBehaviour
     Vector3 punchTowards;
     bool setDirection = false;
     [SerializeField] bool destroyedOnImpact = false;
+    [SerializeField] bool gameObjectDestroyedOnImpact = false;
     public bool breaksShield = false;
+    [SerializeField] bool throws = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,12 +61,16 @@ public class HandleCollider : MonoBehaviour
                         }
                     }
                 }
+                if (gameObjectDestroyedOnImpact)
+                {
+                    Debug.Log("destroy");
+                    Destroy(this.gameObject);
+                }
                 return;
             }
 
 
 
-            Debug.Log(breaksShield);
             if (opponent.shielding && !breaksShield)
             {
                 if (destroyedOnImpact)
@@ -86,11 +92,41 @@ public class HandleCollider : MonoBehaviour
                         }
                     }
                 }
+                if (gameObjectDestroyedOnImpact)
+                {
+                    Debug.Log("destroy");
+                    Destroy(this.gameObject);
+                }
                 return;
             }
-            if (opponent.shielding)
+            if (opponent.shielding && breaksShield)
             {
+                if (destroyedOnImpact)
+                {
+                    this.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
+                    foreach (Collider collider in colliders)
+                    {
+                        collider.enabled = false;
+                    }
+                    this.gameObject.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+
+                    ParticleSystem[] particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
+                    foreach (ParticleSystem particle in particles)
+                    {
+                        if (particle != null)
+                        {
+                            particle.Stop();
+                        }
+                    }
+                }
+                if (gameObjectDestroyedOnImpact)
+                {
+                    Debug.Log("destroy");
+                    Destroy(this.gameObject);
+                }
                 opponent.Stunned(.1f, 0);
+                return;
             }
             if (setDirection == false)
             {
@@ -106,8 +142,20 @@ public class HandleCollider : MonoBehaviour
 
             Debug.Log("Shield Poke" + greatestDamage);
             //Debug.Log("Knockback" + greatestDamage);
-            opponent.Knockback(greatestDamage, punchTowards, player);
+            if (!throws)
+            {
+                opponent.Knockback(greatestDamage, punchTowards, player);
+            }
+            if (throws)
+            {
+                opponent.Throw(punchTowards);
+            }
             opponentHit = sentOpponent;
+            if (gameObjectDestroyedOnImpact)
+            {
+                Debug.Log("destroy");
+                Destroy(this.gameObject);
+            }
             if (destroyedOnImpact)
             {
                 this.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;

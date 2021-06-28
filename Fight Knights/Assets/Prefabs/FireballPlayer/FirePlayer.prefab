@@ -166,6 +166,7 @@ MonoBehaviour:
   animatorUpdated: {fileID: 8675705888876284386}
   shield: {fileID: 193448067949134718}
   arrow: {fileID: 5162520861188305620}
+  deathEffect: {fileID: 5027779433854003009, guid: 9c43f70a337369b41b11f1a3d8d14623, type: 3}
   lostStock: 0
   state: 0
   fireballInHand: {fileID: 201509706518713289}
@@ -228,6 +229,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -382,6 +384,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

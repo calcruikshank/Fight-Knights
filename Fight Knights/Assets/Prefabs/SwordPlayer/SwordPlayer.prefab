@@ -249,7 +249,7 @@ MonoBehaviour:
   dashStartParticle: {fileID: 0}
   respawnParticlePrefab: {fileID: 4809498481353504550, guid: 644842548b0b01446b0fe719106cf771, type: 3}
   knockbackSmoke: {fileID: 7364149916258220405}
-  punchSpeed: 22
+  punchSpeed: 25
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -257,6 +257,7 @@ MonoBehaviour:
   animatorUpdated: {fileID: 6735152263394794395}
   shield: {fileID: 193448067949134718}
   arrow: {fileID: 468113760389139597}
+  deathEffect: {fileID: 5027779433854003009, guid: 9c43f70a337369b41b11f1a3d8d14623, type: 3}
   lostStock: 0
   state: 0
   swordSlash: {fileID: 5857963806893673483, guid: dc826ea220060c342ad3dff36e429abe, type: 3}
@@ -324,6 +325,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -478,6 +480,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitID: 0
-  damage: 8
+  damage: 12
   stunTime: 1
   colliderThreshold: 0.2
   timeBetweenCollisions: 0.2

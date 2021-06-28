@@ -13126,7 +13126,7 @@ PrefabInstance:
     - target: {fileID: 696419927326589934, guid: d9bf26beaa27ec44e9a787674b825f4a, type: 3}
       propertyPath: animatorUpdated
       value: 
-      objectReference: {fileID: 2097349804}
+      objectReference: {fileID: 0}
     - target: {fileID: 696419927326589934, guid: d9bf26beaa27ec44e9a787674b825f4a, type: 3}
       propertyPath: leftHandTransform
       value: 
@@ -13371,7 +13371,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.394
     m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -29971,10 +29971,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.361
     m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -59575,7 +59575,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.617
     m_Bias: 0
     m_NormalBias: 0
     m_NearPlane: 0.44
@@ -80908,11 +80908,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1f656c69d2080948aa8bcd6456962b9, type: 3}
---- !u!95 &2097349804 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2224573763367507885, guid: d9bf26beaa27ec44e9a787674b825f4a, type: 3}
-  m_PrefabInstance: {fileID: 325781974}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2101352918
 GameObject:
   m_ObjectHideFlags: 0
@@ -81307,7 +81302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111288817}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1565, y: -17.4, z: 8}
+  m_LocalPosition: {x: -1565, y: -10.835505, z: 8}
   m_LocalScale: {x: 1752.3, y: 1, z: 315.58}
   m_Children: []
   m_Father: {fileID: 530835531}

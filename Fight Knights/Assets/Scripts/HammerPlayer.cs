@@ -470,4 +470,18 @@ public class HammerPlayer : PlayerController
             Dash(transform.right.normalized);
         }
     }
+    protected override void FaceLookDirection()
+    {
+        if (punchedLeft || punchedRight || isDashing) if (state != State.Grabbing) return;
+        if (state == State.WaveDahsing) return;
+        if (grabbing) return;
+
+        Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
+        if (lookTowards.magnitude != 0f)
+        {
+            lastLookedPosition = lookTowards;
+        }
+
+        Look();
+    }
 }

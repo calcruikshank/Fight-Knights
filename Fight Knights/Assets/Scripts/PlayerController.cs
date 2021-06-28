@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     protected Transform rightHandParent, leftHandParent;
     [SerializeField] protected Animator animatorUpdated;
     [SerializeField] Transform shield;
-    [SerializeField] GameObject arrow;
+    [SerializeField] GameObject arrow, deathEffect;
     public bool lostStock = false;
     string currentControlScheme;
    
@@ -177,7 +177,9 @@ public class PlayerController : MonoBehaviour
         {
             if (!shielding && state == State.Normal || !shielding && state == State.Dashing)
             {
-                animatorUpdated.SetFloat("MoveSpeed", (movement.magnitude));
+                
+               animatorUpdated.SetFloat("MoveSpeed", (movement.magnitude));
+
                 
             }
             else
@@ -236,8 +238,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             moveSpeed = 0f;
-            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), punchSpeed * .5f * Time.deltaTime);
-            rightHandTransform.localPosition = Vector3.MoveTowards(rightHandTransform.localPosition, new Vector3(punchRange, -.4f, .4f), punchSpeed * .5f * Time.deltaTime);
+            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), punchSpeed * Time.deltaTime);
+            rightHandTransform.localPosition = Vector3.MoveTowards(rightHandTransform.localPosition, new Vector3(punchRange, -.4f, .4f), punchSpeed * Time.deltaTime);
             if (rightHandTransform.localPosition.x >= punchRange)
             {
                 swirlInstantiated.GetComponent<Collider>().enabled = true;
@@ -283,7 +285,7 @@ public class PlayerController : MonoBehaviour
             animatorUpdated.SetBool("Rolling", false);
             punchedLeftTimer = 0;
             //leftHandCollider.enabled = true;
-            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), punchSpeed * Time.deltaTime);
+            leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), punchSpeed * 2 * Time.deltaTime);
             if (leftHandTransform.localPosition.x >= punchRange / 1.5f)
             {
                 if (splatterPrefab != null)
@@ -322,7 +324,7 @@ public class PlayerController : MonoBehaviour
             animatorUpdated.SetBool("Rolling", false);
             punchedRightTimer = 0;
             //rightHandCollider.enabled = true;
-            rightHandTransform.localPosition = Vector3.MoveTowards(rightHandTransform.localPosition, new Vector3(punchRange, -.4f, .4f), punchSpeed * Time.deltaTime);
+            rightHandTransform.localPosition = Vector3.MoveTowards(rightHandTransform.localPosition, new Vector3(punchRange, -.4f, .4f), punchSpeed * 1.5f * Time.deltaTime);
             if (rightHandTransform.localPosition.x >= punchRange)
             {
                 if (splatterPrefab != null)
@@ -355,7 +357,7 @@ public class PlayerController : MonoBehaviour
         if (grabbing) return;
         if (state == State.Dashing)
         {
-            returnSpeed = 10f;
+            returnSpeed = 8f;
             moveSpeed = moveSpeedSetter + 15f;
             if (punchedLeft || punchedRight || returningLeft || returningRight)
             {
@@ -363,11 +365,12 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
-        if (punchedLeft || punchedRight || returningLeft || returningRight)
+        if (punchedLeft || punchedRight)
         {
             moveSpeed = 0f;
+            return;
         }
-        if (!punchedLeft && !punchedRight && !returningLeft && !returningRight)
+        if (!punchedLeft && !punchedRight)
         {
             moveSpeed = moveSpeedSetter;
         }
@@ -378,7 +381,7 @@ public class PlayerController : MonoBehaviour
 
         if (state == State.Normal)
         {
-            returnSpeed = 10f;
+            returnSpeed = 8f;
         }
         if (returningLeft && returningRight)
         {
@@ -555,7 +558,7 @@ public class PlayerController : MonoBehaviour
     }
     public virtual void EndPunchRight()
     {
-
+        
         punchedRight = false;
         returningRight = true;
         rightHandTransform.gameObject.GetComponent<Collider>().enabled = false;
@@ -746,6 +749,7 @@ public class PlayerController : MonoBehaviour
     {
         EndPunchLeft();
         EndPunchRight();
+        animatorUpdated.SetBool("Rolling", true);
         shielding = false;
         transform.right = lastMoveDir;
         shielding = false;
@@ -821,6 +825,10 @@ public class PlayerController : MonoBehaviour
 
     public void LoseStock()
     {
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
         Respawn();
         stocks--;
         if (stocks >= 1)
@@ -848,6 +856,7 @@ public class PlayerController : MonoBehaviour
             animatorUpdated.Play("Idle");
         }
         state = State.Normal;
+        
         transform.position = Vector3.zero;
         if (respawnParticlePrefab != null)
         {
@@ -973,7 +982,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(damage + " damage");
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
-        float throwValue = (14 * ((120) * (3 / 2)) / 100) + 14;
+        float throwValue = (25 * ((120) * (3 / 2)) / 100) + 14;
         currentPercentage += 8f;
         rb.velocity = (direction * throwValue);
         HitImpact(direction);
@@ -1239,7 +1248,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void FaceLookDirection()
     {
-        if (punchedLeft || punchedRight || leftHandTransform.localPosition.x > 1f && returningLeft || rightHandTransform.localPosition.x > 1f && returningRight) if (state != State.Grabbing) return;
+        if (punchedLeft || punchedRight || returningRight || returningLeft) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
         
@@ -1282,6 +1291,7 @@ public class PlayerController : MonoBehaviour
             pressedLeft = false;
         }
 
+        if (state != State.Normal && state != State.PowerDashing) return;
         if (returningLeft || punchedLeft) return;
         if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
         
@@ -1314,7 +1324,7 @@ public class PlayerController : MonoBehaviour
             punchedRightTimer = inputBuffer;
             pressedRight = false;
         }
-
+        if (state != State.Normal && state != State.PowerDashing) return;
         if (returningRight || punchedRight) return;
         if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
         
@@ -1352,7 +1362,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        if (punchedRight || punchedLeft)
+        if (punchedRight || punchedLeft || returningRight || returningLeft)
         {
             shielding = false;
             return;
@@ -1394,10 +1404,11 @@ public class PlayerController : MonoBehaviour
         if (state != State.Normal) return;
         if (state == State.Dashing) return;
         if (state == State.Stunned) return;
-
-        if (!canDash) return;
         if (grabbing) return;
         if (state == State.Grabbed) return;
+        if (punchedRight || punchedLeft || returningLeft || returningRight) return;
+
+
         //check if hasdashedtimer is good to go if not return
 
         //then if dash buffer is greater than 0 dash
@@ -1409,8 +1420,7 @@ public class PlayerController : MonoBehaviour
                 transform.right = lookTowards;
             }
             dashBuffer = 0;
-            Dash(transform.right.normalized);
-            canDash = false;
+            Dash(transform.right);
         }
     }
 

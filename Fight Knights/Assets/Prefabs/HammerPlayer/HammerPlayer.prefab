@@ -284,6 +284,7 @@ MonoBehaviour:
   animatorUpdated: {fileID: 4344154403542815029}
   shield: {fileID: 193448067949134718}
   arrow: {fileID: 1799807443947641544}
+  deathEffect: {fileID: 5027779433854003009, guid: 9c43f70a337369b41b11f1a3d8d14623, type: 3}
   lostStock: 0
   state: 0
   HammerPrefab: {fileID: 4419177798507781109, guid: 58f6420fbf7dbb042ac5f6a47190a4b2, type: 3}
@@ -344,6 +345,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -498,6 +500,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

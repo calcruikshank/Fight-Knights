@@ -28,7 +28,7 @@ public class InitializeLevel : MonoBehaviour
             player.GetComponent<TeamID>().SetColorOnMat(playerConfigs[i].PlayerColor);
             player.GetComponent<TeamID>().SetTeamID(playerConfigs[i].PlayerTeam);
             GameConfigurationManager.Instance.AddPlayerToTeamArray(playerConfigs[i].PlayerTeam);
-            if (GameConfigurationManager.Instance.gameMode == 0) LoadClassicPlayer(player);
+            if (GameConfigurationManager.Instance.gameMode == 0 || GameConfigurationManager.Instance.gameMode == 2) LoadClassicPlayer(player);
             if (GameConfigurationManager.Instance.gameMode == 1) LoadSoccerPlayer(player);
             if (playerSpawns[i] != null)
             {
@@ -38,7 +38,7 @@ public class InitializeLevel : MonoBehaviour
         }
         if (GameConfigurationManager.Instance.gameMode == 0) LoadClassic();
         if (GameConfigurationManager.Instance.gameMode == 1) LoadSoccer();
-        if (GameConfigurationManager.Instance.gameMode == 2) LoadBilliards();
+        if (GameConfigurationManager.Instance.gameMode == 2) LoadClassic();
     }
 
     // Update is called once per frame

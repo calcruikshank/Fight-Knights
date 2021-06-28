@@ -28,8 +28,8 @@ public class GameConfigurationManager : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         SetStocks(4);
         if (Instance != null)
         {

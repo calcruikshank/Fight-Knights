@@ -396,6 +396,7 @@ public class FirePlayer : PlayerController
         if (!canDash) return;
         if (state == State.Grabbed) return;
         if (returningRight) return;
+        if (punchedRight || punchedLeft || returningLeft || returningRight) return;
         //check if hasdashedtimer is good to go if not return
 
         //then if dash buffer is greater than 0 dash
@@ -423,7 +424,7 @@ public class FirePlayer : PlayerController
             pressedLeft = false;
         }
 
-        if (returningLeft || punchedLeft) return;
+        if (returningLeft || punchedLeft || punchedRight || returningRight) return;
         if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
 
         if (state == State.Knockback) return;
@@ -461,7 +462,7 @@ public class FirePlayer : PlayerController
             pressedRight = false;
         }
 
-        if (returningRight || punchedRight) return;
+        if (returningLeft || punchedLeft || punchedRight || returningRight) return;
         if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
 
         if (state == State.Knockback) return;
@@ -485,7 +486,7 @@ public class FirePlayer : PlayerController
 
     protected override void FaceLookDirection()
     {
-        if (punchedLeft || punchedRight || leftHandTransform.localPosition.x > 1f && returningLeft || rightHandTransform.localPosition.x > 1f && returningRight) if (state != State.Grabbing) return;
+        if (punchedLeft || punchedRight || returningLeft || returningRight) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
         if (startDashTimer > 0f && state == State.Dashing) return;
@@ -497,5 +498,31 @@ public class FirePlayer : PlayerController
         }
 
         Look();
+    }
+    protected override void CheckForWaveDash()
+    {
+        if (releasedWaveDash)
+        {
+            waveDashTimer -= Time.deltaTime;
+        }
+        if (pressedWaveDash)
+        {
+            waveDashTimer = inputBuffer;
+            pressedWaveDash = false;
+        }
+        if (lastMoveDir.magnitude == 0f) return;
+        if (state == State.WaveDahsing) return;
+        if (state == State.Stunned) return;
+        if (state == State.Dashing) return;
+        if (state == State.Grabbed) return;
+        if (state == State.Knockback) return;
+        if (punchedRight || punchedLeft || returningLeft || returningRight) return; //this is changed for fire player
+        if (grabbing) return;
+        if (waveDashTimer > 0)
+        {
+
+            waveDashBool = true;
+            waveDashTimer = 0f;
+        }
     }
 }

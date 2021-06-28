@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitID: 0
-  damage: 10
+  damage: 15
   stunDamage: 0
   colliderThreshold: 0.2
   moreDamageIfStunned: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitID: 1
-  damage: 6
+  damage: 10
   stunDamage: 0
   colliderThreshold: 0.2
   moreDamageIfStunned: 0
@@ -168,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 6728138453745806927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 1, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1882867821576791095}
   - {fileID: 1497396777405928008}
@@ -204,6 +204,7 @@ MonoBehaviour:
   player: {fileID: 0}
   greatestDamage: 0
   destroyedOnImpact: 0
+  breaksShield: 0
 --- !u!1 &7934735767164969082
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitID: 1
-  damage: 6
+  damage: 10
   stunDamage: 0
   colliderThreshold: 0.2
   moreDamageIfStunned: 0
@@ -469,6 +470,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6481835221069925959}
     m_Modifications:
+    - target: {fileID: 2309383400392354811, guid: 7787f9766894fb446bcda1c50da4c337, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309383400392354811, guid: 7787f9766894fb446bcda1c50da4c337, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2309383401777045912, guid: 7787f9766894fb446bcda1c50da4c337, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -516,6 +525,10 @@ PrefabInstance:
     - target: {fileID: 2309383401777045913, guid: 7787f9766894fb446bcda1c50da4c337, type: 3}
       propertyPath: m_Name
       value: FistIndicatorParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309383401777045913, guid: 7787f9766894fb446bcda1c50da4c337, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7787f9766894fb446bcda1c50da4c337, type: 3}

@@ -84,6 +84,12 @@ public class NetworkPlayerController : NetworkBehaviour
     void Start()
     {
         currentControlScheme = this.gameObject.GetComponent<PlayerInput>().currentControlScheme;
+
+        if (!IsOwner)
+        {
+            rb.isKinematic = true;
+            
+        }
     }
 
     protected virtual void Update()
@@ -203,11 +209,18 @@ public class NetworkPlayerController : NetworkBehaviour
     }
     protected virtual void FixedHandleMovement()
     {
-
-        Vector3 newVelocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+        float yVelo;
+        if (rb.velocity.y < 0)
+        {
+            yVelo = rb.velocity.y;
+        }
+        else
+        {
+            yVelo = 0f;
+        }
+        Vector3 newVelocity = new Vector3(movement.x * moveSpeed, yVelo, movement.z * moveSpeed);
         rb.velocity = newVelocity;
-        
-        //'SetOpponentsVeloServerRpc(newVelocity);
+
     }
 
     protected virtual void HandleThrowingHands()

@@ -3,15 +3,15 @@
 Character Pack optimized for Mobile Action RPG Games!
 
 ---------------------------------------------------------------
-Three kingdoms - Additional Hero Oo
+Three kingdoms - Additional Hero Sasibo
 
-Polys: 3127
-Verts: 2767
-Texture: 512x512-4 (4 Color variations)
+Polys: 1730
+Verts: 1532
+Texture: 512X512-4 (4 Color variations)
 
 Animation Type : Generic, Humanoid
 
-Animation(x5):  
+Animation(x5): 
 Idle, Walk, Attack, Active, Passive
 
 The humanoid version does not guarantee the complete operation of the key animation.

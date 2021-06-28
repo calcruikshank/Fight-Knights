@@ -265,12 +265,53 @@ public class ClawPlayer : PlayerController
         }
     }
 
+    protected override void CheckForDash()
+    {
+        if (state != State.Dashing && isDashing)
+        {
+            isDashing = false;
+        }
+        //if you press dash set dash buffer = to input buffer
+        if (pressedDash)
+        {
+            dashBuffer = inputBuffer;
+            pressedDash = false;
+        }
+
+        //when dash button is released subtract time from dashbuffer so it only goes down when youre not pressing dash
+        if (releasedDash)
+        {
+            dashBuffer -= Time.deltaTime;
+        }
+
+        //return area
+        if (state != State.Normal) return;
+        if (state == State.Dashing) return;
+        if (state == State.Stunned) return;
+        if (grabbing) return;
+        if (state == State.Grabbed) return;
+
+
+        //check if hasdashedtimer is good to go if not return
+
+        //then if dash buffer is greater than 0 dash
+        if (dashBuffer > 0)
+        {
+            if (lookDirection.magnitude != 0)
+            {
+                Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
+                transform.right = lookTowards;
+            }
+            dashBuffer = 0;
+            animatorUpdated.SetTrigger("Dash");
+            Dash(transform.right);
+        }
+    }
 
 
 
 
 
-    
 
     protected override void CheckForPunchLeft()
     {
@@ -336,6 +377,19 @@ public class ClawPlayer : PlayerController
             punchedRightTimer = 0;
         }
     }
+    protected override void FaceLookDirection()
+    {
+        if (punchedLeft || punchedRight || returningLeft) if (state != State.Grabbing) return;
+        if (state == State.WaveDahsing) return;
+        if (grabbing) return;
 
-   
+        Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
+        if (lookTowards.magnitude != 0f)
+        {
+            lastLookedPosition = lookTowards;
+        }
+
+        Look();
+    }
+
 }
