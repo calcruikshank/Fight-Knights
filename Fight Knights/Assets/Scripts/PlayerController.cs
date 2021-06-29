@@ -838,7 +838,7 @@ public class PlayerController : MonoBehaviour
         {
             if (GameConfigurationManager.Instance != null)
             {
-                if (GameConfigurationManager.Instance.gameMode == 0)
+                if (GameConfigurationManager.Instance.gameMode == 0 || GameConfigurationManager.Instance.gameMode == 2)
                 {
                     GameConfigurationManager.Instance.RemovePlayerFromTeamArray(this.GetComponent<TeamID>().team);
                     GameConfigurationManager.Instance.CheckIfWon();

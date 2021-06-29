@@ -30,6 +30,7 @@ public class InitializeLevel : MonoBehaviour
             GameConfigurationManager.Instance.AddPlayerToTeamArray(playerConfigs[i].PlayerTeam);
             if (GameConfigurationManager.Instance.gameMode == 0 || GameConfigurationManager.Instance.gameMode == 2) LoadClassicPlayer(player);
             if (GameConfigurationManager.Instance.gameMode == 1) LoadSoccerPlayer(player);
+            if (GameConfigurationManager.Instance.gameMode == 3) LoadKingOfTheHill(player);
             if (playerSpawns[i] != null)
             {
                 player.transform.position = playerSpawns[i].position;
@@ -85,5 +86,13 @@ public class InitializeLevel : MonoBehaviour
         billiardsScore = Instantiate(billiardsScorePrefab);
         billiardsScore.transform.parent = canvasMain.transform;
         billiardsScore.transform.localPosition = new Vector3(0, 426, 0);
+    }
+
+    void LoadKingOfTheHill(PlayerInput player)
+    {
+
+        percentText = Instantiate(percentTextPrefab);
+        percentText.gameObject.GetComponent<PercentTextBehaviour>().SetPlayer(player.gameObject.GetComponent<PlayerController>());
+        percentText.transform.parent = FindObjectOfType<PercentageParent>().transform;
     }
 }

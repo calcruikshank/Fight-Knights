@@ -7,6 +7,7 @@ public class TrapDoorManager : MonoBehaviour
     TrapDoorBehaviour[] trapDoors;
     bool hasChosenDoorsToOpen = false;
     float timeBetween = 0;
+    float timeAfterClosing = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,12 @@ public class TrapDoorManager : MonoBehaviour
         }
         if (!hasChosenDoorsToOpen)
         {
-            SelectRandomDoorsToOpen();
+            timeAfterClosing += Time.deltaTime;
+            if (timeAfterClosing > 1f)
+            {
+                SelectRandomDoorsToOpen();
+                timeAfterClosing = 0f;
+            }
         }
         
     }
@@ -53,6 +59,8 @@ public class TrapDoorManager : MonoBehaviour
              trapDoor.CloseTrapDoor();
 
         }
+
+        timeAfterClosing = 0f;
         hasChosenDoorsToOpen = false;
         
     }

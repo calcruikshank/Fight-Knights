@@ -56,6 +56,7 @@ public class Goal : MonoBehaviour
                     BilliardsScore.Instance.AddToRed();
                 }
             }
+           
         }
         else
         {

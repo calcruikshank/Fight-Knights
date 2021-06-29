@@ -46,9 +46,39 @@ public class TrapDoorBehaviour : MonoBehaviour
         }
         if (toBeOpened)
         {
-            leftDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
-            rightDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+            
             toBeOpenedTimer += Time.deltaTime;
+            if (toBeOpenedTimer < .25f)
+            {
+                leftDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+                rightDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+                return;
+            }
+            if (toBeOpenedTimer > .25f && toBeOpenedTimer < .5f)
+            {
+                leftDoor.GetComponent<MeshRenderer>().material = originalMaterial;
+                rightDoor.GetComponent<MeshRenderer>().material = originalMaterial;
+            }
+            if (toBeOpenedTimer > .5f && toBeOpenedTimer < .75f)
+            {
+                leftDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+                rightDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+            }
+            if (toBeOpenedTimer > .75f && toBeOpenedTimer < 1f)
+            {
+                leftDoor.GetComponent<MeshRenderer>().material = originalMaterial;
+                rightDoor.GetComponent<MeshRenderer>().material = originalMaterial;
+            }
+            if (toBeOpenedTimer > 1f && toBeOpenedTimer < 1.25f)
+            {
+                leftDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+                rightDoor.GetComponent<MeshRenderer>().material = toBeOpenedMaterial;
+            }
+            if (toBeOpenedTimer > 1.25f)
+            {
+                leftDoor.GetComponent<MeshRenderer>().material = originalMaterial;
+                rightDoor.GetComponent<MeshRenderer>().material = originalMaterial;
+            }
             if (toBeOpenedTimer > 3f)
             {
                 toBeOpened = false;
