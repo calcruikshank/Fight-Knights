@@ -858,10 +858,14 @@ public class PlayerController : MonoBehaviour
         state = State.Normal;
         
         transform.position = Vector3.zero;
-        if (respawnParticlePrefab != null)
+        if (stocks > 1)
         {
-            Instantiate(respawnParticlePrefab, this.transform.position, transform.rotation);
+            if (respawnParticlePrefab != null)
+            {
+                Instantiate(respawnParticlePrefab, this.transform.position, transform.rotation);
+            }
         }
+       
         currentPercentage = 0f;
 
         lostStock = false;

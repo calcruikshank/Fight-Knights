@@ -21,12 +21,13 @@ public class CursorBehaviour : MonoBehaviour
     private int PlayerIndex;
     string thisControlScheme;
     bool backButtonSelected;
+    [SerializeField] Image readiedImage;
 
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-
+        readiedImage.gameObject.SetActive(false);
         playerInfoInstantiated = Instantiate(playerInfo, Vector3.zero, Quaternion.identity);
         this.transform.parent = FindObjectOfType<MainCanvas>().transform;
         this.transform.localScale = Vector3.one;
@@ -76,6 +77,13 @@ public class CursorBehaviour : MonoBehaviour
         if (!isReadied)
         {
             rb.velocity = (movement * moveSpeed);
+            
+            readiedImage.gameObject.SetActive(false);
+            gameObject.GetComponent<Collider>().enabled = true;
+        }
+        if (isReadied)
+        {
+            rb.velocity = (Vector3.zero);
         }
     }
     
@@ -186,12 +194,22 @@ public class CursorBehaviour : MonoBehaviour
         //call this when you press a over a button
         PlayerConfigurationManager.Instance.ReadyPlayer(PlayerIndex);
         isReadied = true;
+
+        readiedImage.gameObject.SetActive(true);
+
+        gameObject.GetComponent<Collider>().enabled = false;
+
+        this.gameObject.GetComponentInChildren<Image>().enabled = false;
     }
     public void UnReadyPlayer()
     {
         //call this when you press b
         PlayerConfigurationManager.Instance.UnReadyPlayer(PlayerIndex);
         isReadied = false;
+
+        gameObject.GetComponent<Collider>().enabled = true;
+        readiedImage.gameObject.SetActive(false);
+        this.gameObject.GetComponentInChildren<Image>().enabled = true;
     }
 
 

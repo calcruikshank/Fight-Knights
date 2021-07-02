@@ -12,6 +12,8 @@ public class InitializeLevel : MonoBehaviour
     [SerializeField] GameObject percentTextPrefab;
     [SerializeField] GameObject stockTextPrefab;
     [SerializeField] GameObject soccerScorePrefab;
+    [SerializeField] GameObject kingOfTheHillTimePrefab;
+    GameObject KothTextPrefab;
     [SerializeField] GameObject billiardsScorePrefab;
     [SerializeField] GameObject canvasMain;
     GameObject soccerScore;
@@ -94,5 +96,9 @@ public class InitializeLevel : MonoBehaviour
         percentText = Instantiate(percentTextPrefab);
         percentText.gameObject.GetComponent<PercentTextBehaviour>().SetPlayer(player.gameObject.GetComponent<PlayerController>());
         percentText.transform.parent = FindObjectOfType<PercentageParent>().transform;
+        KothTextPrefab = Instantiate(kingOfTheHillTimePrefab);
+        KothTextPrefab.gameObject.GetComponent<KOTHTextBehaviour>().SetPlayer(player.gameObject.GetComponent<PlayerController>());
+        KothTextPrefab.transform.parent = percentText.transform;
+        KothTextPrefab.transform.localPosition = new Vector3(0f, 100f, 0f);
     }
 }

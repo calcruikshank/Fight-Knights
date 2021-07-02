@@ -14,6 +14,7 @@ public class GameConfigurationManager : MonoBehaviour
     public int stage, gameMode, numOfStocks;
     [SerializeField] GameObject[] gameModes;
     public float timeForGame = 4;
+    public float timeToWinKoth = 60;
     public int[] numOfPlayersInEachTeam = new int[6];
     public int teamsRemaining = 0;
     public int indexOfRemainingTeam = 0;
@@ -22,8 +23,12 @@ public class GameConfigurationManager : MonoBehaviour
     [SerializeField] GameObject ControlsMenu;
     [SerializeField] Button resumeButton;
     [SerializeField] EventSystem pauseMenuEventSystem;
-
+    [SerializeField] TextMeshProUGUI stocksText;
     [SerializeField] GameObject DamagePopupText;
+    [SerializeField] GameObject LeftStockButton;
+    [SerializeField] GameObject LeftArrowButton;
+    [SerializeField] GameObject RightArrowButton;
+    [SerializeField] GameObject RightStockButton;
     public bool isPaused = false;
 
     private void Awake()
@@ -31,6 +36,7 @@ public class GameConfigurationManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
         SetStocks(4);
+        SetTimeToWinKoth(60);
         if (Instance != null)
         {
             Debug.Log("Singleton - Trying to create another instance of a singleton");
@@ -45,6 +51,24 @@ public class GameConfigurationManager : MonoBehaviour
     public void SetStocks(int sentStocks)
     {
         numOfStocks = sentStocks;
+    }
+
+    public void ChangeStocks(bool wayToChange)
+    {
+        if (wayToChange == false && numOfStocks > 1)
+        {
+            numOfStocks--;
+
+        }
+        if (wayToChange == true)
+        {
+            numOfStocks++;
+        }
+        stocksText.text = numOfStocks.ToString();
+    }
+    public void SetTimeToWinKoth(float sentTime)
+    {
+        timeToWinKoth = sentTime;
     }
     public void SetStage(int sentStage)
     {
@@ -69,6 +93,23 @@ public class GameConfigurationManager : MonoBehaviour
         if (gameMode > gameModes.Length - 1)
         {
             gameMode = 0;
+        }
+        if (gameMode == 0)
+        {
+            LeftStockButton.SetActive(true);
+            RightStockButton.SetActive(true);
+
+            LeftArrowButton.SetActive(true);
+            RightArrowButton.SetActive(true);
+        }
+        else
+        {
+
+            LeftStockButton.SetActive(false);
+            RightStockButton.SetActive(false);
+
+            LeftArrowButton.SetActive(false);
+            RightArrowButton.SetActive(false);
         }
         SetActivePanel(gameMode);
     }

@@ -28,6 +28,8 @@ public class CursorGameSetup : MonoBehaviour
     GameObject hoveredButton;
     GameObject previousSelectedButton;
     Rigidbody rb;
+    bool hoveringOverStockChangeButton = false;
+    bool addToStocks = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -114,7 +116,10 @@ public class CursorGameSetup : MonoBehaviour
     {
         GameConfigurationManager.Instance.SetGameMode(moveGameModeRight);
     }
-
+    void SetStocks(bool wayToMove)
+    {
+        GameConfigurationManager.Instance.ChangeStocks(wayToMove);
+    }
     private void OnTriggerStay(Collider other)
     {
         button = other.gameObject.GetComponent<Button>();
@@ -135,6 +140,12 @@ public class CursorGameSetup : MonoBehaviour
             moveGameModeRight = other.gameObject.GetComponent<GameModeButton>().changeGameModeToTheRight;
             hoveringOverGameMode = true;
         }
+        if (other.gameObject.GetComponent<ChangeStocksOrText>() != null)
+        {
+            addToStocks = other.gameObject.GetComponent<ChangeStocksOrText>().rightButton;
+            //Debug.Log(addToStocks);
+            hoveringOverStockChangeButton = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -144,7 +155,8 @@ public class CursorGameSetup : MonoBehaviour
         isReady = false;
         hoveredButton = null;
         hoveringOverGameMode = false;
-        hoveringOverStageChoice = false; 
+        hoveringOverStageChoice = false;
+        hoveringOverStockChangeButton = false;
     }
 
     public void SetPlayerIndex(int pi)
@@ -208,6 +220,10 @@ public class CursorGameSetup : MonoBehaviour
         if (hoveringOverGameMode)
         {
             SetGameMode(moveGameModeRight);
+        }
+        if (hoveringOverStockChangeButton)
+        {
+            SetStocks(addToStocks);
         }
         
     }
