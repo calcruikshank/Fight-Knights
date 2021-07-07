@@ -58,18 +58,7 @@ public class Goal : MonoBehaviour
             }
            
         }
-        else
-        {
-            NetworkPlayerController playerNetwork = other.transform.parent.GetComponent<NetworkPlayerController>();
-            if (playerNetwork != null)
-            {
-                if (!playerNetwork.CheckIfColliderIsShield(other))
-                {
-                    playerNetwork.lostStock = true;
-                    playerNetwork.LoseStock();
-                }
-            }
-        }
+        
         
 
         
