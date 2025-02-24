@@ -47,7 +47,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         playerConfigs[index].IsReady = true;
 
-        if (playerConfigs.Count >= 2 && playerConfigs.All(p => p.IsReady == true))
+        if (playerConfigs.Count >= 2 && playerConfigs.All(p => p.IsReady == true) || playerConfigs.Count >= 1 && playerConfigs.All(p => p.IsReady == true && GameConfigurationManager.Instance.gameMode == 2))
         {
             pim.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
 
