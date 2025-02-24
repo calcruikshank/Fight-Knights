@@ -176,7 +176,7 @@ MonoBehaviour:
   punchSpeed: 40
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   stocks: 4
   animatorUpdated: {fileID: 3575614505888188929}
   shield: {fileID: 193448067949134718}
@@ -1081,7 +1081,7 @@ PrefabInstance:
     - target: {fileID: 186423953791455893, guid: 32d77a641951220439769ced334d90db, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b955887dd8152334abd31d04dd544339, type: 2}
+      objectReference: {fileID: 2100000, guid: 0b94660f476490a4a9419d01b119d294, type: 2}
     - target: {fileID: 186423954040879488, guid: 32d77a641951220439769ced334d90db, type: 3}
       propertyPath: m_RootOrder
       value: 8

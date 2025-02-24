@@ -149,7 +149,7 @@ MonoBehaviour:
   punchSpeed: 40
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   stocks: 4
   animatorUpdated: {fileID: 93781118444273240}
   shield: {fileID: 193448067949134718}
