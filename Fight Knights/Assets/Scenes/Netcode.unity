@@ -3824,7 +3824,7 @@ MonoBehaviour:
     LoadSceneTimeOut: 120
     SpawnTimeout: 10
     EnableNetworkLogs: 1
-    NetworkTopology: 0
+    NetworkTopology: 1
     UseCMBService: 0
     AutoSpawnPlayerPrefabClientSide: 1
     NetworkMessageMetrics: 1
@@ -3873,9 +3873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097eb25095cf1e849b12366ecd491191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttons: {fileID: 0}
   playerPrefab: {fileID: 5136723789652709543, guid: 1373d39640645ef4d8f9d41bd541eb88, type: 3}
-  maxPlayers: 4
-  useSecure: 0
 --- !u!1001 &762826718
 PrefabInstance:
   m_ObjectHideFlags: 0

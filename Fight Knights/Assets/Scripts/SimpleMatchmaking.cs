@@ -55,13 +55,7 @@ public class SimpleMatchmaking : MonoBehaviour
             var networkObject = playerObject1.GetComponent<NetworkObject>();
             networkObject.SpawnAsPlayerObject(clientId);
 
-            if (clientId != NetworkManager.Singleton.LocalClientId)
-            {
-                var playerObject = Instantiate(playerPrefab);
-                networkObject = playerObject.GetComponent<NetworkObject>();
-                networkObject.SpawnAsPlayerObject(clientId);
-                Destroy(playerObject1);
-            }
+            
 
             if (networkObject == null)
             {
@@ -70,12 +64,6 @@ public class SimpleMatchmaking : MonoBehaviour
             }
 
             Debug.Log($"Player object spawned for client ID: {clientId}");
-
-            // Log the network object owner client ID
-            //networkObject.Spawn();
-
-
-            networkObject.ChangeOwnership(clientId);
 
             Debug.Log(networkObject.GetComponent<PlayerInput>() + " player input of the network object " + clientId);
 
