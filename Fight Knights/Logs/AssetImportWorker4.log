@@ -1,0 +1,794 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.32f1 (b2e806cf271c) revision 11724806'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'en' Physical Memory: 32694 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+51965
+-job-worker-count
+7
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [25840]  Target information:
+
+Player connection [25840]  * "[IP] 192.168.0.35 [Port] 0 [Flags] 2 [Guid] 595042931 [EditorId] 595042931 [Version] 1048832 [Id] WindowsEditor(7,Calvins) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25840] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [25840] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 7
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 1.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.32f1 (b2e806cf271c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:   NVIDIA
+    VRAM:     12086 MB
+    Driver:   32.0.15.6636
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56676
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.007167 seconds.
+- Loaded All Assemblies, in  0.387 seconds
+Native extension for LinuxStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 242 ms
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.615 seconds
+Domain Reload Profiling: 999ms
+	BeginReloadAssembly (124ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (161ms)
+		LoadAssemblies (121ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (157ms)
+			TypeCache.Refresh (156ms)
+				TypeCache.ScanAssembly (143ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (615ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (572ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (353ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (49ms)
+			ProcessInitializeOnLoadAttributes (111ms)
+			ProcessInitializeOnLoadMethodAttributes (56ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.523 seconds
+Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.552 seconds
+Domain Reload Profiling: 1070ms
+	BeginReloadAssembly (153ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (33ms)
+	LoadAllAssembliesAndSetupDomain (282ms)
+		LoadAssemblies (252ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (120ms)
+			TypeCache.Refresh (93ms)
+				TypeCache.ScanAssembly (80ms)
+			BuildScriptInfoCaches (20ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (552ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (442ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (72ms)
+			ProcessInitializeOnLoadAttributes (321ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 45 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2197 unused Assets / (0.6 MB). Loaded Objects now: 2736.
+Memory consumption went from 92.3 MB to 91.7 MB.
+Total: 4.467200 ms (FindLiveObjects: 0.267800 ms CreateObjectMapping: 0.079400 ms MarkObjects: 3.586600 ms  DeleteObjects: 0.532500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 694361.728414 seconds.
+  path: Assets/JJ_Three kingdoms - Additional hero Oo/Models_Humanoid/05_active_h.fbx
+  artifactKey: Guid(f120164aa59f90f45b37f76e622e93f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/JJ_Three kingdoms - Additional hero Oo/Models_Humanoid/05_active_h.fbx using Guid(f120164aa59f90f45b37f76e622e93f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ccc7feb09631f56075eff17c932c163e') in 0.25948 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 122
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.465 seconds
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.510 seconds
+Domain Reload Profiling: 972ms
+	BeginReloadAssembly (164ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (229ms)
+		LoadAssemblies (244ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (77ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (66ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (510ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (397ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (67ms)
+			ProcessInitializeOnLoadAttributes (286ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2195 unused Assets / (510.9 KB). Loaded Objects now: 2783.
+Memory consumption went from 96.5 MB to 96.0 MB.
+Total: 4.694600 ms (FindLiveObjects: 0.273600 ms CreateObjectMapping: 0.077400 ms MarkObjects: 3.849300 ms  DeleteObjects: 0.493200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 130.508601 seconds.
+  path: Assets/Prefabs/Particles/ArrowIndicator.prefab
+  artifactKey: Guid(42f853cd98db39e40b8f9c8b31f7cd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/ArrowIndicator.prefab using Guid(42f853cd98db39e40b8f9c8b31f7cd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a9ccb1da8320d19d84d0a6790cb02d7e') in 0.0863087 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Particles/FX_Cartoony_Jump_Up_01.prefab
+  artifactKey: Guid(a4a0f97bb6455c74fa730d2477ada213) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FX_Cartoony_Jump_Up_01.prefab using Guid(a4a0f97bb6455c74fa730d2477ada213) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8f77c073ab512909a5720bb54f9bd8f0') in 0.0424835 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 24
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Particles/SwordStabParent.prefab
+  artifactKey: Guid(d02fbcdfad79fd341becf07f8ca138d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/SwordStabParent.prefab using Guid(d02fbcdfad79fd341becf07f8ca138d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '54bd84824f643d3ceb3015c7ca477aa5') in 0.0173497 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 54
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Prefabs/Particles/StoneExplode.prefab
+  artifactKey: Guid(f10ae8963d54d5c42afc6e4d1387f30d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/StoneExplode.prefab using Guid(f10ae8963d54d5c42afc6e4d1387f30d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13006b7c6a03e753e7a3b3d07d1a2162') in 0.0260163 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 27
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Particles/FireArrowParent.prefab
+  artifactKey: Guid(c1d4839fe5f89934aa4eacda2653f076) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FireArrowParent.prefab using Guid(c1d4839fe5f89934aa4eacda2653f076) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b24358ebb1a69e38d6dcef776275a8c') in 0.0144119 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 43
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Particles/EnergyPushParent.prefab
+  artifactKey: Guid(071539070a3862044bd05d69606e0c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/EnergyPushParent.prefab using Guid(071539070a3862044bd05d69606e0c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b8c8e5a69d27a6411f78ace0818075e2') in 0.0152126 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Particles/FireExplosionParent.prefab
+  artifactKey: Guid(078ddc21fa743f54b889f07d5bc7daf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FireExplosionParent.prefab using Guid(078ddc21fa743f54b889f07d5bc7daf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '588ac4da01b6a32f22caca2387e3ccf2') in 0.0169317 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 50
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Particles/DeathEffect.prefab
+  artifactKey: Guid(9c43f70a337369b41b11f1a3d8d14623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/DeathEffect.prefab using Guid(9c43f70a337369b41b11f1a3d8d14623) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1117f082d8ac90d7ee4fafa598904c6f') in 0.0156589 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Particles/FireballParentMoving.prefab
+  artifactKey: Guid(000786d69ad68fa4194264401d6cf815) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FireballParentMoving.prefab using Guid(000786d69ad68fa4194264401d6cf815) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '181b081000f11ebeeea17767f43359ca') in 0.009918 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 43
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Particles/SlashQuad.prefab
+  artifactKey: Guid(bbba8705eb4698e4fb8a191a0d282dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/SlashQuad.prefab using Guid(bbba8705eb4698e4fb8a191a0d282dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0fecc189da32b1422fd7a51b893a2b22') in 0.0190854 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Particles/FX_MagicBlast_02.prefab
+  artifactKey: Guid(92b3fc34c011ed5499d5e1349ff52f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FX_MagicBlast_02.prefab using Guid(92b3fc34c011ed5499d5e1349ff52f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9642528cbb888b0e82278d35d155b98a') in 0.016101 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Particles/CloneExplosion.prefab
+  artifactKey: Guid(d02e60174f08db4408f90db93dcbf51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/CloneExplosion.prefab using Guid(d02e60174f08db4408f90db93dcbf51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5f1a546fc2d400654744090116cb7e58') in 0.040704 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 176
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Particles/SM_Rock_Boulder_01.prefab
+  artifactKey: Guid(5b7d85f3188111442a119e3a7854f535) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/SM_Rock_Boulder_01.prefab using Guid(5b7d85f3188111442a119e3a7854f535) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '709295b994ed6f6686d4c2eea962967f') in 0.0159692 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 39
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Particles/MedusaSlashParent.prefab
+  artifactKey: Guid(c00312d21f8a94c41b15eab983d3eaca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/MedusaSlashParent.prefab using Guid(c00312d21f8a94c41b15eab983d3eaca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7b332d3e13c46ca4374496fa61913269') in 0.0193666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 41
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Particles/FX_Direction_Arrows_02.prefab
+  artifactKey: Guid(839e563bb7ce0f24586eaa4427b3396a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FX_Direction_Arrows_02.prefab using Guid(839e563bb7ce0f24586eaa4427b3396a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ec8ee80d244643e052436bda318c790b') in 0.0143911 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Prefabs/Particles/SHeavyNormal.prefab
+  artifactKey: Guid(75748b9363a7ec74ebff798a066eedc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/SHeavyNormal.prefab using Guid(75748b9363a7ec74ebff798a066eedc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '156dec3132408db15a3da83c2fd0b074') in 0.014688 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 62
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Particles/FX_StarStunned_02.prefab
+  artifactKey: Guid(41995a820321a8949ade2d859a6c694c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FX_StarStunned_02.prefab using Guid(41995a820321a8949ade2d859a6c694c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13f8fc58874096b2ded7962da54371ac') in 0.014236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Particles/SlashParent.prefab
+  artifactKey: Guid(7b0d79c9b309fec4fad60998430a5de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/SlashParent.prefab using Guid(7b0d79c9b309fec4fad60998430a5de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b74f267e90dc603a8bb6f44959202a5b') in 0.0154929 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Particles/cannonparticleParent 1.prefab
+  artifactKey: Guid(a0e7d1ee04511bb43b04507ef261f9e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/cannonparticleParent 1.prefab using Guid(a0e7d1ee04511bb43b04507ef261f9e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '43e65edaf52c71ffc7990fc28d2035bc') in 0.0245011 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 79
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Particles/FX_Smoke_Trail_Large_01.prefab
+  artifactKey: Guid(0da2a680a6d4d034c8cf5a86da3428e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FX_Smoke_Trail_Large_01.prefab using Guid(0da2a680a6d4d034c8cf5a86da3428e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '44fa3a5ab3084b5d0c09449952055466') in 0.0134358 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Particles/LeftJab.prefab
+  artifactKey: Guid(69f272aadee1ff843a8b5c115379f46d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/LeftJab.prefab using Guid(69f272aadee1ff843a8b5c115379f46d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fe4695fd4ba90cda90e2740995075c72') in 0.0098987 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 76
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Particles/StartDashParent.prefab
+  artifactKey: Guid(5a91117816ec23047a2a8cf295064467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/StartDashParent.prefab using Guid(5a91117816ec23047a2a8cf295064467) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ddb8fc96140493dd434ba3123799eb6') in 0.0092723 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Particles/FX_CannonShot_01 1.prefab
+  artifactKey: Guid(b82c3c657c03f45419236f19f732a874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/FX_CannonShot_01 1.prefab using Guid(b82c3c657c03f45419236f19f732a874) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '322f33cffaf4e69eed4f163a4b20b2c0') in 0.0149485 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 26
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.024458 seconds.
+  path: Assets/Prefabs/Ninja/NinjaPlayer.prefab
+  artifactKey: Guid(a81a7ae84372e4242b51cd3b66b9fb0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Ninja/NinjaPlayer.prefab using Guid(a81a7ae84372e4242b51cd3b66b9fb0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a3dbf6615302add424f8715d5cd87146') in 0.0936584 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 993
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.470 seconds
+Refreshing native plugins compatible for Editor in 1.09 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.529 seconds
+Domain Reload Profiling: 996ms
+	BeginReloadAssembly (163ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (233ms)
+		LoadAssemblies (248ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (77ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (65ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (529ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (417ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (68ms)
+			ProcessInitializeOnLoadAttributes (303ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2198 unused Assets / (0.6 MB). Loaded Objects now: 2786.
+Memory consumption went from 97.2 MB to 96.6 MB.
+Total: 4.756200 ms (FindLiveObjects: 0.289500 ms CreateObjectMapping: 0.082300 ms MarkObjects: 3.751300 ms  DeleteObjects: 0.632200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 211.279803 seconds.
+  path: Assets/Prefabs/BowPlayer
+  artifactKey: Guid(886a8391d7e91c84dbee2f8344a8aaff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer using Guid(886a8391d7e91c84dbee2f8344a8aaff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3fcf6924e0792e5504a3ec9d12effcc1') in 0.0033034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.051873 seconds.
+  path: Assets/Prefabs/BowPlayer/ArrowParent.prefab
+  artifactKey: Guid(8fbfc393102c576478eed3c21090ceb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/ArrowParent.prefab using Guid(8fbfc393102c576478eed3c21090ceb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '790269b4f8feae8bfd570ca059a80e85') in 0.0908142 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 123
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/BowPlayer/FX_Smoke_Trail_Small_01.prefab
+  artifactKey: Guid(d2869c3c033c15a43ae2e2532981fe53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/FX_Smoke_Trail_Small_01.prefab using Guid(d2869c3c033c15a43ae2e2532981fe53) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4a67f4fab7423151eea2d60d2a508159') in 0.019997 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Run Forward (1).fbx
+  artifactKey: Guid(8688a3361ada3ac4ab0cb29468805867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Run Forward (1).fbx using Guid(8688a3361ada3ac4ab0cb29468805867) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a2b895014e358c9788925f2b2e3c27f7') in 0.0953275 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Draw Arrow.fbx
+  artifactKey: Guid(49a99d9467c620444bceb1070423ed41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Draw Arrow.fbx using Guid(49a99d9467c620444bceb1070423ed41) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a07aeb4c878c85b01d91136927b5db02') in 0.0366995 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/BowPlayer/DiagonalArrowParent.prefab
+  artifactKey: Guid(1fdd48f77a9f23648a761c7e062c6cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/DiagonalArrowParent.prefab using Guid(1fdd48f77a9f23648a761c7e062c6cce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '77522f73a6214286733dd7f23a51b101') in 0.0408111 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 154
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Aim Overdraw.fbx
+  artifactKey: Guid(b6458a4e6979f5146b5cc9cbf7c20c2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Aim Overdraw.fbx using Guid(b6458a4e6979f5146b5cc9cbf7c20c2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '643193ba2e8dce6123d8d643fe30f98f') in 0.03926 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Aim Walk Forward.fbx
+  artifactKey: Guid(4d9b9fff0a8384b49b2a6ab5d5e4a612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Aim Walk Forward.fbx using Guid(4d9b9fff0a8384b49b2a6ab5d5e4a612) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'daa923b515e033e5d742482ef6fa1615') in 0.047329 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/BowPlayer/Shooting Arrow.fbx
+  artifactKey: Guid(5ce4d0bd46f924441841b6b87054d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Shooting Arrow.fbx using Guid(5ce4d0bd46f924441841b6b87054d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dcd2f419868e846a0c9227382efe2a75') in 0.0305135 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 109
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0f13f6049be07978cbc53c490e44d05f') in 0.3302899 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.440253 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1dbf3f96916a4cd8410fac5f2b6c998e') in 0.2583566 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.943378 seconds.
+  path: Assets/Animation/Ninja.controller
+  artifactKey: Guid(722795456baf85341a064de69f95f740) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Ninja.controller using Guid(722795456baf85341a064de69f95f740) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4dd968fe2b0cd410f815799cb0c9eb71') in 0.0113466 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 39
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.108113 seconds.
+  path: Assets/Animation/BowAnimator.controller
+  artifactKey: Guid(723d087dce0076b43ab3e6d953ddb792) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/BowAnimator.controller using Guid(723d087dce0076b43ab3e6d953ddb792) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0ff545b660a0887e7b0f7ef78707a402') in 0.0095315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 68
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.691966 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e0f833795a6b76d215a08997626ab776') in 0.2131402 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.626091 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '566c5a40b93f9816ac24fa93fb4a0ce0') in 0.2225051 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.917933 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '82a4c7cfbe774822efdc6ad27f6b426a') in 0.1982773 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.674714 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '767a649b3f86d3f09527a8c079ed9a3a') in 0.2024469 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.762243 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f3147aea67f63cb1609e2e094176502c') in 0.196045 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.697279 seconds.
+  path: Assets/Animation/BowAnimator.controller
+  artifactKey: Guid(723d087dce0076b43ab3e6d953ddb792) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/BowAnimator.controller using Guid(723d087dce0076b43ab3e6d953ddb792) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f9d4a50ccf65bc72387f1bb5579e85c5') in 0.013506 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 68
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.432145 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '13d60b76ff485687dda85247550be434') in 0.2017973 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.571129 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ffa71d66ebd19daef1151bf71b59c8de') in 0.2044391 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.985342 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4b6700a05a01f6a4d57b4ee742ea08a8') in 0.1967685 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.933005 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b8e32ee479b6e80e4ca20f26421dda0e') in 0.1961616 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6756
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.467 seconds
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.539 seconds
+Domain Reload Profiling: 1003ms
+	BeginReloadAssembly (163ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (232ms)
+		LoadAssemblies (244ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (77ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (67ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (540ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (431ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (65ms)
+			ProcessInitializeOnLoadAttributes (315ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.95 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2198 unused Assets / (0.6 MB). Loaded Objects now: 2786.
+Memory consumption went from 100.6 MB to 100.0 MB.
+Total: 4.570600 ms (FindLiveObjects: 0.280000 ms CreateObjectMapping: 0.083000 ms MarkObjects: 3.514600 ms  DeleteObjects: 0.692000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 117.391744 seconds.
+  path: Assets/Prefabs/FireballPlayer
+  artifactKey: Guid(b7536c2d8736ac64db1d271687a75858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer using Guid(b7536c2d8736ac64db1d271687a75858) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ad60d9e2273423b494de436459a3215b') in 0.0074487 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.065324 seconds.
+  path: Assets/Prefabs/FireballPlayer/FirePlayer.prefab
+  artifactKey: Guid(b38e406764795ab4aa27c88e1e7e2016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/FirePlayer.prefab using Guid(b38e406764795ab4aa27c88e1e7e2016) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '86df14fbf3186f6a1186092410e1ad7c') in 0.1783917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1167
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/FireballPlayer/Standing 2H Magic Attack 01.fbx
+  artifactKey: Guid(ab39ba76172a42f4789681ce879e9dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/Standing 2H Magic Attack 01.fbx using Guid(ab39ba76172a42f4789681ce879e9dd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf0f6cb5c1b55091f9193aa216805e0f') in 0.0721383 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/FireballPlayer/Standing Run Forward.fbx
+  artifactKey: Guid(0d3f51a1fe8d00c47b608cea789c944b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/Standing Run Forward.fbx using Guid(0d3f51a1fe8d00c47b608cea789c944b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4a6b34c6c36c128f8c0d8707fcc92d09') in 0.0534462 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 109
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/FireballPlayer/Standing 1H Magic Attack 01.fbx
+  artifactKey: Guid(9d70be97628e1974a836e9a8aa7cb9b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/Standing 1H Magic Attack 01.fbx using Guid(9d70be97628e1974a836e9a8aa7cb9b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c5ccbce8f14cec0d227e50490ab8c1d') in 0.0272558 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.054924 seconds.
+  path: Assets/Prefabs/HammerPlayer
+  artifactKey: Guid(677c2e6041239be499fff288605cf082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/HammerPlayer using Guid(677c2e6041239be499fff288605cf082) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b38dbbaedd8a81c99f7c30d3e0d2eaee') in 0.0010523 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.055940 seconds.
+  path: Assets/Prefabs/HammerPlayer/Chr_FantasyHero_Preset_114.prefab
+  artifactKey: Guid(df73ae4f64d09cc4f81648aab89ff405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/HammerPlayer/Chr_FantasyHero_Preset_114.prefab using Guid(df73ae4f64d09cc4f81648aab89ff405) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ea7124a3ea1c2c9de074c128e4b5899e') in 0.1589117 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3130
+
