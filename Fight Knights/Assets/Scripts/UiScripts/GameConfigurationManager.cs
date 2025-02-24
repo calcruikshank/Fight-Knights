@@ -108,8 +108,6 @@ public class GameConfigurationManager : MonoBehaviour
             LeftStockButton.SetActive(false);
             RightStockButton.SetActive(false);
 
-            LeftArrowButton.SetActive(false);
-            RightArrowButton.SetActive(false);
         }
         SetActivePanel(gameMode);
     }
