@@ -216,6 +216,7 @@ public class CursorGameSetup : MonoBehaviour
         if (isReady)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            
         }
         if (hoveringOverGameMode)
         {

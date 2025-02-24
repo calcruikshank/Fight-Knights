@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,11 @@ public class InitializeLevel : MonoBehaviour
         }
         if (GameConfigurationManager.Instance.gameMode == 0) LoadClassic();
         if (GameConfigurationManager.Instance.gameMode == 1) LoadSoccer();
-        if (GameConfigurationManager.Instance.gameMode == 2) LoadClassic();
+    }
+
+    private void LoadClassicOnline()
+    {
+        throw new NotImplementedException();
     }
 
     // Update is called once per frame

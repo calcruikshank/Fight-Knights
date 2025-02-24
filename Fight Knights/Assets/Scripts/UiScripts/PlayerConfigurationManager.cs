@@ -50,7 +50,22 @@ public class PlayerConfigurationManager : MonoBehaviour
         if (playerConfigs.Count >= 2 && playerConfigs.All(p => p.IsReady == true))
         {
             pim.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
-            SceneManager.LoadScene(GameConfigurationManager.Instance.stage);
+
+            if (GameConfigurationManager.Instance != null)
+            {
+                if (GameConfigurationManager.Instance.gameMode == 2)
+                {
+                    SceneManager.LoadScene("Netcode");
+                }
+                else
+                {
+                    SceneManager.LoadScene(GameConfigurationManager.Instance.stage);
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene(GameConfigurationManager.Instance.stage);
+            }
         }
     }
 

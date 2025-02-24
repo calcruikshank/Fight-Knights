@@ -35,5 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PolygonNature/Scenes/DemoScene_Classic_Trees.unity
     guid: 8866da7caad60954a93a5a2f437a384b
+  - enabled: 1
+    path: Assets/Scenes/Netcode.unity
+    guid: d5cf31ddb4c0cef4189110c50d6bd08c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9c2a8c2b6b349364195836b28584099a, type: 2}
+  m_UseUCBPForAssetBundles: 0
