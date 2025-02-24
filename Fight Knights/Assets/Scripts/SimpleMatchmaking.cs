@@ -2,123 +2,148 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.InputSystem;
-
-// NGO
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
-
-// Relay & Lobby
-using Unity.Services.Core;
 using Unity.Services.Authentication;
-using Unity.Services.Relay;
-using Unity.Services.Relay.Models;
+using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
+using Unity.Services.Relay;
+using Unity.Services.Relay.Models;
+using UnityEngine;
+using TMPro;
+using Unity.Networking.Transport.Relay;
+using UnityEngine.InputSystem;
+using Unity.Android.Gradle.Manifest;
+
+
 
 public class SimpleMatchmaking : MonoBehaviour
 {
-    [Header("Assign your player prefab here")]
-    [SerializeField] private GameObject playerPrefab;
-
-    private UnityTransport _transport;
+    [SerializeField] private GameObject _buttons;
 
     private Lobby _connectedLobby;
-    private const string JoinCodeKey = "j";  // Key used to store Relay join code in the Lobby
+    private QueryResponse _lobbies;
+    private UnityTransport _transport;
+    private const string JoinCodeKey = "j";
     private string _playerId;
+    private List<ulong> connectedClientIds = new List<ulong>();
+    private void Awake() => _transport = FindObjectOfType<UnityTransport>();
 
-    [SerializeField] private int maxPlayers = 4;
 
-    // CHANGE THIS as needed:
-    // - false => uses DTLS (secure UDP)
-    // - true  => uses WSS (secure websockets)
-    [SerializeField] private bool useSecure = false;
-
-    private void Awake()
+    public void Start()
     {
-        var netMgr = NetworkManager.Singleton;
-        if (netMgr == null)
+        if (NetworkManager.Singleton == null)
         {
-            Debug.LogError("No NetworkManager in the scene!");
+            Debug.LogError("NetworkManager.Singleton is null.");
             return;
         }
 
-        _transport = netMgr.GetComponent<UnityTransport>();
-        if (_transport == null)
-        {
-            Debug.LogError("No UnityTransport found on NetworkManager.");
-        }
+        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+        NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
 
-        // Ensure Netcode doesn't auto-start
-        netMgr.OnClientConnectedCallback += OnClientConnected;
-        netMgr.OnClientDisconnectCallback += OnClientDisconnected;
+        CreateOrJoinLobby();
+    }
+    [SerializeField] GameObject playerPrefab;
+    private void OnClientConnected(ulong clientId)
+    {
+        Debug.Log($"Client connected with ID: {clientId}");
+
+        if (NetworkManager.Singleton.IsServer) // Check to make sure we're on the server
+        {
+            Debug.Log("Server: Client connected, spawning player prefab.");
+            var playerObject1 = Instantiate(playerPrefab);
+            var networkObject = playerObject1.GetComponent<NetworkObject>();
+            networkObject.SpawnAsPlayerObject(clientId);
+
+            if (clientId != NetworkManager.Singleton.LocalClientId)
+            {
+                var playerObject = Instantiate(playerPrefab);
+                networkObject = playerObject.GetComponent<NetworkObject>();
+                networkObject.SpawnAsPlayerObject(clientId);
+                Destroy(playerObject1);
+            }
+
+            if (networkObject == null)
+            {
+                Debug.LogError("Spawned player object does not have a NetworkObject component.");
+                return;
+            }
+
+            Debug.Log($"Player object spawned for client ID: {clientId}");
+
+            // Log the network object owner client ID
+            //networkObject.Spawn();
+
+
+            networkObject.ChangeOwnership(clientId);
+
+            Debug.Log(networkObject.GetComponent<PlayerInput>() + " player input of the network object " + clientId);
+
+            networkObject.GetComponent<PlayerInput>().ActivateInput();
+            Debug.Log($"NetworkObject's owner client ID: {networkObject.OwnerClientId}");
+
+
+        }
     }
 
-    private async void Start()
-    {
-        // 1) Initialize Unity Services & sign in
-        await InitializeUGS();
 
-        // 2) Attempt Quick Join. If none found, create a new lobby+relay
+    private void OnClientDisconnected(ulong clientId)
+    {
+        Debug.Log($"Client disconnected with ID: {clientId}");
+    }
+
+
+    public async void CreateOrJoinLobby()
+    {
+        _transport.UseWebSockets = true;
+        await Authenticate();
+
         _connectedLobby = await QuickJoinLobby() ?? await CreateLobby();
     }
 
-    // -----------------------------------------------
-    // UGS Initialization
-    // -----------------------------------------------
-    private async Task InitializeUGS()
+    private async Task Authenticate()
     {
-        try
-        {
-            await UnityServices.InitializeAsync();
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            _playerId = AuthenticationService.Instance.PlayerId;
-            Debug.Log($"UGS Initialized. PlayerId: {_playerId}");
+        var options = new InitializationOptions();
 
-            Debug.LogError($"Signed in as PlayerId: {AuthenticationService.Instance.PlayerId}");
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"UGS Initialization failed: {e}");
-        }
+
+        await UnityServices.InitializeAsync(options);
+
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        _playerId = AuthenticationService.Instance.PlayerId;
     }
 
-    // -----------------------------------------------
-    // Lobby + Relay Logic
-    // -----------------------------------------------
     private async Task<Lobby> QuickJoinLobby()
     {
         try
         {
-            // Attempt to find any open lobby
-            var lobby = await LobbyService.Instance.QuickJoinLobbyAsync();
-            Debug.Log($"[Client] Quick-Joined Lobby: {lobby.Id}");
+            QuickJoinLobbyOptions options = new QuickJoinLobbyOptions();
 
-            // Retrieve the Relay join code from the Lobby data
-            var relayJoinCode = lobby.Data[JoinCodeKey].Value;
-            Debug.Log($"JoinCode from Lobby: {relayJoinCode}");
+            options.Filter = new List<QueryFilter>()
+    {
+        new QueryFilter(
+            field: QueryFilter.FieldOptions.MaxPlayers,
+            op: QueryFilter.OpOptions.GE,
+            value: "10")
+    };
+            // Attempt to join a lobby in progress
+            var lobby = await LobbyService.Instance.QuickJoinLobbyAsync(options);
 
-            // Join Relay with that code
-            var joinAllocation = await RelayService.Instance.JoinAllocationAsync(relayJoinCode);
+            // If we found one, grab the relay allocation details
+            var a = await RelayService.Instance.JoinAllocationAsync(lobby.Data[JoinCodeKey].Value);
+            //
+            // Set the details to the transform
+            SetTransformAsClient(a);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(a, "wss"));
 
-            // Correct order: (AllocationIdBytes, Key, ConnectionData, isSecure)
-            _transport.SetRelayServerData(
-                joinAllocation.RelayServer.IpV4,
-                (ushort)joinAllocation.RelayServer.Port,
-                joinAllocation.AllocationIdBytes, // 16 bytes
-                joinAllocation.Key,               // 32 bytes
-                joinAllocation.ConnectionData           
-            );
-
-            // Now we can safely start the client
+            _transport.UseWebSockets = true;
+            // Join the game room as a client
             NetworkManager.Singleton.StartClient();
-
             return lobby;
         }
         catch (Exception e)
         {
-            Debug.Log($"No open lobby found or quick join failed: {e.Message}");
+            Debug.Log($"No lobbies available via quick join");
             return null;
         }
     }
@@ -127,50 +152,49 @@ public class SimpleMatchmaking : MonoBehaviour
     {
         try
         {
-            // 1) Create a Relay allocation
-            var allocation = await RelayService.Instance.CreateAllocationAsync(maxPlayers);
-            var relayJoinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-            Debug.Log($"[Host] Created Relay allocation. JoinCode: {relayJoinCode}");
+            const int maxPlayers = 16;
 
-            // 2) Create a new Lobby with that Relay join code
+            // Create a relay allocation and generate a join code to share with the lobby
+            var a = await RelayService.Instance.CreateAllocationAsync(maxPlayers);
+            var joinCode = await RelayService.Instance.GetJoinCodeAsync(a.AllocationId);
+
+            // Create a lobby, adding the relay join code to the lobby data
             var options = new CreateLobbyOptions
             {
-                Data = new Dictionary<string, DataObject>
-                {
-                    { JoinCodeKey, new DataObject(DataObject.VisibilityOptions.Public, relayJoinCode) }
-                }
+                Data = new Dictionary<string, DataObject> { { JoinCodeKey, new DataObject(DataObject.VisibilityOptions.Public, joinCode) } }
             };
-            var lobby = await LobbyService.Instance.CreateLobbyAsync("My Relay Lobby", maxPlayers, options);
-            _connectedLobby = lobby;
-            Debug.Log($"[Host] Created Lobby: {lobby.Id}");
+            var lobby = await LobbyService.Instance.CreateLobbyAsync("Useless Lobby Name", maxPlayers, options);
 
-            // Keep the lobby alive periodically
-            StartCoroutine(HeartbeatLobbyCoroutine(lobby.Id, 15f));
+            // Send a heartbeat every 15 seconds to keep the room alive
+            StartCoroutine(HeartbeatLobbyCoroutine(lobby.Id, 15));
 
-            // 3) Configure UnityTransport for Relay (Host side)
-            _transport.SetRelayServerData(
-                allocation.RelayServer.IpV4,
-                (ushort)allocation.RelayServer.Port,
-                allocation.AllocationIdBytes, // 16 bytes
-                allocation.Key,               // 32 bytes
-                allocation.ConnectionData    // 16 bytes
-            );
+            // Set the game room to use the relay allocation
+            _transport.SetHostRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(a, "wss"));
+            _transport.UseWebSockets = true;
+            // Start the room. I'm doing this immediately, but maybe you want to wait for the lobby to fill up
 
-            // 4) Start Host AFTER Relay is set
             NetworkManager.Singleton.StartHost();
-
             return lobby;
         }
         catch (Exception e)
         {
-            Debug.LogError($"CreateLobby or Relay Allocation failed: {e}");
+            Debug.LogFormat("Failed creating a lobby");
             return null;
         }
     }
 
-    private IEnumerator HeartbeatLobbyCoroutine(string lobbyId, float intervalSeconds)
+    private void SetTransformAsClient(JoinAllocation a)
     {
-        var delay = new WaitForSecondsRealtime(intervalSeconds);
+        _transport.SetClientRelayData(a.RelayServer.IpV4, (ushort)a.RelayServer.Port, a.AllocationIdBytes, a.Key, a.ConnectionData, a.HostConnectionData);
+        NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(AllocationUtils.ToRelayServerData(a, "wss"));
+
+        _transport.UseWebSockets = true;
+    }
+
+    private static IEnumerator HeartbeatLobbyCoroutine(string lobbyId, float waitTimeSeconds)
+    {
+        var delay = new WaitForSecondsRealtime(waitTimeSeconds);
         while (true)
         {
             LobbyService.Instance.SendHeartbeatPingAsync(lobbyId);
@@ -178,64 +202,27 @@ public class SimpleMatchmaking : MonoBehaviour
         }
     }
 
-    // -----------------------------------------------
-    // NGO Callbacks (Spawning Player)
-    // -----------------------------------------------
-    private void OnClientConnected(ulong clientId)
-    {
-        Debug.Log($"[NGO] Client connected: {clientId}");
-
-        // If you'd like to manually spawn a player prefab:
-        if (NetworkManager.Singleton.IsServer)
-        {
-            var playerObj = Instantiate(playerPrefab);
-            var netObj = playerObj.GetComponent<NetworkObject>();
-            netObj.SpawnAsPlayerObject(clientId);
-
-            // Optionally ensure PlayerInput is active
-            var pInput = playerObj.GetComponent<PlayerInput>();
-            if (pInput)
-            {
-                pInput.ActivateInput();
-            }
-        }
-    }
-
-    private void OnClientDisconnected(ulong clientId)
-    {
-        Debug.Log($"[NGO] Client disconnected: {clientId}");
-    }
-
-    // -----------------------------------------------
-    // Cleanup on Destroy
-    // -----------------------------------------------
     private void OnDestroy()
     {
-        if (NetworkManager.Singleton != null)
-        {
-            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
-            NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
-        }
+        if (NetworkManager.Singleton == null) return;
 
-        StopAllCoroutines();
-
+        NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+        NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
         try
         {
+            StopAllCoroutines();
+            // todo: Add a check to see if you're host
             if (_connectedLobby != null)
             {
-                if (_connectedLobby.HostId == _playerId)
-                {
-                    LobbyService.Instance.DeleteLobbyAsync(_connectedLobby.Id);
-                }
-                else
-                {
-                    LobbyService.Instance.RemovePlayerAsync(_connectedLobby.Id, _playerId);
-                }
+                if (_connectedLobby.HostId == _playerId) LobbyService.Instance.DeleteLobbyAsync(_connectedLobby.Id);
+                else LobbyService.Instance.RemovePlayerAsync(_connectedLobby.Id, _playerId);
             }
         }
         catch (Exception e)
         {
-            Debug.LogError($"Error shutting down lobby: {e}");
+            Debug.Log($"Error shutting down lobby: {e}");
         }
     }
+
+
 }
