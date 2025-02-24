@@ -184,7 +184,9 @@ public class GameConfigurationManager : MonoBehaviour
             Debug.Log("Damage Text");
             GameObject txt = Instantiate(DamagePopupText, new Vector3(playerTakingDamage.transform.position.x, playerTakingDamage.transform.position.y + 3, playerTakingDamage.transform.position.z + 3), FindObjectOfType<DamageCanvas>().transform.rotation, FindObjectOfType<DamageCanvas>().transform);
             txt.GetComponent<MoveTextBehaviour>().Setup(damage);
-            txt.GetComponent<TextMeshProUGUI>().color = playerTakingDamage.gameObject.GetComponent<TeamID>().teamColor;
+            
+                //txt.GetComponent<TextMeshProUGUI>().color = playerTakingDamage.gameObject.GetComponent<TeamID>().teamColor;
+            
         }
         
     }

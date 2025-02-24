@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5136723789652709541}
   - component: {fileID: 5136723789652709540}
   - component: {fileID: 3919116577824997919}
+  - component: {fileID: 4851726096622920433}
   m_Layer: 0
   m_Name: FirePlayer
   m_TagString: Untagged
@@ -174,7 +175,7 @@ MonoBehaviour:
   punchSpeed: 40
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   stocks: 4
   animatorUpdated: {fileID: 8675705888876284386}
   shield: {fileID: 193448067949134718}
@@ -188,6 +189,31 @@ MonoBehaviour:
   bigFireball: {fileID: 1932047879700441944, guid: fb8d0bb737d939147bb7628745f01a76, type: 3}
   swingLeftParticle: {fileID: 5857963806893673483, guid: 8791bd196eb6ea84f8b4388eafcabb12, type: 3}
   swingRightParticle: {fileID: 5857963806893673483, guid: c554cc79b7318b94f93daefa58da1f74, type: 3}
+--- !u!114 &4851726096622920433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136723789652709543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1 &5136723789718946911
 GameObject:
   m_ObjectHideFlags: 0
