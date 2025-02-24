@@ -1396,6 +1396,22 @@ MonoBehaviour:
         m_Groups: 
         m_Action: Join
         m_Flags: 0
+      - m_Name: 
+        m_Id: 86aa30b6-d409-4c2b-a0be-e44ab194abb2
+        m_Path: <Keyboard>/space
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 283983e6-c1ef-4081-a1ab-714c3c764ee0
+        m_Path: <Mouse>/leftButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 1478911794811218103, guid: e9c16800d49c0d44db20ad81d2fd29e4, type: 3}
