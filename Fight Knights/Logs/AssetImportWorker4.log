@@ -212,3 +212,243 @@ Received Import Request.
 Start importing Assets/Prefabs/Particles using Guid(2a1fbd5eb072604498b53cfee7268112) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '337ab0e317f9f0011593acb872cc771e') in 0.0006375 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
+========================================================================
+Received Import Request.
+  Time since last request: 15.072899 seconds.
+  path: Assets/Prefabs/BowPlayer/ArrowParent.prefab
+  artifactKey: Guid(8fbfc393102c576478eed3c21090ceb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/ArrowParent.prefab using Guid(8fbfc393102c576478eed3c21090ceb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6cd0e0c210fca9a2c7933e6277200027') in 0.0443745 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 124
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/BowPlayer/FX_Smoke_Trail_Small_01.prefab
+  artifactKey: Guid(d2869c3c033c15a43ae2e2532981fe53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/FX_Smoke_Trail_Small_01.prefab using Guid(d2869c3c033c15a43ae2e2532981fe53) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd62ef71d1b95168054aeb2026bcac900') in 0.0198143 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Draw Arrow.fbx
+  artifactKey: Guid(49a99d9467c620444bceb1070423ed41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Draw Arrow.fbx using Guid(49a99d9467c620444bceb1070423ed41) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e8a570643ea79435014de844a96293df') in 0.095875 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Aim Walk Forward.fbx
+  artifactKey: Guid(4d9b9fff0a8384b49b2a6ab5d5e4a612) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Aim Walk Forward.fbx using Guid(4d9b9fff0a8384b49b2a6ab5d5e4a612) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2d5973d5a940edb755947a584cf3448a') in 0.0436165 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Prefabs/BowPlayer/Standing Idle 01.fbx
+  artifactKey: Guid(821d166690df6f54b94a6122d9da72cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/Standing Idle 01.fbx using Guid(821d166690df6f54b94a6122d9da72cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ee1adb345518cee7c98a07b591bcad3f') in 0.0330675 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.826500 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f3f1df39a7573113ce444f8934f0c4de') in 0.3089946 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6757
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.666903 seconds.
+  path: Assets/PolygonFantasyHeroCharacters/Textures/Textures/PolygonFantasyHero_Texture_01_A.png
+  artifactKey: Guid(7dd0476daa9e82447856b542d1d238eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyHeroCharacters/Textures/Textures/PolygonFantasyHero_Texture_01_A.png using Guid(7dd0476daa9e82447856b542d1d238eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0d2ddd7b3208f7ccbf60b6c8fbc26658') in 0.0223039 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.728682 seconds.
+  path: Assets/Prefabs/BowPlayer/ArrowParent.prefab
+  artifactKey: Guid(8fbfc393102c576478eed3c21090ceb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/ArrowParent.prefab using Guid(8fbfc393102c576478eed3c21090ceb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '445022eb527ebe503de2925430c1ee69') in 0.0219888 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 124
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.099459 seconds.
+  path: Assets/Prefabs/BowPlayer/BowAndArrow.prefab
+  artifactKey: Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowAndArrow.prefab using Guid(1373d39640645ef4d8f9d41bd541eb88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'db25ff8495685897d1d7c65f8cda14c3') in 0.2253104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6757
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.118834 seconds.
+  path: Assets/Prefabs/Teams/BlueRing.mat
+  artifactKey: Guid(9616622bd2604b641b09f214e2b7e1be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/BlueRing.mat using Guid(9616622bd2604b641b09f214e2b7e1be) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '583923c99c3e19f8bdd77f796aa185f2') in 0.0216988 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/Teams/PlayerRingParent.prefab
+  artifactKey: Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/PlayerRingParent.prefab using Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7ac15e5c7452e899d72002ba0d3a906f') in 0.0158337 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Teams/YellowRing.mat
+  artifactKey: Guid(cdaa60c2afa04774f82fcf693962ca3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/YellowRing.mat using Guid(cdaa60c2afa04774f82fcf693962ca3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6aede861c9058b177c30f3f75f294f2c') in 0.0140018 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.963272 seconds.
+  path: Assets/Prefabs/Teams/PlayerRingParent.prefab
+  artifactKey: Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/PlayerRingParent.prefab using Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c9074e9a9e7f163a24a8c0554fc0345a') in 0.0124114 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.437242 seconds.
+  path: Assets/Prefabs/Teams/PlayerRingParent.prefab
+  artifactKey: Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/PlayerRingParent.prefab using Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '39b488d6d7b44251398f68c96e06f917') in 0.0073823 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.479291 seconds.
+  path: Assets/Prefabs/Teams/PlayerRingParent.prefab
+  artifactKey: Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/PlayerRingParent.prefab using Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b36d0332ec0919daae2036655a033b80') in 0.0019792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.665734 seconds.
+  path: Assets/Prefabs/Teams/player_ring.png
+  artifactKey: Guid(b6c66f0b8da89554c9d6ffeafa2a63bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/player_ring.png using Guid(b6c66f0b8da89554c9d6ffeafa2a63bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3031d8900e849601c05b0ce636da897e') in 0.0087242 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Prefabs/Teams/PlayerRingParent.prefab
+  artifactKey: Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/PlayerRingParent.prefab using Guid(32d77a641951220439769ced334d90db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ea658f7f802ee9457a8bf2a3c1b528ea') in 0.0228177 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Prefabs/Teams/PlayerRingWhit.mat
+  artifactKey: Guid(8cc01bcc1f88a9445b1df3ee97a797c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/PlayerRingWhit.mat using Guid(8cc01bcc1f88a9445b1df3ee97a797c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6e5e515aa41a2d95def455e01f00bcd4') in 0.0410435 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.113692 seconds.
+  path: Assets/Prefabs/Teams/player_ring.png
+  artifactKey: Guid(b6c66f0b8da89554c9d6ffeafa2a63bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/player_ring.png using Guid(b6c66f0b8da89554c9d6ffeafa2a63bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f217a56b6453d38fcfb55e506a25f1ca') in 0.0060977 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Teams/GreenRing.mat
+  artifactKey: Guid(95027c818358168489c4b1ecd6636f06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/GreenRing.mat using Guid(95027c818358168489c4b1ecd6636f06) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '19a71eea3d0e975a05e2dc19dd9c5e2c') in 0.0223322 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/Teams/YellowRing.mat
+  artifactKey: Guid(cdaa60c2afa04774f82fcf693962ca3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/YellowRing.mat using Guid(cdaa60c2afa04774f82fcf693962ca3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ed27ee0052feca724dd643a375f0d243') in 0.0173471 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.267223 seconds.
+  path: Assets/Prefabs/Teams/player_ring.png
+  artifactKey: Guid(b6c66f0b8da89554c9d6ffeafa2a63bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/player_ring.png using Guid(b6c66f0b8da89554c9d6ffeafa2a63bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1995cf2fb18756d1686e24f0ccfc7be3') in 0.0141644 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Teams/RedRing.mat
+  artifactKey: Guid(b955887dd8152334abd31d04dd544339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Teams/RedRing.mat using Guid(b955887dd8152334abd31d04dd544339) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a1e212bc63a20f05c3c76d946fd1844') in 0.016913 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.680 seconds
+Refreshing native plugins compatible for Editor in 0.71 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.803 seconds
+Domain Reload Profiling: 1480ms
+	BeginReloadAssembly (209ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (29ms)
+	LoadAllAssembliesAndSetupDomain (383ms)
+		LoadAssemblies (321ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (160ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (4ms)
+			BuildScriptInfoCaches (136ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (803ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (598ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (117ms)
+			ProcessInitializeOnLoadAttributes (389ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4544 unused Assets / (3.5 MB). Loaded Objects now: 5357.
+Memory consumption went from 167.4 MB to 163.9 MB.
+Total: 6.098900 ms (FindLiveObjects: 0.534100 ms CreateObjectMapping: 0.177000 ms MarkObjects: 3.851500 ms  DeleteObjects: 1.535300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
