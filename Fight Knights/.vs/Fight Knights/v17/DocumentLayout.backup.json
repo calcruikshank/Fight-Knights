@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\simplematchmaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplematchmaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|c:\\users\\calcr\\documents\\github\\fight-knights\\fight knights\\assets\\scripts\\simplematchmaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplematchmaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|c:\\users\\calcr\\documents\\github\\fight-knights\\fight knights\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,32 +90,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BowPlayer.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\BowPlayer.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\BowPlayer.cs",
-              "ViewState": "AgIAAIkBAAAAAAAAAAAiwJ0BAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T09:35:57.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SwordPlayer.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SwordPlayer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordPlayer.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SwordPlayer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SwordPlayer.cs",
-              "ViewState": "AgIAAJMBAAAAAAAAAAAqwLUBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T09:35:46.909Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 5,
@@ -166,6 +142,43 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SimpleMatchmaking.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SimpleMatchmaking.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleMatchmaking.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SimpleMatchmaking.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SimpleMatchmaking.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAYwG4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T16:12:05.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SwordPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SwordPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SwordPlayer.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SwordPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SwordPlayer.cs",
+              "ViewState": "AgIAAJMBAAAAAAAAAAAqwLUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T09:35:46.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BowPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BowPlayer.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BowPlayer.cs",
+              "ViewState": "AgIAAIkBAAAAAAAAAAAiwJ0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T09:35:57.427Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 19,
               "Title": "NinjaScript.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\NinjaScript.cs",
@@ -178,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
@@ -200,19 +213,6 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAA1wCAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T14:27:40.691Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SimpleMatchmaking.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SimpleMatchmaking.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleMatchmaking.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SimpleMatchmaking.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SimpleMatchmaking.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T16:12:05.541Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",

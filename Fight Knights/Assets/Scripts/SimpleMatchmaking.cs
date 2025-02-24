@@ -75,6 +75,8 @@ public class SimpleMatchmaking : MonoBehaviour
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             _playerId = AuthenticationService.Instance.PlayerId;
             Debug.Log($"UGS Initialized. PlayerId: {_playerId}");
+
+            Debug.LogError($"Signed in as PlayerId: {AuthenticationService.Instance.PlayerId}");
         }
         catch (Exception e)
         {
