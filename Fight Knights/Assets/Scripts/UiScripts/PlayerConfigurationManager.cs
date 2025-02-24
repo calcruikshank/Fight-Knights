@@ -112,6 +112,13 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         return playerConfigs;
     }
+    // If you have multiple local players and want to find the specific config by playerIndex:
+    public PlayerConfiguration GetPlayerConfigByIndex(int index)
+    {
+        // You can safely check if a config with that index exists
+        return playerConfigs.Find(cfg => cfg.PlayerIndex == index);
+    }
+
 }
 
 

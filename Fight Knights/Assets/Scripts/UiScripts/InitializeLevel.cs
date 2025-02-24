@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Networking;
 
 public class InitializeLevel : MonoBehaviour
 {
@@ -22,6 +24,10 @@ public class InitializeLevel : MonoBehaviour
     public int gameMode = 0;
     void Start()
     {
+        if (NetworkManager.Singleton != null)
+        {
+            return;
+        }
         var playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
         for (int i = 0; i < playerConfigs.Length; i++)
         {

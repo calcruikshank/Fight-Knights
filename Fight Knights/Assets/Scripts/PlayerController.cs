@@ -1,11 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Unity.Multiplayer;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
+    private PlayerInput _playerInput;
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        // Only apply the local device/scheme if we own this object
+        if (!IsOwner) return;
+
+        _playerInput = GetComponent<PlayerInput>();
+        Debug.Log(" dwadwaddddddddddddddd!!!!!!!!!!!!!jiojiojoiijojijio");
+        // Retrieve the local player's config from PlayerConfigurationManager
+        var configs = PlayerConfigurationManager.Instance.GetPlayerConfigs();
+        if (configs.Count == 0)
+        {
+            Debug.LogWarning("No local config found. Did you set one offline?");
+            return;
+        }
+
+        // If there's only 1 local player, just grab index [0]
+        var localConfig = configs[0];
+
+        // Switch the local PlayerInput to the correct scheme and device
+        // so that it picks up exactly what the user was using offline
+        if (_playerInput != null)
+        {
+            _playerInput.SwitchCurrentControlScheme(
+                localConfig.ControlScheme,
+                new InputDevice[] { localConfig.CurrentDevice }
+            );
+
+            // If you need color, team, etc.:
+            var teamComponent = GetComponent<TeamID>();
+            if (teamComponent != null)
+            {
+                teamComponent.SetColorOnMat(localConfig.PlayerColor);
+                teamComponent.SetTeamID(localConfig.PlayerTeam);
+            }
+
+            // Make sure input is active
+            _playerInput.ActivateInput();
+        }
+    }
+
+
     protected Rigidbody rb;
     protected Vector3 inputMovement, movement, lastMoveDir, lastLookedPosition, lookDirection, oppositeForce, powerDashTowards;
     protected bool pressedRight, pressedLeft, pressedShield, releasedShield, pressedDash, releasedDash, airDodged, releasedAirDodged, pressedWaveDash, releasedWaveDash, waveDashBool, canDash, grabbing, hasLanded = false;
@@ -1231,6 +1278,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000, layerMask)&& currentControlScheme == "Keyboard and Mouse")
         {
             lookDirection = new Vector2(hit.point.x - transform.position.x, hit.point.z - transform.position.z);
+            Debug.Log("looking " + lookDirection);
         }
 
     }
@@ -1469,5 +1517,10 @@ public class PlayerController : MonoBehaviour
             waveDashTimer = 0f;
         }
     }
+
+
+
+
+
     #endregion
 }

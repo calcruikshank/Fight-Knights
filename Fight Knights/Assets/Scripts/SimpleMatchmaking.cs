@@ -60,9 +60,7 @@ public class SimpleMatchmaking : MonoBehaviour
 
         if (NetworkManager.Singleton.IsServer)
         {
-            Debug.Log("Server: Client connected, spawning player prefab.");
-
-            // This spawns a player prefab for the newly connected client
+            // (1) Server does a simple Instantiate
             var playerObject = Instantiate(playerPrefab);
             var networkObject = playerObject.GetComponent<NetworkObject>();
             if (networkObject == null)
@@ -71,17 +69,18 @@ public class SimpleMatchmaking : MonoBehaviour
                 return;
             }
 
-            // Spawn as a player object owned by 'clientId'
+            // (2) Spawn as a networked player object owned by that client
             networkObject.SpawnAsPlayerObject(clientId);
 
-            // Ensure input is active
-            var playerInput = networkObject.GetComponent<PlayerInput>();
+            // Optionally, if you want to ensure there's a PlayerInput on the prefab:
+            var playerInput = playerObject.GetComponent<UnityEngine.InputSystem.PlayerInput>();
             if (playerInput != null)
             {
-                playerInput.ActivateInput();
+                playerInput.ActivateInput(); // This just ensures the component is active
             }
         }
     }
+
 
     private void OnClientDisconnected(ulong clientId)
     {
