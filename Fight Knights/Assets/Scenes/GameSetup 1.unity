@@ -19679,8 +19679,8 @@ MonoBehaviour:
   stocksText: {fileID: 97108766}
   DamagePopupText: {fileID: 4111180096804527154, guid: cb6535d25d2f946498375517bf490291, type: 3}
   LeftStockButton: {fileID: 425719370}
-  LeftArrowButton: {fileID: 0}
-  RightArrowButton: {fileID: 0}
+  LeftArrowButton: {fileID: 111170817}
+  RightArrowButton: {fileID: 549855507}
   RightStockButton: {fileID: 1625217513}
   isPaused: 0
 --- !u!4 &1163595237
