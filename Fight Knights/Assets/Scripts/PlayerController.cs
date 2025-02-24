@@ -19,6 +19,7 @@ public class PlayerController : NetworkBehaviour
 
         _playerInput = GetComponent<PlayerInput>();
         Debug.Log(" dwadwaddddddddddddddd!!!!!!!!!!!!!jiojiojoiijojijio");
+        return;
         // Retrieve the local player's config from PlayerConfigurationManager
         var configs = PlayerConfigurationManager.Instance.GetPlayerConfigs();
         if (configs.Count == 0)
