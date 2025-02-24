@@ -47,7 +47,7 @@ public class SimpleMatchmaking : MonoBehaviour
         NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
         NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
 
-        CreateOrJoinLobby();
+        //CreateOrJoinLobby();
         // **Optional**: You could trigger CreateOrJoinLobby() here 
         // or use a button on your UI to call CreateOrJoinLobby.
         //await CreateOrJoinLobby();

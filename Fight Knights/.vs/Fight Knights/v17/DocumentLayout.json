@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|c:\\users\\calcr\\documents\\github\\fight-knights\\fight knights\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\simplematchmaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simplematchmaking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\readybutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\readybutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|c:\\users\\calcr\\documents\\github\\fight-knights\\fight knights\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\uiscripts\\initializelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\swordplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swordplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\uiscripts\\cursorbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,10 +63,6 @@
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\launchrockcollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\readybutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\readybutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\hammerplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hammerplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -90,59 +90,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ModeSelect.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\ModeSelect.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ModeSelect.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\ModeSelect.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ModeSelect.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T13:08:17.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SceneManagerModeSelect.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SceneManagerModeSelect.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SceneManagerModeSelect.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SceneManagerModeSelect.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SceneManagerModeSelect.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T13:08:08.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlayerInfoParent.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
-              "RelativeDocumentMoniker": "Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
-              "RelativeToolTip": "Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T13:02:19.031Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CursorBehaviour.cs",
-              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
-              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAmwI8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T12:57:46.548Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "BowPlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BowPlayer.cs",
@@ -150,11 +102,12 @@
               "RelativeToolTip": "Assets\\Scripts\\BowPlayer.cs",
               "ViewState": "AgIAAIkBAAAAAAAAAAAiwJ0BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T09:35:57.427Z"
+              "WhenOpened": "2025-02-24T09:35:57.427Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "SwordPlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SwordPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SwordPlayer.cs",
@@ -166,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PlayerConfigurationManager.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\PlayerConfigurationManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\PlayerConfigurationManager.cs",
@@ -226,20 +179,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwBQAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T09:08:43.939Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "InitializeLevel.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\InitializeLevel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\InitializeLevel.cs",
@@ -251,19 +204,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SimpleMatchmaking.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SimpleMatchmaking.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleMatchmaking.cs",
               "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SimpleMatchmaking.cs",
               "RelativeToolTip": "Assets\\Scripts\\SimpleMatchmaking.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAjwE4AAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T16:12:05.541Z"
+              "WhenOpened": "2025-02-24T16:12:05.541Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "BallCharacter.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BallCharacter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BallCharacter.cs",
@@ -275,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "LaunchRockCollider.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\LaunchRockCollider.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LaunchRockCollider.cs",
@@ -287,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "GameConfigurationManager.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\GameConfigurationManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\GameConfigurationManager.cs",
@@ -299,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 2,
               "Title": "ReadyButton.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\ReadyButton.cs",
               "RelativeDocumentMoniker": "Assets\\ReadyButton.cs",
@@ -307,11 +261,60 @@
               "RelativeToolTip": "Assets\\ReadyButton.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T14:29:52.578Z"
+              "WhenOpened": "2025-02-24T14:29:52.578Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 7,
+              "Title": "CursorBehaviour.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UiScripts\\CursorBehaviour.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAmwI8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T12:57:46.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PlayerInfoParent.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
+              "RelativeDocumentMoniker": "Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
+              "RelativeToolTip": "Assets\\Prefabs\\UI\\PlayerInfoParent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:02:19.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SceneManagerModeSelect.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SceneManagerModeSelect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SceneManagerModeSelect.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SceneManagerModeSelect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SceneManagerModeSelect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:08:08.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ModeSelect.cs",
+              "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\ModeSelect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ModeSelect.cs",
+              "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\ModeSelect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ModeSelect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T13:08:17.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "CursorGameSetup.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\CursorGameSetup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\CursorGameSetup.cs",
