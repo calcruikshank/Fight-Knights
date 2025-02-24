@@ -1,0 +1,402 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.32f1 (b2e806cf271c) revision 11724806'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'en' Physical Memory: 32694 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker26
+-projectPath
+C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+-logFile
+Logs/AssetImportWorker26.log
+-srvPort
+58358
+-job-worker-count
+7
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [28944]  Target information:
+
+Player connection [28944]  * "[IP] 192.168.0.35 [Port] 0 [Flags] 2 [Guid] 2369758457 [EditorId] 2369758457 [Version] 1048832 [Id] WindowsEditor(7,Calvins) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [28944] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [28944] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 7
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 2.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.32f1 (b2e806cf271c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:   NVIDIA
+    VRAM:     12086 MB
+    Driver:   32.0.15.6636
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.010574 seconds.
+- Loaded All Assemblies, in  0.414 seconds
+Native extension for LinuxStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 231 ms
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.586 seconds
+Domain Reload Profiling: 998ms
+	BeginReloadAssembly (141ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (156ms)
+		LoadAssemblies (138ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (153ms)
+			TypeCache.Refresh (151ms)
+				TypeCache.ScanAssembly (139ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (587ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (547ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (341ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (48ms)
+			ProcessInitializeOnLoadAttributes (101ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.649 seconds
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.735 seconds
+Domain Reload Profiling: 1379ms
+	BeginReloadAssembly (150ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (412ms)
+		LoadAssemblies (295ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (207ms)
+			TypeCache.Refresh (145ms)
+				TypeCache.ScanAssembly (128ms)
+			BuildScriptInfoCaches (49ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (736ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (586ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (100ms)
+			ProcessInitializeOnLoadAttributes (378ms)
+			ProcessInitializeOnLoadMethodAttributes (78ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 228 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4505 unused Assets / (3.9 MB). Loaded Objects now: 5227.
+Memory consumption went from 176.4 MB to 172.5 MB.
+Total: 7.186500 ms (FindLiveObjects: 0.565100 ms CreateObjectMapping: 0.533400 ms MarkObjects: 4.261000 ms  DeleteObjects: 1.825300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 700065.953154 seconds.
+  path: Assets/PolygonParticleFX/Prefabs/FX_Swirl_01.prefab
+  artifactKey: Guid(3ccd54180d4b3e54eaf3027dcaf14742) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonParticleFX/Prefabs/FX_Swirl_01.prefab using Guid(3ccd54180d4b3e54eaf3027dcaf14742) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3f71c46bf3c5e50b92f6dd2fd614c79c') in 0.4799261 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/PolygonNature/Models/SM_Terrain_Swamp_Growth_01.fbx
+  artifactKey: Guid(6f71dbacc2fd0de46b3b871c2f1ec19a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonNature/Models/SM_Terrain_Swamp_Growth_01.fbx using Guid(6f71dbacc2fd0de46b3b871c2f1ec19a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '27b028f827cae49810008ea9b00c8d03') in 0.0494625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/PolygonNature/Prefabs/Trees/SM_Tree_Swamp_01.prefab
+  artifactKey: Guid(d6660cac033867643a649f4255fa8e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonNature/Prefabs/Trees/SM_Tree_Swamp_01.prefab using Guid(d6660cac033867643a649f4255fa8e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e30282deb27d39fa6131037155c7fed') in 0.0178214 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/PolygonNature/Models/SM_Swamp_Root_01.fbx
+  artifactKey: Guid(ea4d819ccb0a1164eb4cf0488c7fbf9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonNature/Models/SM_Swamp_Root_01.fbx using Guid(ea4d819ccb0a1164eb4cf0488c7fbf9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'aa3b5f85d6ae9cb64bbb0616711fb70a') in 0.0190671 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/PolygonParticleFX/Prefabs/FX_Swirl_Fast_01.prefab
+  artifactKey: Guid(e57dd934961ce0e4d9f17115bb382f19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonParticleFX/Prefabs/FX_Swirl_Fast_01.prefab using Guid(e57dd934961ce0e4d9f17115bb382f19) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fe95ec0156305a8c6a3f8c1dc972bab2') in 0.015495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/PolygonNature/Models/SM_Terrain_Swamp_Growth_03.fbx
+  artifactKey: Guid(9cbe94f4228a17b4ab52e6b411698a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonNature/Models/SM_Terrain_Swamp_Growth_03.fbx using Guid(9cbe94f4228a17b4ab52e6b411698a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22974aa218f0520b4120aefb102fb149') in 0.0180494 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/PolygonFantasyHeroCharacters/Models/Weapons/SM_Wep_Sword_01.fbx
+  artifactKey: Guid(a29e10a78af23e243949a44795e2787f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyHeroCharacters/Models/Weapons/SM_Wep_Sword_01.fbx using Guid(a29e10a78af23e243949a44795e2787f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35c200a0912b75692b2336fd63784f4a') in 0.0193034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/PolygonFantasyHeroCharacters/Prefabs/Weapons/SM_Wep_Sword_Large_01.prefab
+  artifactKey: Guid(892122ee87fc15149bc82d7f9d2cdb9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyHeroCharacters/Prefabs/Weapons/SM_Wep_Sword_Large_01.prefab using Guid(892122ee87fc15149bc82d7f9d2cdb9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'eaa4fe03e4285f541738eeafc757f4ab') in 0.022432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/PolygonFantasyHeroCharacters/Prefabs/Weapons/SM_Wep_Sword_Small_Cover_01.prefab
+  artifactKey: Guid(640492bb106c8b9418a6b12840af2b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyHeroCharacters/Prefabs/Weapons/SM_Wep_Sword_Small_Cover_01.prefab using Guid(640492bb106c8b9418a6b12840af2b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '68509c0958e4bdfb3c1abf8888264bdc') in 0.0158489 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/PolygonFantasyHeroCharacters/Prefabs/Weapons/SM_Wep_Sword_Cover_01.prefab
+  artifactKey: Guid(cdcd31ac69744ec4d928e5d032e933a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyHeroCharacters/Prefabs/Weapons/SM_Wep_Sword_Cover_01.prefab using Guid(cdcd31ac69744ec4d928e5d032e933a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4eb044dbbe3ecab43a00d4e02125116c') in 0.0205186 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/PolygonDungeon/Models/CollisionConvex/SM_Wep_Straightsword_01_Convex.asset
+  artifactKey: Guid(23c2830330476d8498d6e1378c25bfe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonDungeon/Models/CollisionConvex/SM_Wep_Straightsword_01_Convex.asset using Guid(23c2830330476d8498d6e1378c25bfe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '699633b9d380eba5f3f01a7c83963302') in 0.0142387 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/PolygonParticleFX/Textures/PolygonParticles_Swipe_02.png
+  artifactKey: Guid(a9a7424a52149bb4b84da7a71341f1df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonParticleFX/Textures/PolygonParticles_Swipe_02.png using Guid(a9a7424a52149bb4b84da7a71341f1df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a5d0bb7214d0e0e0cdf4e8ffb52d20e') in 0.021682 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/PolygonNature/Prefabs/Terrain/SM_Terrain_Swamp_Growth_01.prefab
+  artifactKey: Guid(416c880aa7bc1404eb5ae451af21f192) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonNature/Prefabs/Terrain/SM_Terrain_Swamp_Growth_01.prefab using Guid(416c880aa7bc1404eb5ae451af21f192) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1a5b7495716efa2669bf6dfbcfc31bf0') in 0.0180052 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/PolygonDungeon/Models/SM_Wep_Greatsword_Straight_01.fbx
+  artifactKey: Guid(1b5a637a2abea174d9aff7195a85a687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonDungeon/Models/SM_Wep_Greatsword_Straight_01.fbx using Guid(1b5a637a2abea174d9aff7195a85a687) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30abd937148c7627b5fb6d347d31f5ea') in 0.022744 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Low-Poly Weapons/Prefabs/Sword.prefab
+  artifactKey: Guid(ef692f86dcc854a7aba0ac610620cb15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Low-Poly Weapons/Prefabs/Sword.prefab using Guid(ef692f86dcc854a7aba0ac610620cb15) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da9896728558e437d4f4b221bd6276f9') in 0.5621076 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/PolygonDungeon/Prefabs/Props/SM_Prop_Tech_SwitchBoard_01.prefab
+  artifactKey: Guid(a41e053f0f61c7e4aae84e08792db35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonDungeon/Prefabs/Props/SM_Prop_Tech_SwitchBoard_01.prefab using Guid(a41e053f0f61c7e4aae84e08792db35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5785f07c739c89d8e8534368c59849e7') in 0.0212826 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Animation/Sword And Shield Slash.fbx
+  artifactKey: Guid(50a5342c43b00df41bfdb19dc86c3dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Sword And Shield Slash.fbx using Guid(50a5342c43b00df41bfdb19dc86c3dd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '49cce4a19aab502b9ca56436d36ebabb') in 0.0597401 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/PolygonFantasyRivals/Prefabs/FX/Magic_Swirl_FX.prefab
+  artifactKey: Guid(5d27eaf58f7dd214db0ed07333875450) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonFantasyRivals/Prefabs/FX/Magic_Swirl_FX.prefab using Guid(5d27eaf58f7dd214db0ed07333875450) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1e69d51c245e9d78ebe16495b8f91109') in 0.0181111 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/PolygonPirates/Prefabs/Weapons/SM_Wep_Shortsword_01_Sheath.prefab
+  artifactKey: Guid(d2799179d41b5244ea961abe78659f4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPirates/Prefabs/Weapons/SM_Wep_Shortsword_01_Sheath.prefab using Guid(d2799179d41b5244ea961abe78659f4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7e52a049b795563555ee367b66549967') in 0.0161457 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/PolygonDungeon/Models/CollisionConvex/SM_Wep_Ornate_Sword_02_Convex.asset
+  artifactKey: Guid(6039e5e605f06b047b3363ee05dd5b12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonDungeon/Models/CollisionConvex/SM_Wep_Ornate_Sword_02_Convex.asset using Guid(6039e5e605f06b047b3363ee05dd5b12) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '96e390568ef28f9651fee8202746c94c') in 0.0170048 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/PolygonParticleFX/Materials/PolygonParticleFX_Swipe_02.mat
+  artifactKey: Guid(413cbb0543875484fb2ad3f1d0a537de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonParticleFX/Materials/PolygonParticleFX_Swipe_02.mat using Guid(413cbb0543875484fb2ad3f1d0a537de) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2bbad5828eb40f8dec358fcd65c3498e') in 0.014403 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/PolygonNature/Prefabs/Terrain/SM_Terrain_Swamp_Growth_03.prefab
+  artifactKey: Guid(a383debb8fe64614fa95efaf685404ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonNature/Prefabs/Terrain/SM_Terrain_Swamp_Growth_03.prefab using Guid(a383debb8fe64614fa95efaf685404ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '42cf5153dd01c655a6634028e00d11b8') in 0.0156368 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/PolygonPirates/Models/SM_Wep_Shortsword_01.fbx
+  artifactKey: Guid(95b13b9bee895594893d5f1055c5c745) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonPirates/Models/SM_Wep_Shortsword_01.fbx using Guid(95b13b9bee895594893d5f1055c5c745) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4f86959768f898922db51881c39c8410') in 0.0182228 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/PolygonDungeon/Models/SM_Wep_Greatsword_Curved_01.fbx
+  artifactKey: Guid(f2c025715735eb747b30bf33ea1c02f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonDungeon/Models/SM_Wep_Greatsword_Curved_01.fbx using Guid(f2c025715735eb747b30bf33ea1c02f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2b708157a95c70dd37b80044efc121fb') in 0.0190469 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/PolygonDungeon/Prefabs/Weapons/SM_Wep_Greatsword_Straight_01.prefab
+  artifactKey: Guid(e7196d0541b91bf4f8cab39924cb6d49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonDungeon/Prefabs/Weapons/SM_Wep_Greatsword_Straight_01.prefab using Guid(e7196d0541b91bf4f8cab39924cb6d49) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e593006e89531f19522da9acde0f0d54') in 0.0229324 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

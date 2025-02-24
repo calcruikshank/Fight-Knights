@@ -1,0 +1,370 @@
+Using pre-set license
+Built from '6000.0/staging' branch; Version is '6000.0.32f1 (b2e806cf271c) revision 11724806'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'en' Physical Memory: 32694 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker8
+-projectPath
+C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+-logFile
+Logs/AssetImportWorker8.log
+-srvPort
+51965
+-job-worker-count
+7
+-background-job-worker-count
+8
+-gc-helper-count
+1
+Successfully changed project path to: C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [23504]  Target information:
+
+Player connection [23504]  * "[IP] 192.168.0.35 [Port] 0 [Flags] 2 [Guid] 716182053 [EditorId] 716182053 [Version] 1048832 [Id] WindowsEditor(7,Calvins) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [23504] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [23504] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 7
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 1.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.32f1 (b2e806cf271c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Ti (ID=0x2208)
+    Vendor:   NVIDIA
+    VRAM:     12086 MB
+    Driver:   32.0.15.6636
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56216
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.006511 seconds.
+- Loaded All Assemblies, in  0.387 seconds
+Native extension for LinuxStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 228 ms
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.573 seconds
+Domain Reload Profiling: 957ms
+	BeginReloadAssembly (130ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (158ms)
+		LoadAssemblies (126ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (154ms)
+			TypeCache.Refresh (153ms)
+				TypeCache.ScanAssembly (141ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (573ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (539ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (336ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (46ms)
+			ProcessInitializeOnLoadAttributes (100ms)
+			ProcessInitializeOnLoadMethodAttributes (52ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.498 seconds
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.537 seconds
+Domain Reload Profiling: 1031ms
+	BeginReloadAssembly (150ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (264ms)
+		LoadAssemblies (242ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (113ms)
+			TypeCache.Refresh (86ms)
+				TypeCache.ScanAssembly (74ms)
+			BuildScriptInfoCaches (21ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (538ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (427ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (67ms)
+			ProcessInitializeOnLoadAttributes (314ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 45 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2197 unused Assets / (0.6 MB). Loaded Objects now: 2736.
+Memory consumption went from 92.3 MB to 91.7 MB.
+Total: 4.951600 ms (FindLiveObjects: 0.279300 ms CreateObjectMapping: 0.083900 ms MarkObjects: 3.981300 ms  DeleteObjects: 0.605800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 694709.698755 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '03bd7cf2dcc9ee2f998f9cb6a3e621c5') in 0.4351993 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 72.584243 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7854ea21eb7a2b2177820c39ac213b52') in 0.291767 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.546186 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '948994d10ed296ce0e8403279405b34c') in 0.2218699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.909224 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6b130ac457356acfa2ec353eeea02094') in 0.2208921 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.646560 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d6754f198442cff38279ea7d751f3ac') in 0.2294058 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.733408 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da1fec65fc2e555e13b72741a0e18717') in 0.2155271 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.120596 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'acc4c6fc6f7c6ad854bdac3cfd3e3078') in 0.2237027 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.547675 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '33b273e269467d58c06dc25862933850') in 0.2197436 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.966790 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e870ffa68e2eadfee59baa12cf679e31') in 0.2159648 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.909732 seconds.
+  path: Assets/Prefabs/BowPlayer/BowSelect.prefab
+  artifactKey: Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BowPlayer/BowSelect.prefab using Guid(3043ee5d38441f64b907b57ce0eafcc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3bf7949de031b08d271392ea5e75b04f') in 0.2187236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9371
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.461 seconds
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.534 seconds
+Domain Reload Profiling: 992ms
+	BeginReloadAssembly (163ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (22ms)
+	LoadAllAssembliesAndSetupDomain (226ms)
+		LoadAssemblies (243ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (76ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (65ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (534ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (426ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (66ms)
+			ProcessInitializeOnLoadAttributes (311ms)
+			ProcessInitializeOnLoadMethodAttributes (23ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2200 unused Assets / (0.7 MB). Loaded Objects now: 2749.
+Memory consumption went from 99.9 MB to 99.2 MB.
+Total: 4.744800 ms (FindLiveObjects: 0.288300 ms CreateObjectMapping: 0.115100 ms MarkObjects: 3.619300 ms  DeleteObjects: 0.720900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 117.447845 seconds.
+  path: Assets/Prefabs/FireballPlayer/FireSelect.prefab
+  artifactKey: Guid(6148a8ce743c39647a286d6c490b6a29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/FireSelect.prefab using Guid(6148a8ce743c39647a286d6c490b6a29) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f4b6431d3307939a926369d3a79570cf') in 0.2124453 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1516
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/FireballPlayer/Standing 2H Magic Area Attack 02.fbx
+  artifactKey: Guid(b4e5acbb55797b14ead1289091e53beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/Standing 2H Magic Area Attack 02.fbx using Guid(b4e5acbb55797b14ead1289091e53beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6b203fd48b340cbdc49f2b9138753a9c') in 0.0922237 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Prefabs/FireballPlayer/Standing Idle 03.fbx
+  artifactKey: Guid(863c96a7d3505fe48b02edf4aa35ea86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FireballPlayer/Standing Idle 03.fbx using Guid(863c96a7d3505fe48b02edf4aa35ea86) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '38e3294badcc40938dbb8e51245c6a84') in 0.0279855 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 111
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.109587 seconds.
+  path: Assets/Prefabs/HammerPlayer/FantasyHammerParent.prefab
+  artifactKey: Guid(58f6420fbf7dbb042ac5f6a47190a4b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/HammerPlayer/FantasyHammerParent.prefab using Guid(58f6420fbf7dbb042ac5f6a47190a4b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3ad9754b6c065d7884fdcae8ad8674e7') in 0.0437203 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 66
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Prefabs/HammerPlayer/LightningBall.prefab
+  artifactKey: Guid(f9c728c987ace86499d8f50ee90f7353) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/HammerPlayer/LightningBall.prefab using Guid(f9c728c987ace86499d8f50ee90f7353) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '083ba1cf814598effc4e427ad529d28f') in 0.0640741 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 57
+

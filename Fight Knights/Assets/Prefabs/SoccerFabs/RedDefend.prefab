@@ -23,25 +23,31 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5726830366567990045}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 40, y: -0.3, z: 16.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5256669011488747738}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2671382751762954353
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5726830366567990044}
     m_Modifications:
     - target: {fileID: 7397734428086686225, guid: b57ceb9c0974a0d4289e974b92062861, type: 3}
       propertyPath: m_Name
       value: goal 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7668330085736640324, guid: b57ceb9c0974a0d4289e974b92062861, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 7668330085736640325, guid: b57ceb9c0974a0d4289e974b92062861, type: 3}
       propertyPath: m_SphereColliders.Array.data[0].first
       value: 
@@ -103,6 +109,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57ceb9c0974a0d4289e974b92062861, type: 3}
 --- !u!4 &5256669011488747738 stripped
 Transform:
