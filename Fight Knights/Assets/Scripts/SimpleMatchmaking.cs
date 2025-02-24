@@ -14,7 +14,6 @@ using UnityEngine;
 using TMPro;
 using Unity.Networking.Transport.Relay;
 using UnityEngine.InputSystem;
-using Unity.Android.Gradle.Manifest;
 
 
 
