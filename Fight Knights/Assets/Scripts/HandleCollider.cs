@@ -50,7 +50,7 @@ public class HandleCollider : MonoBehaviour
                     {
                         collider.enabled = false;
                     }
-                    this.gameObject.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+                    this.gameObject.GetComponentInChildren<Rigidbody>().linearVelocity = Vector3.zero;
 
                     ParticleSystem[] particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
                     foreach (ParticleSystem particle in particles)
@@ -81,7 +81,7 @@ public class HandleCollider : MonoBehaviour
                     {
                         collider.enabled = false;
                     }
-                    this.gameObject.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+                    this.gameObject.GetComponentInChildren<Rigidbody>().linearVelocity = Vector3.zero;
 
                     ParticleSystem[] particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
                     foreach (ParticleSystem particle in particles)
@@ -109,7 +109,7 @@ public class HandleCollider : MonoBehaviour
                     {
                         collider.enabled = false;
                     }
-                    this.gameObject.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+                    this.gameObject.GetComponentInChildren<Rigidbody>().linearVelocity = Vector3.zero;
 
                     ParticleSystem[] particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
                     foreach (ParticleSystem particle in particles)
@@ -164,7 +164,7 @@ public class HandleCollider : MonoBehaviour
                 {
                     collider.enabled = false;
                 }
-                this.gameObject.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+                this.gameObject.GetComponentInChildren<Rigidbody>().linearVelocity = Vector3.zero;
                 
                 ParticleSystem[] particles = this.gameObject.GetComponentsInChildren<ParticleSystem>();
                 foreach (ParticleSystem particle in particles)

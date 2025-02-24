@@ -217,7 +217,7 @@ public class NinjaScript : PlayerController
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (punchedRight || returningRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (state == State.Knockback) return;
         if (state == State.Grabbed) return;
         if (punchedLeftTimer > 0)
@@ -250,7 +250,7 @@ public class NinjaScript : PlayerController
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (returningRight || punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (state == State.Knockback) return;
         if (state == State.Dashing && currentDashSpeed > 40f) return;
         if (state == State.Grabbed) return;
@@ -289,7 +289,7 @@ public class NinjaScript : PlayerController
         {
             yVelo = 0f;
         }*/
-        rb.velocity = new Vector3(dashTowards.x * currentDashSpeed, rb.velocity.y, dashTowards.z * currentDashSpeed);
+        rb.linearVelocity = new Vector3(dashTowards.x * currentDashSpeed, rb.linearVelocity.y, dashTowards.z * currentDashSpeed);
         
     }
     protected override void HandleDash()

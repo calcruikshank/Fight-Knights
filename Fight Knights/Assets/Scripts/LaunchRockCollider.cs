@@ -23,7 +23,7 @@ public class LaunchRockCollider : MonoBehaviour
         if (rockLaunch != null)
         {
             Debug.Log("HitRock");
-            rockLaunch.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            rockLaunch.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             rockLaunch.gameObject.GetComponent<Rigidbody>().AddForce((this.transform.parent.transform.parent.GetComponent<HandleCollider>().player.transform.right) * (40f), ForceMode.Impulse);
             Physics.IgnoreCollision(this.transform.GetComponent<Collider>(), other);
             

@@ -103,7 +103,7 @@ public class FirePlayer : PlayerController
 
 
         animatorUpdated.SetBool("Grabbing", false);
-        if (releasedLeft && fireballInstantiatedLeft != null && spawnedLeft == false && fireballInstantiatedLeft.GetComponent<Rigidbody>().velocity != Vector3.zero)
+        if (releasedLeft && fireballInstantiatedLeft != null && spawnedLeft == false && fireballInstantiatedLeft.GetComponent<Rigidbody>().linearVelocity != Vector3.zero)
         {
             spawnedLeft = true;
             GameObject newExplosion = Instantiate(explosionPrefab, fireballInstantiatedLeft.transform.position, Quaternion.identity);
@@ -113,9 +113,9 @@ public class FirePlayer : PlayerController
             {
                 particle.Stop();
             }
-            fireballInstantiatedLeft.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            fireballInstantiatedLeft.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
-        if (releasedRight && fireballInstantiated != null && spawnedRight == false && fireballInstantiated.GetComponent<Rigidbody>().velocity != Vector3.zero)
+        if (releasedRight && fireballInstantiated != null && spawnedRight == false && fireballInstantiated.GetComponent<Rigidbody>().linearVelocity != Vector3.zero)
         {
             spawnedRight = true;
             GameObject newExplosion = Instantiate(explosionPrefab, fireballInstantiated.transform.position, Quaternion.identity);
@@ -125,7 +125,7 @@ public class FirePlayer : PlayerController
             {
                 particle.Stop();
             }
-            fireballInstantiated.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            fireballInstantiated.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
 
         if (punchedLeft)
@@ -288,7 +288,7 @@ public class FirePlayer : PlayerController
 
             fireballInHand.SetActive(false);
             bigInstantiated = Instantiate(bigFireball, new Vector3(this.transform.position.x, this.transform.position.y + 3.5f, this.transform.position.z), Quaternion.identity);
-            bigInstantiated.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            bigInstantiated.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             bigInstantiated.GetComponent<HandleColliderShieldBreak>().SetPlayer(this, rightHandTransform);
             bigInstantiated.GetComponentInChildren<Collider>().enabled = true;
             dashBallSpawned = true;
@@ -360,7 +360,7 @@ public class FirePlayer : PlayerController
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
         float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 25; //knockback that scales
-        rb.velocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
+        rb.linearVelocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
         if (GameConfigurationManager.Instance != null)
         {
             GameConfigurationManager.Instance.DisplayDamageText((int)damage, this.transform, playerSent);
@@ -425,7 +425,7 @@ public class FirePlayer : PlayerController
         }
 
         if (returningLeft || punchedLeft || punchedRight || returningRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
 
         if (state == State.Knockback) return;
         if (state == State.Stunned) return;
@@ -463,7 +463,7 @@ public class FirePlayer : PlayerController
         }
 
         if (returningLeft || punchedLeft || punchedRight || returningRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
 
         if (state == State.Knockback) return;
         if (state == State.Stunned) return;

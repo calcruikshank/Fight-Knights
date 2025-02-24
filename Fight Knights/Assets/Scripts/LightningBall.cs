@@ -79,7 +79,7 @@ public class LightningBall : MonoBehaviour
                 collider.enabled = false;
             }
 
-            this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             this.transform.position = opponent.transform.position;
         }
     }

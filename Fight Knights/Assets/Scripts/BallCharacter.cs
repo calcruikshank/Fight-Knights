@@ -39,12 +39,12 @@ public class BallCharacter : PlayerController
     }
     protected override void FixedHandleMovement()
     {
-        Vector3 newVelocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
+        Vector3 newVelocity = new Vector3(movement.x * moveSpeed, rb.linearVelocity.y, movement.z * moveSpeed);
 
         rb.AddForce(movement.normalized * moveSpeed * 15);
-        if (rb.velocity.magnitude > topSpeed)
+        if (rb.linearVelocity.magnitude > topSpeed)
         {
-            rb.velocity = rb.velocity.normalized * topSpeed;
+            rb.linearVelocity = rb.linearVelocity.normalized * topSpeed;
         }
         
 
@@ -89,7 +89,7 @@ public class BallCharacter : PlayerController
     {
 
         bodyCollider.enabled = false;
-        if (rb.velocity.magnitude < 20f && !hasChangedFromKnockbackToFallingAnimation)
+        if (rb.linearVelocity.magnitude < 20f && !hasChangedFromKnockbackToFallingAnimation)
         {
             if (animatorUpdated != null)
             {
@@ -101,7 +101,7 @@ public class BallCharacter : PlayerController
             hasLanded = false;
         }
 
-        if (rb.velocity.magnitude < 20f)
+        if (rb.linearVelocity.magnitude < 20f)
         {
             landingTime += Time.deltaTime;
             if (landingTime > .4f)
@@ -118,25 +118,25 @@ public class BallCharacter : PlayerController
                 animatorUpdated.SetBool("Knockback", false);
                 animatorUpdated.SetBool("Landing", false);
             }
-            rb.velocity = new Vector2(0, 0);
-            rb.drag = 0;
+            rb.linearVelocity = new Vector2(0, 0);
+            rb.linearDamping = 0;
 
             this.transform.GetComponentInChildren<SphereCollider>().material.dynamicFriction = .6f;
 
-            this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicMaterialCombine.Maximum;
+            this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicsMaterialCombine.Maximum;
             state = State.Normal;
         }
 
-        if (rb.velocity.magnitude > 0)
+        if (rb.linearVelocity.magnitude > 0)
         {
             this.transform.GetComponentInChildren<SphereCollider>().material.dynamicFriction = 0f;
-            this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicMaterialCombine.Minimum;
+            this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicsMaterialCombine.Minimum;
             
-            oppositeForce = -rb.velocity;
+            oppositeForce = -rb.linearVelocity;
             //brakeSpeed = brakeSpeed + (100f * Time.deltaTime);
             //rb.AddForce(oppositeForce * Time.deltaTime * brakeSpeed);
             //rb.AddForce(movement * .05f); //DI*/
-            rb.drag = 1.3f;
+            rb.linearDamping = 1.3f;
         }
 
         Vector3 knockbackLook = new Vector3(oppositeForce.x, 0, oppositeForce.z);
@@ -146,7 +146,7 @@ public class BallCharacter : PlayerController
     public override void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
 
-        this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicMaterialCombine.Minimum;
+        this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicsMaterialCombine.Minimum;
 
         this.transform.GetComponentInChildren<SphereCollider>().material.dynamicFriction = 0f;
         bodyCollider.enabled = false;
@@ -179,7 +179,7 @@ public class BallCharacter : PlayerController
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
         float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 14; //knockback that scales
-        rb.velocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
+        rb.linearVelocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
         if (GameConfigurationManager.Instance != null)
         {
             GameConfigurationManager.Instance.DisplayDamageText((int)damage, this.transform, playerSent);

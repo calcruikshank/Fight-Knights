@@ -187,8 +187,8 @@ public class PlayerControllerWithJump : MonoBehaviour
 
         if (isGroundedScript.isGrounded)
         {
-            Vector3 newVelocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, movement.z * moveSpeed);
-            rb.velocity = newVelocity;
+            Vector3 newVelocity = new Vector3(movement.x * moveSpeed, rb.linearVelocity.y, movement.z * moveSpeed);
+            rb.linearVelocity = newVelocity;
         }
     }
 
@@ -294,7 +294,7 @@ public class PlayerControllerWithJump : MonoBehaviour
             float jumpVelocity = 30f;
 
             //rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); //wavejump
-            rb.velocity = new Vector3(movement.x * moveSpeed, 0, movement.z * moveSpeed);
+            rb.linearVelocity = new Vector3(movement.x * moveSpeed, 0, movement.z * moveSpeed);
             rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
 
             if (shielding) shielding = false;
@@ -341,7 +341,7 @@ public class PlayerControllerWithJump : MonoBehaviour
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
         float knockbackValue = (20 * ((currentPercentage + damage) * (damage / 2)) / 150) + 14; //knockback that scales
-        rb.velocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
+        rb.linearVelocity = new Vector3(direction.x * knockbackValue, 0, direction.z * knockbackValue);
 
         HitImpact(direction);
         state = State.Knockback;
@@ -353,15 +353,15 @@ public class PlayerControllerWithJump : MonoBehaviour
 
 
         shielding = false;
-        if (Mathf.Abs(rb.velocity.x) <= 8 && Mathf.Abs(rb.velocity.z) <= 8)
+        if (Mathf.Abs(rb.linearVelocity.x) <= 8 && Mathf.Abs(rb.linearVelocity.z) <= 8)
         {
-            rb.velocity = new Vector2(0, 0);
+            rb.linearVelocity = new Vector2(0, 0);
             state = State.Normal;
         }
 
-        if (rb.velocity.magnitude > 0)
+        if (rb.linearVelocity.magnitude > 0)
         {
-            oppositeForce = -rb.velocity;
+            oppositeForce = -rb.linearVelocity;
             brakeSpeed = brakeSpeed + (125f * Time.deltaTime);
             rb.AddForce(oppositeForce * Time.deltaTime * brakeSpeed);
             rb.AddForce(movement * .05f); //DI
@@ -409,7 +409,7 @@ public class PlayerControllerWithJump : MonoBehaviour
     public void Parry()
     {
         if (state == State.ParryState) return;
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         isParryingTimer = 0;
         state = State.ParryState;
     }
@@ -475,7 +475,7 @@ public class PlayerControllerWithJump : MonoBehaviour
         shielding = false;
         canShieldAgainTimer = 0f;
         powerDashSpeed = sentSpeed;
-        powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.velocity.y, powerDashDirection.normalized.y);
+        powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.linearVelocity.y, powerDashDirection.normalized.y);
         state = State.PowerDashing;
         Debug.Log("powerdashing");
     }
@@ -494,7 +494,7 @@ public class PlayerControllerWithJump : MonoBehaviour
     }
     void FixedHandlePowerDashing()
     {
-        rb.velocity = new Vector3(powerDashTowards.x * powerDashSpeed, 0f, powerDashTowards.z * powerDashSpeed);
+        rb.linearVelocity = new Vector3(powerDashTowards.x * powerDashSpeed, 0f, powerDashTowards.z * powerDashSpeed);
     }
 
     void WaveDash(Vector3 powerDashDirection, float sentSpeed)
@@ -502,7 +502,7 @@ public class PlayerControllerWithJump : MonoBehaviour
         shielding = false;
         canShieldAgainTimer = 0f;
         powerDashSpeed = sentSpeed;
-        powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.velocity.y, powerDashDirection.normalized.y);
+        powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.linearVelocity.y, powerDashDirection.normalized.y);
         state = State.WaveDahsing;
     }
     void HandleWaveDashing()
@@ -519,7 +519,7 @@ public class PlayerControllerWithJump : MonoBehaviour
     }
     void FixedHandleWaveDashing()
     {
-        rb.velocity = new Vector3(powerDashTowards.x * powerDashSpeed, -10f, powerDashTowards.z * powerDashSpeed);
+        rb.linearVelocity = new Vector3(powerDashTowards.x * powerDashSpeed, -10f, powerDashTowards.z * powerDashSpeed);
     }
 
     public void ParryStun()
@@ -530,7 +530,7 @@ public class PlayerControllerWithJump : MonoBehaviour
 
     void HandleParryStunned()
     {
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         if (punchedRight)
         {
             rightHandTransform.localPosition = Vector3.MoveTowards(rightHandTransform.localPosition, new Vector3(punchRange, 0, .4f), punchSpeed * Time.deltaTime);
@@ -602,7 +602,7 @@ public class PlayerControllerWithJump : MonoBehaviour
         {
             rightHandCollider.enabled = true;
         }
-        rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+        rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         if (returningRight && rightHandTransform.localPosition.x <= 1f)
         {
             rightHandCollider.enabled = false;
@@ -633,7 +633,7 @@ public class PlayerControllerWithJump : MonoBehaviour
     void HandleGrabbed()
     {
         shielding = false;
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         this.transform.position = grabbedPositionTransform.position;
     }
     void HandleGrabbing()
@@ -645,7 +645,7 @@ public class PlayerControllerWithJump : MonoBehaviour
         returningRight = false;
         rightHandCollider.enabled = false;
         leftHandCollider.enabled = false;
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         if (punchedLeft && !releasedLeft)
         {
             leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, new Vector3(punchRange, -.4f, -.4f), punchSpeed * Time.deltaTime);
@@ -680,7 +680,7 @@ public class PlayerControllerWithJump : MonoBehaviour
         //Vector2 direction = new Vector2(rb.position.x - handLocation.x, rb.position.y - handLocation.y); //distance between explosion position and rigidbody(bluePlayer)
         //direction = direction.normalized;
         float throwValue = (14 * ((120) * (3 / 2)) / 150) + 14;
-        rb.velocity = (direction * throwValue);
+        rb.linearVelocity = (direction * throwValue);
         HitImpact(direction);
         state = State.Knockback;
     }

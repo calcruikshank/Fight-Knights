@@ -24,7 +24,7 @@ public class BowUtilityArrow : MonoBehaviour
     }
     private void Update()
     {
-        if (rb.velocity == Vector3.zero)
+        if (rb.linearVelocity == Vector3.zero)
         {
             
         }
@@ -35,7 +35,7 @@ public class BowUtilityArrow : MonoBehaviour
         if(other.gameObject.layer == 9)
         {
             Debug.Log("Collided with environment");
-            this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
         if (other.transform.parent.GetComponent<PlayerController>() != null) opponent = other.transform.parent.GetComponent<PlayerController>();
         if (opponent != null && opponent != player)
@@ -52,7 +52,7 @@ public class BowUtilityArrow : MonoBehaviour
             {
                 connected = true;
                 opponent.Grabbed(player, this.transform);
-                this.gameObject.GetComponentInChildren<Rigidbody>().velocity *= .5f;
+                this.gameObject.GetComponentInChildren<Rigidbody>().linearVelocity *= .5f;
             }
             Vector3 punchTowards = new Vector3(player.transform.right.normalized.x, 0, player.transform.right.normalized.z);
             

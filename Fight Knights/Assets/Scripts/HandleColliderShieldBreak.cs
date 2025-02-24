@@ -96,7 +96,7 @@ public class HandleColliderShieldBreak : MonoBehaviour
         {
             particle.Stop();
         }
-        this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        this.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         if (explosionPrefab != null)
         {
            Instantiate(explosionPrefab, this.transform.position, Quaternion.identity).GetComponent<HandleCollider>().SetPlayer(this.player, this.transform);

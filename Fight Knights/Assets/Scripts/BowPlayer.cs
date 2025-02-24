@@ -147,7 +147,7 @@ public class BowPlayer : PlayerController
         {
             if (diagArrowInst.transform.position.y <= bowTransformUtility.position.y)
             {
-                diagArrowInst.GetComponentInChildren<Rigidbody>().velocity = Vector3.zero;
+                diagArrowInst.GetComponentInChildren<Rigidbody>().linearVelocity = Vector3.zero;
                 //diagArrowInst.GetComponent<BowUtilityArrow>().ReleaseOpponent();
                 Collider[] collidersInDiagArrow = diagArrowInst.gameObject.GetComponentsInChildren<Collider>();
                 foreach (Collider collider in collidersInDiagArrow)
@@ -213,7 +213,7 @@ public class BowPlayer : PlayerController
         shielding = false;
         canShieldAgainTimer = 0f;
         powerDashSpeed = sentSpeed;
-        powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.velocity.y, powerDashDirection.normalized.z);
+        powerDashTowards = new Vector3(powerDashDirection.normalized.x, rb.linearVelocity.y, powerDashDirection.normalized.z);
         state = State.WaveDahsing;
     }
     protected override void CheckForPunchLeft()
@@ -230,7 +230,7 @@ public class BowPlayer : PlayerController
 
 
         if (returningLeft || punchedLeft) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
 
         if (state == State.Knockback) return;
         if (state == State.Stunned) return;
@@ -265,7 +265,7 @@ public class BowPlayer : PlayerController
 
 
         if (returningRight || punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
 
         if (state == State.Knockback) return;
         if (state == State.Stunned) return;

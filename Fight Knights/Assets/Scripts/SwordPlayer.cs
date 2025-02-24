@@ -274,13 +274,13 @@ public class SwordPlayer : PlayerController
     {
         if (!recoveringFromDash)
         {
-            Vector3 newVelocity = new Vector3(transform.right.normalized.x * 40, rb.velocity.y, transform.right.normalized.z * 30);
-            rb.velocity = newVelocity;
+            Vector3 newVelocity = new Vector3(transform.right.normalized.x * 40, rb.linearVelocity.y, transform.right.normalized.z * 30);
+            rb.linearVelocity = newVelocity;
         }
         else
         {
-            Vector3 newVelocityy = new Vector3(0, rb.velocity.y, 0);
-            rb.velocity = newVelocityy;
+            Vector3 newVelocityy = new Vector3(0, rb.linearVelocity.y, 0);
+            rb.linearVelocity = newVelocityy;
         }
     }
     protected override void HandleDash()
@@ -339,7 +339,7 @@ public class SwordPlayer : PlayerController
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (punchedRight || returningRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (state == State.Knockback) return;
         if (state == State.Grabbed) return;
         if (punchedLeftTimer > 0)
@@ -371,7 +371,7 @@ public class SwordPlayer : PlayerController
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (returningRight || punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (state == State.Knockback) return;
         if (state == State.Dashing) return;
         if (state == State.Grabbed) return;

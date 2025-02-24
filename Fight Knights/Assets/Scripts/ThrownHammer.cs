@@ -35,12 +35,12 @@ public class ThrownHammer : MonoBehaviour
         {
             player.HitImpact(this.transform.right);
             Instantiate(lightning, new Vector3(lightningBall.transform.position.x, 0, lightningBall.transform.position.z), Quaternion.identity);
-            lightningBall.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            if (this.transform.GetComponentInChildren<Rigidbody>().velocity.magnitude != 0f)
+            lightningBall.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            if (this.transform.GetComponentInChildren<Rigidbody>().linearVelocity.magnitude != 0f)
             {
                 lightningBall.gameObject.GetComponent<Rigidbody>().AddForce((this.transform.right) * (80f), ForceMode.Impulse);
             }
-            if (this.transform.GetComponentInChildren<Rigidbody>().velocity.magnitude == 0f)
+            if (this.transform.GetComponentInChildren<Rigidbody>().linearVelocity.magnitude == 0f)
             {
                 lightningBall.gameObject.GetComponent<Rigidbody>().AddForce((-this.transform.right) * (80f), ForceMode.Impulse);
             }
@@ -76,7 +76,7 @@ public class ThrownHammer : MonoBehaviour
             }
 
             Vector3 punchTowards = new Vector3(this.transform.right.normalized.x, 0, this.transform.right.normalized.z);
-            if (this.transform.GetComponentInChildren<Rigidbody>().velocity.magnitude == 0f)
+            if (this.transform.GetComponentInChildren<Rigidbody>().linearVelocity.magnitude == 0f)
             {
                 punchTowards = -punchTowards;
             }
@@ -90,7 +90,7 @@ public class ThrownHammer : MonoBehaviour
             Instantiate(lightning, new Vector3(opponent.transform.position.x, 0, opponent.transform.position.z), Quaternion.identity);
             player.EndPunchRight();
         }
-        if (other.transform.GetComponent<Environment>() != null && this.gameObject.GetComponentInChildren<Rigidbody>().velocity.magnitude != 0f)
+        if (other.transform.GetComponent<Environment>() != null && this.gameObject.GetComponentInChildren<Rigidbody>().linearVelocity.magnitude != 0f)
         {
             player.EndPunchRight();
         }

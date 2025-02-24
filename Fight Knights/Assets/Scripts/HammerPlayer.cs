@@ -204,16 +204,16 @@ public class HammerPlayer : PlayerController
             }
             if (oppositeHammerForce == Vector3.zero)
             {
-                oppositeHammerForce = -ThrownHammerRB.velocity;
+                oppositeHammerForce = -ThrownHammerRB.linearVelocity;
             }
-            if (ThrownHammerRB.velocity.magnitude > 10f)
+            if (ThrownHammerRB.linearVelocity.magnitude > 10f)
             {
                 //Debug.Log("-hammer velocity = " + oppositeHammerForce);
                 ThrownHammerRB.AddForce(oppositeHammerForce * 5 * Time.deltaTime, ForceMode.Impulse);
             }
-            if (ThrownHammerRB.velocity.magnitude <= 10f)
+            if (ThrownHammerRB.linearVelocity.magnitude <= 10f)
             {
-                ThrownHammerRB.velocity = Vector3.zero;
+                ThrownHammerRB.linearVelocity = Vector3.zero;
 
                 returnRightHammerSpeed += 300 * Time.deltaTime;
                 ThrownHammerRB.transform.position = Vector3.MoveTowards(ThrownHammerRB.transform.position, HammerInHand.transform.position, returnRightHammerSpeed * Time.deltaTime);
@@ -298,22 +298,22 @@ public class HammerPlayer : PlayerController
         if (ThrownHammerRB != null)
         {
             
-            rb.velocity = ThrownHammerRB.velocity;
+            rb.linearVelocity = ThrownHammerRB.linearVelocity;
         }
         if (returnHammer && ThrownHammer != null)
         {
             if (oppositeHammerForce == Vector3.zero)
             {
-                oppositeHammerForce = -ThrownHammerRB.velocity;
+                oppositeHammerForce = -ThrownHammerRB.linearVelocity;
             }
-            if (ThrownHammerRB.velocity.magnitude > 10f)
+            if (ThrownHammerRB.linearVelocity.magnitude > 10f)
             {
                 //Debug.Log("-hammer velocity = " + oppositeHammerForce);
                 ThrownHammerRB.AddForce(oppositeHammerForce * 5 * Time.deltaTime, ForceMode.Impulse);
             }
-            if (ThrownHammerRB.velocity.magnitude <= 10f)
+            if (ThrownHammerRB.linearVelocity.magnitude <= 10f)
             {
-                ThrownHammerRB.velocity = Vector3.zero;
+                ThrownHammerRB.linearVelocity = Vector3.zero;
 
                 returnRightHammerSpeed += 300 * Time.deltaTime;
                 ThrownHammerRB.transform.position = Vector3.MoveTowards(ThrownHammerRB.transform.position, HammerInHand.transform.position, returnRightHammerSpeed * Time.deltaTime);
@@ -345,8 +345,8 @@ public class HammerPlayer : PlayerController
         if (ThrownHammer != null)
         {
             returnHammer = true;
-            oppositeHammerForce = -ThrownHammerRB.velocity;
-            ThrownHammerRB.velocity = Vector3.zero;
+            oppositeHammerForce = -ThrownHammerRB.linearVelocity;
+            ThrownHammerRB.linearVelocity = Vector3.zero;
             returnRightHammerSpeed = 0;
         }
     }
@@ -359,7 +359,7 @@ public class HammerPlayer : PlayerController
             if (ThrownHammer != null && !returnHammer)
             {
                 returnHammer = true;
-                oppositeHammerForce = -ThrownHammerRB.velocity;
+                oppositeHammerForce = -ThrownHammerRB.linearVelocity;
                 returnRightHammerSpeed = 0;
             }
         }
@@ -368,7 +368,7 @@ public class HammerPlayer : PlayerController
             punchedRightTimer = inputBuffer;
             pressedRight = false;
         }
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (punchedLeft) return;
         if (returnHammer) return;
         if (returningRight) return;
@@ -400,7 +400,7 @@ public class HammerPlayer : PlayerController
             punchedLeftTimer = inputBuffer;
             pressedLeft = false;
         }
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (returningLeft) return;
         if (state == State.Knockback) return;
         if (lightningBallInstantiated != null) return;
@@ -443,7 +443,7 @@ public class HammerPlayer : PlayerController
             {
                 if (state == State.Dashing) returnHammer = true;
                 
-                oppositeHammerForce = -ThrownHammerRB.velocity;
+                oppositeHammerForce = -ThrownHammerRB.linearVelocity;
                 returnRightHammerSpeed = 0;
             }
         }

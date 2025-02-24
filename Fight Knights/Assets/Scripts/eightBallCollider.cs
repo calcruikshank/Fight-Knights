@@ -26,7 +26,7 @@ public class eightBallCollider : MonoBehaviour
             if (opponent.isParrying)
             {
                 opponent.Parry();
-                this.transform.parent.transform.parent.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                this.transform.parent.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                 this.transform.parent.transform.parent.GetComponent<PlayerController>().state = PlayerController.State.Normal;
                 this.transform.parent.transform.parent.GetComponent<BallCharacter>().bodyCollider.enabled = false;
                 timeBetweenCollisions = 0f;
@@ -39,7 +39,7 @@ public class eightBallCollider : MonoBehaviour
             {
                 if (this.transform.parent.transform.parent.GetComponent<PlayerController>().state != PlayerController.State.Knockback)
                 {
-                    int damage = (int)this.transform.parent.transform.parent.GetComponent<Rigidbody>().velocity.magnitude / 3;
+                    int damage = (int)this.transform.parent.transform.parent.GetComponent<Rigidbody>().linearVelocity.magnitude / 3;
                     if (damage > 12)
                     {
                         damage = 12;
@@ -49,7 +49,7 @@ public class eightBallCollider : MonoBehaviour
                         damage = 8;
                     }
                     opponent.Knockback(damage, this.transform.parent.right, this.transform.parent.GetComponent<PlayerController>());
-                    this.transform.parent.transform.parent.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    this.transform.parent.transform.parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                     this.transform.parent.transform.parent.GetComponent<PlayerController>().state = PlayerController.State.Normal;
                     this.transform.parent.transform.parent.GetComponent<BallCharacter>().bodyCollider.enabled = false;
                     timeBetweenCollisions = 0f;

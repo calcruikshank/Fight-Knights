@@ -37,7 +37,7 @@ public class RockLaunch : MonoBehaviour
         if (opponent != null && other != player)
         {
 
-            this.transform.GetComponent<HandleCollider>().HandleCollision(hitID, this.gameObject.GetComponent<Rigidbody>().velocity.magnitude / 3, opponent);
+            this.transform.GetComponent<HandleCollider>().HandleCollision(hitID, this.gameObject.GetComponent<Rigidbody>().linearVelocity.magnitude / 3, opponent);
             Physics.IgnoreCollision(other, this.transform.GetComponent<Collider>());
             Destroy(this.gameObject);
         }

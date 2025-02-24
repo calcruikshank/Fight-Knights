@@ -148,7 +148,7 @@ public class RockPlayer : PlayerController
         if (state == State.Grabbed) return;
         if (returningLeft || punchedLeft) return;
         if (punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (shielding) return;
         if (state == State.Knockback) return;
 
@@ -180,7 +180,7 @@ public class RockPlayer : PlayerController
 
         if (state == State.Grabbed) return;
         if (returningRight || punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         if (shielding) return;
         if (state == State.Knockback) return;
         if (state == State.Dashing) return;

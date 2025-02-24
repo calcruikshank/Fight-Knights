@@ -257,7 +257,7 @@ public class ClawPlayer : PlayerController
     protected override void HandleDash()
     {
         dashAnimationTime -= Time.deltaTime;
-        rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+        rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         if (dashAnimationTime <= 0f)
         {
             isDashing = false;
@@ -328,7 +328,7 @@ public class ClawPlayer : PlayerController
         if (state == State.Stunned) return;
         if (returningLeft || punchedLeft) return;
         if (punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         
         if (state == State.Knockback) return;
         if (state == State.Grabbed) return;
@@ -360,7 +360,7 @@ public class ClawPlayer : PlayerController
         if (state == State.Stunned) return;
         if (punchedLeft) return;
         if (returningRight || punchedRight) return;
-        if (state == State.WaveDahsing && rb.velocity.magnitude > 10f) return;
+        if (state == State.WaveDahsing && rb.linearVelocity.magnitude > 10f) return;
         
         if (state == State.Knockback) return;
         if (state == State.Dashing) return;

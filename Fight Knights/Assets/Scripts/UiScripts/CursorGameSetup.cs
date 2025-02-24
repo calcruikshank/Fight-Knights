@@ -50,7 +50,7 @@ public class CursorGameSetup : MonoBehaviour
         if (movement.x != 0 || movement.z != 0)
         {
             lastMoveDir = movement;
-            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10f);
     }
@@ -59,7 +59,7 @@ public class CursorGameSetup : MonoBehaviour
     {
         if (!isReadied)
         {
-            rb.velocity = (movement * moveSpeed);
+            rb.linearVelocity = (movement * moveSpeed);
         }
     }
 
