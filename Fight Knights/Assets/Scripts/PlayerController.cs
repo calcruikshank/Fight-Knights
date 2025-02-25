@@ -487,6 +487,13 @@ public class PlayerController : NetworkBehaviour
 
     public virtual void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
+        if (NetworkManager.Singleton != null)
+        {
+            if (!IsOwner)
+            {
+                return;
+            }
+        }
         if (grabbing)
         {
             EndGrab();
@@ -526,8 +533,13 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void HandleKnockback()
     {
-        
-
+        if (NetworkManager.Singleton != null)
+        {
+            if (!IsOwner)
+            {
+                return;
+            }
+        }
         if (knockbackSmoke != null)
         {
             knockbackSmoke.gameObject.SetActive(true);
