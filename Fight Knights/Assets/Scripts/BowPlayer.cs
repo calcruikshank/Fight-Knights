@@ -202,13 +202,13 @@ public class BowPlayer : PlayerController
     [ServerRpc]
     private void SpawnArrowServerRpc(Vector3 direction, float arrowSpeed, float heldArrowTime, bool maxCharged)
     {
-        // 1. Instantiate on the SERVER
-        GameObject arrow = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
-        var netObj = arrow.GetComponent<NetworkObject>();
+        SpawnArrowClientRpc(transform.right, arrowSpeed, heldArrowTime, maxCharged);
+    }
 
-        // 2. Spawn it so all clients see the arrow
-        //    (Optionally pass OwnerClientId if you want "client authority" on this arrow)
-        netObj.SpawnWithOwnership(OwnerClientId);
+    [ClientRpc]
+    private void SpawnArrowClientRpc(Vector3 direction, float arrowSpeed, float heldArrowTime, bool maxCharged)
+    {
+        GameObject arrow = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
 
         // 3. Apply force, damage, etc., just like your offline code
         Rigidbody rb = arrow.GetComponent<Rigidbody>();

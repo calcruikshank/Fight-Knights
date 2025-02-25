@@ -15,7 +15,7 @@ C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
 -logFile
 Logs/AssetImportWorker20.log
 -srvPort
-58358
+60268
 -job-worker-count
 7
 -background-job-worker-count
@@ -59,12 +59,12 @@ C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [29144]  Target information:
+Player connection [17476]  Target information:
 
-Player connection [29144]  * "[IP] 192.168.0.35 [Port] 0 [Flags] 2 [Guid] 797804626 [EditorId] 797804626 [Version] 1048832 [Id] WindowsEditor(7,Calvins) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [17476]  * "[IP] 192.168.0.35 [Port] 0 [Flags] 2 [Guid] 1048034118 [EditorId] 1048034118 [Version] 1048832 [Id] WindowsEditor(7,Calvins) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29144] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [29144] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [17476] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [17476] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 7
 [Physics::Module] Initialized fallback backend.
 [Physics::Module] Id: 0xdecafbad
@@ -75,8 +75,8 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 1.52 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Refreshing native plugins compatible for Editor in 64.67 ms, found 4 plugins.
+Preloading 1 native plugins for Editor in 2.24 ms.
 Initialize engine version: 6000.0.32f1 (b2e806cf271c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/Users/calcr/Documents/GitHub/Fight-Knights/Fight Knights/Assets
@@ -91,7 +91,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56100
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56852
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -99,46 +99,46 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.007000 seconds.
-- Loaded All Assemblies, in  0.372 seconds
+Registered in 0.007954 seconds.
+- Loaded All Assemblies, in  0.729 seconds
 Native extension for LinuxStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 238 ms
+Android Extension - Scanning For ADB Devices 284 ms
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.607 seconds
-Domain Reload Profiling: 976ms
-	BeginReloadAssembly (118ms)
+- Finished resetting the current domain, in  0.700 seconds
+Domain Reload Profiling: 1426ms
+	BeginReloadAssembly (136ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (36ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (49ms)
-	LoadAllAssembliesAndSetupDomain (155ms)
-		LoadAssemblies (116ms)
+	RebuildCommonClasses (191ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (328ms)
+		LoadAssemblies (133ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (152ms)
-			TypeCache.Refresh (150ms)
-				TypeCache.ScanAssembly (139ms)
+		AnalyzeDomain (325ms)
+			TypeCache.Refresh (323ms)
+				TypeCache.ScanAssembly (310ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (607ms)
+	FinalizeReload (700ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (567ms)
+		SetupLoadedEditorAssemblies (644ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (347ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (46ms)
-			ProcessInitializeOnLoadAttributes (112ms)
-			ProcessInitializeOnLoadMethodAttributes (58ms)
+			InitializePlatformSupportModulesInManaged (408ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (115ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -147,219 +147,365 @@ Domain Reload Profiling: 976ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.683 seconds
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.985 seconds
+Refreshing native plugins compatible for Editor in 5.59 ms, found 4 plugins.
 Native extension for LinuxStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore..ctor (System.String directory) [0x0006e] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:55 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore.GetMain () [0x00000] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:36 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.WorkflowMainEditorContext..ctor (Unity.Multiplayer.Playmode.VirtualProjects.Editor.MainEditorContext mainEditorContext) [0x0002c] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Contexts\WorkflowMainEditorContext.cs:15 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow.InitializeMPPMContexts () [0x00018] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:198 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow+<>c.<.cctor>b__22_0 () [0x00036] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:85 
+  at Unity.Multiplayer.Playmode.VirtualProjects.Editor.EditorContexts.SendReadyEvent () [0x00038] in .\Library\PackageCache\com.unity.multiplayer.playmode\VirtualProjects\Editor\Contexts\EditorContexts.cs:56 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <ed969b0e627d471da4848289f9c322df>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <ed969b0e627d471da4848289f9c322df>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <ed969b0e627d471da4848289f9c322df>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x00056] in <878b6c863a9e4c42bf8483a7b6c60e0b>:0 
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.678 seconds
-Domain Reload Profiling: 1356ms
-	BeginReloadAssembly (157ms)
+- Finished resetting the current domain, in  1.827 seconds
+Domain Reload Profiling: 2804ms
+	BeginReloadAssembly (175ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (66ms)
+	LoadAllAssembliesAndSetupDomain (687ms)
+		LoadAssemblies (412ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (374ms)
+			TypeCache.Refresh (240ms)
+				TypeCache.ScanAssembly (208ms)
+			BuildScriptInfoCaches (119ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1827ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1346ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (21ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (189ms)
+			ProcessInitializeOnLoadAttributes (463ms)
+			ProcessInitializeOnLoadMethodAttributes (651ms)
+			AfterProcessingInitializeOnLoad (14ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 16.43 ms, found 4 plugins.
+Preloading 1 native plugins for Editor in 0.17 ms.
+Unloading 232 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8912 unused Assets / (5.8 MB). Loaded Objects now: 9618.
+Memory consumption went from 218.3 MB to 212.5 MB.
+Total: 24.017000 ms (FindLiveObjects: 2.445400 ms CreateObjectMapping: 2.543000 ms MarkObjects: 14.619500 ms  DeleteObjects: 4.407000 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 8.87 ms, found 4 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8880 unused Assets / (5.6 MB). Loaded Objects now: 9618.
+Memory consumption went from 174.3 MB to 168.6 MB.
+Total: 22.534600 ms (FindLiveObjects: 2.323000 ms CreateObjectMapping: 2.226400 ms MarkObjects: 12.276700 ms  DeleteObjects: 5.706600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.938 seconds
+Refreshing native plugins compatible for Editor in 5.52 ms, found 4 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore..ctor (System.String directory) [0x0006e] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:55 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore.GetMain () [0x00000] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:36 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.WorkflowMainEditorContext..ctor (Unity.Multiplayer.Playmode.VirtualProjects.Editor.MainEditorContext mainEditorContext) [0x0002c] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Contexts\WorkflowMainEditorContext.cs:15 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow.InitializeMPPMContexts () [0x00018] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:198 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow+<>c.<.cctor>b__22_0 () [0x00036] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:85 
+  at Unity.Multiplayer.Playmode.VirtualProjects.Editor.EditorContexts.SendReadyEvent () [0x00038] in .\Library\PackageCache\com.unity.multiplayer.playmode\VirtualProjects\Editor\Contexts\EditorContexts.cs:56 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <ed969b0e627d471da4848289f9c322df>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <ed969b0e627d471da4848289f9c322df>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <ed969b0e627d471da4848289f9c322df>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x00056] in <878b6c863a9e4c42bf8483a7b6c60e0b>:0 
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.106 seconds
+Domain Reload Profiling: 2040ms
+	BeginReloadAssembly (242ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (62ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (581ms)
+		LoadAssemblies (416ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (281ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (254ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1107ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (888ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (149ms)
+			ProcessInitializeOnLoadAttributes (336ms)
+			ProcessInitializeOnLoadMethodAttributes (373ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 6.02 ms, found 4 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8910 unused Assets / (5.1 MB). Loaded Objects now: 9633.
+Memory consumption went from 200.3 MB to 195.2 MB.
+Total: 11.277000 ms (FindLiveObjects: 1.077000 ms CreateObjectMapping: 1.013800 ms MarkObjects: 6.073800 ms  DeleteObjects: 3.110700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.821 seconds
+Refreshing native plugins compatible for Editor in 4.68 ms, found 4 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore..ctor (System.String directory) [0x0006e] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:55 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore.GetMain () [0x00000] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:36 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.WorkflowMainEditorContext..ctor (Unity.Multiplayer.Playmode.VirtualProjects.Editor.MainEditorContext mainEditorContext) [0x0002c] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Contexts\WorkflowMainEditorContext.cs:15 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow.InitializeMPPMContexts () [0x00018] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:198 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow+<>c.<.cctor>b__22_0 () [0x00036] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:85 
+  at Unity.Multiplayer.Playmode.VirtualProjects.Editor.EditorContexts.SendReadyEvent () [0x00038] in .\Library\PackageCache\com.unity.multiplayer.playmode\VirtualProjects\Editor\Contexts\EditorContexts.cs:56 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <ed969b0e627d471da4848289f9c322df>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <ed969b0e627d471da4848289f9c322df>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <ed969b0e627d471da4848289f9c322df>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x00056] in <878b6c863a9e4c42bf8483a7b6c60e0b>:0 
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.055 seconds
+Domain Reload Profiling: 1872ms
+	BeginReloadAssembly (197ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (27ms)
-	RebuildCommonClasses (36ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (435ms)
-		LoadAssemblies (327ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (523ms)
+		LoadAssemblies (365ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (203ms)
-			TypeCache.Refresh (145ms)
-				TypeCache.ScanAssembly (131ms)
-			BuildScriptInfoCaches (46ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (678ms)
+		AnalyzeDomain (247ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (3ms)
+			BuildScriptInfoCaches (220ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1056ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (541ms)
+		SetupLoadedEditorAssemblies (846ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (19ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (98ms)
-			ProcessInitializeOnLoadAttributes (348ms)
-			ProcessInitializeOnLoadMethodAttributes (66ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (335ms)
+			ProcessInitializeOnLoadMethodAttributes (346ms)
 			AfterProcessingInitializeOnLoad (5ms)
-			EditorAssembliesLoaded (0ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.21 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 228 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 4505 unused Assets / (3.2 MB). Loaded Objects now: 5227.
-Memory consumption went from 180.3 MB to 177.1 MB.
-Total: 8.388600 ms (FindLiveObjects: 0.758700 ms CreateObjectMapping: 0.319800 ms MarkObjects: 5.528500 ms  DeleteObjects: 1.779500 ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 5.03 ms, found 4 plugins.
+Preloading 1 native plugins for Editor in 0.10 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8960 unused Assets / (5.2 MB). Loaded Objects now: 9686.
+Memory consumption went from 199.3 MB to 194.1 MB.
+Total: 9.970600 ms (FindLiveObjects: 1.007000 ms CreateObjectMapping: 0.428900 ms MarkObjects: 5.285000 ms  DeleteObjects: 3.248800 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 698942.793586 seconds.
-  path: Assets/Prefabs/arrowParent.prefab
-  artifactKey: Guid(d25e6c24f3179d4418a69898b1fa5249) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/arrowParent.prefab using Guid(d25e6c24f3179d4418a69898b1fa5249) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3bd3e88f13272978462f09fb65cb8690') in 1.1019771 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Prefabs/GroundedParent.prefab
-  artifactKey: Guid(9ed622646f4d38c4a86feff3eac6c553) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/GroundedParent.prefab using Guid(9ed622646f4d38c4a86feff3eac6c553) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8cfa68f1405dc41ae3ba3e48c7b38f39') in 0.0022685 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Prefabs/punch_characterMIRROR (1).obj
-  artifactKey: Guid(262ef8f0662722b439001b0638c87991) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/punch_characterMIRROR (1).obj using Guid(262ef8f0662722b439001b0638c87991) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4d4a4217e649fac4dcf838a9dfa71b9a') in 0.0667672 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Prefabs/SplatterParent.prefab
-  artifactKey: Guid(d5c431f2ca1a65f4784fda2c31a3e8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/SplatterParent.prefab using Guid(d5c431f2ca1a65f4784fda2c31a3e8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '30663448b555d53355fd37d40fd02af2') in 0.0153265 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefabs/soccerball.fbx
-  artifactKey: Guid(830f415b30b56db4182815ff24cdb5a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/soccerball.fbx using Guid(830f415b30b56db4182815ff24cdb5a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b6987783c3e8f389d6bff3fd8134c5d0') in 0.0417941 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 20
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Prefabs/PointBetweenPlayers.prefab
-  artifactKey: Guid(415a0831db2bd0d44926fe00ee5969df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PointBetweenPlayers.prefab using Guid(415a0831db2bd0d44926fe00ee5969df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e3021f4c12556a82501effc7c6a89b18') in 0.0019677 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Prefabs/player_bow.png
-  artifactKey: Guid(ae131a6842b9a2c4e9bb05d4f0af3318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/player_bow.png using Guid(ae131a6842b9a2c4e9bb05d4f0af3318) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ee2f737d3d2c1f5ea51af1bdc5ac4bc5') in 0.022031 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Shield.prefab
-  artifactKey: Guid(71528fb4ac98ada4d8f444d52809e318) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Shield.prefab using Guid(71528fb4ac98ada4d8f444d52809e318) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b11f0e6203d7c2b95bc43bc6865654b4') in 0.0134556 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Player.prefab
-  artifactKey: Guid(8e5008c09ccbf1545b208da825be92af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Player.prefab using Guid(8e5008c09ccbf1545b208da825be92af) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '267e40a8c1e32b51d11a620e7d1f19d5') in 0.0172328 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/SoccerBallParent.prefab
-  artifactKey: Guid(88af9ab4824cf39458f24758c778f9c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/SoccerBallParent.prefab using Guid(88af9ab4824cf39458f24758c778f9c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd8de06ef6bc584f0bced9dcc14c0cf8') in 0.017358 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 52
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Scenes/Lightning.unity
-  artifactKey: Guid(2ea1c22bf63210a44bfb30b7e365be3e) Importer(2089858483,192608db42251d675da83286b1cce702)
-Start importing Assets/Scenes/Lightning.unity using Guid(2ea1c22bf63210a44bfb30b7e365be3e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2561c4182181c3427a6171f2807b46f8') in 0.1274156 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/Prefabs/PlayerRing.prefab
-  artifactKey: Guid(332108fdee5e66f4693f314299618e5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/PlayerRing.prefab using Guid(332108fdee5e66f4693f314299618e5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bd4dc93854c8f3b989fce188d4479296') in 0.0145118 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000037 seconds.
-  path: Assets/Prefabs/player_ring.png
-  artifactKey: Guid(e83249bf782589b4787272b7c91d923c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/player_ring.png using Guid(e83249bf782589b4787272b7c91d923c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d8b3d7207940c6d2d1fecefe83c7314') in 0.0131165 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Prefabs/goal 1.prefab
-  artifactKey: Guid(b57ceb9c0974a0d4289e974b92062861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/goal 1.prefab using Guid(b57ceb9c0974a0d4289e974b92062861) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8549e8fff6d3aa820ed496f24261fbce') in 0.0204429 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 194
-
+Prepare: number of updated asset objects reloaded= 0
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.657 seconds
-Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.806 seconds
+Refreshing native plugins compatible for Editor in 4.87 ms, found 4 plugins.
 Native extension for LinuxStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore..ctor (System.String directory) [0x0006e] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:55 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.ProjectDataStore.GetMain () [0x00000] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Configuration\ProjectDataStore.cs:36 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.WorkflowMainEditorContext..ctor (Unity.Multiplayer.Playmode.VirtualProjects.Editor.MainEditorContext mainEditorContext) [0x0002c] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Contexts\WorkflowMainEditorContext.cs:15 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow.InitializeMPPMContexts () [0x00018] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:198 
+  at Unity.Multiplayer.Playmode.Workflow.Editor.VirtualProjectWorkflow+<>c.<.cctor>b__22_0 () [0x00036] in .\Library\PackageCache\com.unity.multiplayer.playmode\Workflow\Editor\Workflow\VirtualProjectWorkflow.cs:85 
+  at Unity.Multiplayer.Playmode.VirtualProjects.Editor.EditorContexts.SendReadyEvent () [0x00038] in .\Library\PackageCache\com.unity.multiplayer.playmode\VirtualProjects\Editor\Contexts\EditorContexts.cs:56 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <ed969b0e627d471da4848289f9c322df>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <ed969b0e627d471da4848289f9c322df>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <ed969b0e627d471da4848289f9c322df>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x00056] in <878b6c863a9e4c42bf8483a7b6c60e0b>:0 
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.691 seconds
-Domain Reload Profiling: 1344ms
-	BeginReloadAssembly (215ms)
+- Finished resetting the current domain, in  1.036 seconds
+Domain Reload Profiling: 1838ms
+	BeginReloadAssembly (188ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (18ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (64ms)
+		CreateAndSetChildDomain (49ms)
 	RebuildCommonClasses (35ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (27ms)
-	LoadAllAssembliesAndSetupDomain (362ms)
-		LoadAssemblies (314ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (518ms)
+		LoadAssemblies (367ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (141ms)
-			TypeCache.Refresh (5ms)
+		AnalyzeDomain (240ms)
+			TypeCache.Refresh (7ms)
 				TypeCache.ScanAssembly (0ms)
-			BuildScriptInfoCaches (123ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (691ms)
+			BuildScriptInfoCaches (218ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1037ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (511ms)
+		SetupLoadedEditorAssemblies (841ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (18ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (101ms)
-			ProcessInitializeOnLoadAttributes (332ms)
-			ProcessInitializeOnLoadMethodAttributes (48ms)
-			AfterProcessingInitializeOnLoad (7ms)
-			EditorAssembliesLoaded (0ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (135ms)
+			ProcessInitializeOnLoadAttributes (330ms)
+			ProcessInitializeOnLoadMethodAttributes (346ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 4504 unused Assets / (3.7 MB). Loaded Objects now: 5315.
-Memory consumption went from 161.3 MB to 157.6 MB.
-Total: 7.373200 ms (FindLiveObjects: 0.588000 ms CreateObjectMapping: 0.189700 ms MarkObjects: 4.635100 ms  DeleteObjects: 1.958500 ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 5.24 ms, found 4 plugins.
+Preloading 1 native plugins for Editor in 0.09 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8960 unused Assets / (4.3 MB). Loaded Objects now: 9689.
+Memory consumption went from 199.3 MB to 195.0 MB.
+Total: 9.903900 ms (FindLiveObjects: 1.153500 ms CreateObjectMapping: 0.735100 ms MarkObjects: 5.272000 ms  DeleteObjects: 2.741700 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 732316.019036 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLitForwardPass.hlsl
+  artifactKey: Guid(d0ccc42c5a0934462a0ff237772dceff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLitForwardPass.hlsl using Guid(d0ccc42c5a0934462a0ff237772dceff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '45d07ceeb52a749173d2fe7ea5430bca') in 0.062273 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitInput.hlsl
+  artifactKey: Guid(ad863d097888f42c6bcf419efb2946c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitInput.hlsl using Guid(ad863d097888f42c6bcf419efb2946c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '992a4b165438d7f204bb75578f76ba5b') in 0.0012171 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitForwardPass.hlsl
+  artifactKey: Guid(ee447e65526c7db45a978c16b28827a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitForwardPass.hlsl using Guid(ee447e65526c7db45a978c16b28827a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '43b3b2e2d9bb96f3c8aa4bdefbd6156d') in 0.0012926 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLitGBufferPass.hlsl
+  artifactKey: Guid(ca0e14e5bf6ac934086f42ca329f4ef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLitGBufferPass.hlsl using Guid(ca0e14e5bf6ac934086f42ca329f4ef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '26defd52ac1b455895578fee0e2bd88d') in 0.0014069 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitMetaPass.hlsl
+  artifactKey: Guid(ffc632d1e38ef4682807a89afb2b966f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitMetaPass.hlsl using Guid(ffc632d1e38ef4682807a89afb2b966f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8a27c72c401e888e590d07b9106efa66') in 0.0013611 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitDepthNormalsPass.hlsl
+  artifactKey: Guid(a63ccbef6bed14464a35b8a62ee9b775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitDepthNormalsPass.hlsl using Guid(a63ccbef6bed14464a35b8a62ee9b775) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc008294f83197103197e4116512ddc6') in 0.0013963 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLitInput.hlsl
+  artifactKey: Guid(01fa3f8c89aa44160b9a735fc22362d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Shaders/Particles/ParticlesSimpleLitInput.hlsl using Guid(01fa3f8c89aa44160b9a735fc22362d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2f657d5743577a2915eff41187fa33f5') in 0.0015987 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
