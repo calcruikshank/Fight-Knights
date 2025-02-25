@@ -102,7 +102,6 @@ public class PlayerController : NetworkBehaviour
         base.OnNetworkSpawn();
         // Only apply the local device/scheme if we own this object
         if (!IsOwner) return;
-
         _playerInput = GetComponent<PlayerInput>();
         // Retrieve the local player's config from PlayerConfigurationManager
 
@@ -120,20 +119,33 @@ public class PlayerController : NetworkBehaviour
         // so that it picks up exactly what the user was using offline
         if (_playerInput != null)
         {
-            _playerInput.SwitchCurrentControlScheme(
-                localConfig.ControlScheme,
-                new InputDevice[] { localConfig.CurrentDevice }
-            );
+            var controlScheme = localConfig.ControlScheme; // e.g. “Gamepad” or “Keyboard & Mouse”
 
-            // If you need color, team, etc.:
-            var teamComponent = GetComponent<TeamID>();
-            if (teamComponent != null)
+            // Build up the list of InputDevices we want to pass
+            var deviceList = new List<InputDevice>();
+
+            // If your localConfig.CurrentDevice is the only device you stored, that might be just “Keyboard”
+            // but for keyboard + mouse, you need both:
+            if (controlScheme == "Keyboard and Mouse")
             {
-                teamComponent.SetColorOnMat(localConfig.PlayerColor);
-                teamComponent.SetTeamID(localConfig.PlayerTeam);
+                if (Keyboard.current != null)
+                    deviceList.Add(Keyboard.current);
+                if (Mouse.current != null)
+                    deviceList.Add(Mouse.current);
+            }
+            else if (controlScheme == "Gamepad")
+            {
+                // Example if you only want to set Gamepad
+                if (Gamepad.current != null)
+                    deviceList.Add(Gamepad.current);
             }
 
-            // Make sure input is active
+            // Finally, switch to that scheme with all relevant devices
+            _playerInput.SwitchCurrentControlScheme(
+                controlScheme,
+                devices: deviceList.ToArray()
+            );
+
             _playerInput.ActivateInput();
         }
     }
@@ -1196,7 +1208,6 @@ public class PlayerController : NetworkBehaviour
     protected virtual void Look()
     {
         if (state == State.Knockback) return;
-        Debug.Log("Client is looking " + OwnerClientId);
         transform.right = Vector3.MoveTowards(transform.right, lastLookedPosition, 100 * Time.deltaTime);
     }
 
@@ -1421,26 +1432,6 @@ public class PlayerController : NetworkBehaviour
         {
             lookDirection = value.Get<Vector2>();
         }
-        //UpdateRotationOnServerRpc(value.Get<Vector2>());
-    }
-    [ServerRpc]
-    private void UpdateRotationOnServerRpc(Vector2 newLookDir)
-    {
-        UpdateRotationOnClientRpc(newLookDir);
-    }
-
-    [ClientRpc]
-    private void UpdateRotationOnClientRpc(Vector2 newLookDir)
-    {
-        if (IsOwner)
-        {
-            // The server does the actual rotation
-            Vector3 lookTowards = new Vector3(newLookDir.x, 0, newLookDir.y);
-            if (lookTowards.magnitude > 0.01f)
-            {
-                transform.right = lookTowards.normalized;
-            }
-        }
     }
 
     // -----------------------------------------------------
@@ -1448,8 +1439,6 @@ public class PlayerController : NetworkBehaviour
     // -----------------------------------------------------
     void OnMouseMove(InputValue value)
     {
-        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
-
         Debug.Log("mouse movement " + " no raycast though ");
         Vector2 mousePosition = value.Get<Vector2>();
 
