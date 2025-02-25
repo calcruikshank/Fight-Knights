@@ -72,6 +72,10 @@ public class PlayerController : NetworkBehaviour
         if (!IsOffline())
         {
             var netTransform = gameObject.AddComponent<NetworkTransform>();
+            netTransform.Interpolate = false;
+            netTransform.SyncScaleX = false;
+            netTransform.SyncScaleY = false;
+            netTransform.SyncScaleZ = false;
             var netRigidbody = gameObject.AddComponent<NetworkRigidbody>();
         }
         Application.targetFrameRate = 600;
@@ -140,10 +144,7 @@ public class PlayerController : NetworkBehaviour
     {
         // If we're online, only the server runs the core logic;
         // If we're offline, run it locally.
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
+        
         switch (state)
         {
             case State.Normal:
@@ -207,10 +208,6 @@ public class PlayerController : NetworkBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         switch (state)
         {
             case State.Normal:
@@ -255,6 +252,10 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void FixedHandleMovement()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         float yVelo;
         if (rb.linearVelocity.y < 0)
         {
@@ -494,6 +495,7 @@ public class PlayerController : NetworkBehaviour
 
     public virtual void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
+        HitImpact(direction);
         if (!IsOffline()) // means we are online
         {
             if (!IsServer) return;
@@ -533,7 +535,6 @@ public class PlayerController : NetworkBehaviour
         {
             GameConfigurationManager.Instance.DisplayDamageText((int)damage, this.transform, playerSent);
         }
-        HitImpact(direction);
         state = State.Knockback;
     }
     protected virtual void HandleKnockback()
@@ -658,10 +659,6 @@ public class PlayerController : NetworkBehaviour
                 isParrying = false;
             }
 
-            if (!shield.gameObject.activeSelf)
-            {
-                EnableShieldServerRpc(true);
-            }
             shield.gameObject.SetActive(true);
 
         }
@@ -669,22 +666,9 @@ public class PlayerController : NetworkBehaviour
         {
             isParrying = false;
             shield.gameObject.SetActive(false);
-            EnableShieldServerRpc(false);
         }
     }
-    [ServerRpc (RequireOwnership = false)]
-    private void EnableShieldServerRpc(bool enabled)
-    {
-        EnableShieldClientRpc(enabled);
-    }
-    [ClientRpc (RequireOwnership = false)]
-    private void EnableShieldClientRpc(bool enabled)
-    {
-        if (!IsServer)
-        {
-            shield.gameObject.SetActive(enabled);
-        }
-    }
+   
 
     public void Parry()
     {
@@ -717,7 +701,6 @@ public class PlayerController : NetworkBehaviour
             if (!IsServer) return;
         }
         shield.gameObject.SetActive(true);
-        EnableShieldServerRpc(true);
         Time.timeScale = .2f;
         isParryingTimer += Time.deltaTime;
 
@@ -1007,6 +990,10 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void HandleDash()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         dashTimer -= Time.deltaTime;
         moveSpeed = moveSpeedSetter + 10f;
         if (dashTimer <= 0)
@@ -1019,6 +1006,10 @@ public class PlayerController : NetworkBehaviour
 
     public void Grab(PlayerController opponent, Transform grabbedTransform)
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         if (state == State.Grabbed) return;
         opponent.Grabbed(this, grabbedTransform);
         this.opponent = opponent;
@@ -1027,6 +1018,10 @@ public class PlayerController : NetworkBehaviour
 
     public void Grabbed(PlayerController playerGrabbing, Transform grabbedTransform)
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         shielding = false;
         EndPunchLeft();
         EndPunchRight();
@@ -1036,7 +1031,11 @@ public class PlayerController : NetworkBehaviour
     }
     protected void HandleGrabbed()
     {
-        
+
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         shielding = false;
         rb.linearVelocity = Vector3.zero;
         if (grabbedPositionTransform != null)
@@ -1049,6 +1048,10 @@ public class PlayerController : NetworkBehaviour
     protected void HandleGrabbing()
     {
 
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         returnSpeed = 15f;
 
         returningLeft = false;
@@ -1083,6 +1086,10 @@ public class PlayerController : NetworkBehaviour
     }
     public void Throw(Vector3 direction)
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         if (animatorUpdated != null)
         {
             SetAnimatorToKnockback();
@@ -1120,7 +1127,6 @@ public class PlayerController : NetworkBehaviour
     {
         isParrying = true;
         shield.gameObject.SetActive(true);
-        EnableShieldServerRpc(true);
         parryTimer = 0f;
         state = State.AirDodging;
     }
@@ -1131,7 +1137,6 @@ public class PlayerController : NetworkBehaviour
         {
             isParrying = false;
             shield.gameObject.SetActive(false);
-            EnableShieldServerRpc(false);
             shielding = false;
         }
     }
@@ -1424,8 +1429,9 @@ public class PlayerController : NetworkBehaviour
     {
         return NetworkManager.Singleton == null || !NetworkManager.Singleton.IsListening;
     }
+
     // -----------------------------------------------------
-    // New approach: Each local input callback checks for offline mode or IsOwner
+    // OnMove
     // -----------------------------------------------------
     void OnMove(InputValue value)
     {
@@ -1450,15 +1456,21 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnMoveServerRpc(Vector2 direction)
     {
-        inputMovement = direction;
-        lookDirection = direction;
+        // Broadcast to all clients (including Host client)
+        OnMoveClientRpc(direction);
     }
 
     [ClientRpc]
     private void OnMoveClientRpc(Vector2 direction)
     {
+            inputMovement = direction;
+            lookDirection = direction;
+       
     }
 
+    // -----------------------------------------------------
+    // OnMouseMove
+    // -----------------------------------------------------
     void OnMouseMove(InputValue value)
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1488,24 +1500,34 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnMouseMoveServerRpc(Vector2 mousePosition)
     {
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
-        {
-            lookDirection = new Vector2(
-                hit.point.x - transform.position.x,
-                hit.point.z - transform.position.z
-            );
-        }
+        // Replicate to all clients
+        OnMouseMoveClientRpc(mousePosition);
     }
 
+    [ClientRpc]
+    private void OnMouseMoveClientRpc(Vector2 mousePosition)
+    {
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
+            {
+                lookDirection = new Vector2(
+                    hit.point.x - transform.position.x,
+                    hit.point.z - transform.position.z
+                );
+            }
+      
+    }
+
+    // -----------------------------------------------------
+    // OnPunchRight
+    // -----------------------------------------------------
     void OnPunchRight()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
 
         if (IsOffline())
         {
-            // Offline
             pressedRight = true;
             releasedRight = false;
         }
@@ -1519,10 +1541,20 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnPunchRightServerRpc()
     {
-        pressedRight = true;
-        releasedRight = false;
+        OnPunchRightClientRpc();
     }
 
+    [ClientRpc]
+    private void OnPunchRightClientRpc()
+    {
+            pressedRight = true;
+            releasedRight = false;
+      
+    }
+
+    // -----------------------------------------------------
+    // OnPunchLeft
+    // -----------------------------------------------------
     void OnPunchLeft()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1542,10 +1574,20 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnPunchLeftServerRpc()
     {
-        pressedLeft = true;
-        releasedLeft = false;
+        OnPunchLeftClientRpc();
     }
 
+    [ClientRpc]
+    private void OnPunchLeftClientRpc()
+    {
+            pressedLeft = true;
+            releasedLeft = false;
+        
+    }
+
+    // -----------------------------------------------------
+    // OnReleaseRight
+    // -----------------------------------------------------
     void OnReleaseRight()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1565,10 +1607,20 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnReleaseRightServerRpc()
     {
-        pressedRight = false;
-        releasedRight = true;
+        OnReleaseRightClientRpc();
     }
 
+    [ClientRpc]
+    private void OnReleaseRightClientRpc()
+    {
+            pressedRight = false;
+            releasedRight = true;
+      
+    }
+
+    // -----------------------------------------------------
+    // OnReleaseLeft
+    // -----------------------------------------------------
     void OnReleaseLeft()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1588,11 +1640,21 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnReleaseLeftServerRpc()
     {
-        pressedLeft = false;
-        releasedLeft = true;
+        OnReleaseLeftClientRpc();
     }
 
-    // AltPunchRight/Left can simply call the same logic:
+    [ClientRpc]
+    private void OnReleaseLeftClientRpc()
+    {
+            pressedLeft = false;
+            releasedLeft = true;
+      
+    }
+
+    // -----------------------------------------------------
+    // AltPunchRight / AltPunchLeft / AltReleaseRight / AltReleaseLeft
+    // (They call the same ServerRpcs or new ones. Example reuses the same.)
+    // -----------------------------------------------------
     void OnAltPunchRight()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1657,6 +1719,9 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
+    // -----------------------------------------------------
+    // OnShield
+    // -----------------------------------------------------
     void OnShield()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1678,12 +1743,22 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnShieldServerRpc()
     {
-        pressedShield = true;
-        releasedShield = false;
-        airDodged = true;
-        releasedAirDodged = false;
+        OnShieldClientRpc();
     }
 
+    [ClientRpc]
+    private void OnShieldClientRpc()
+    {
+            pressedShield = true;
+            releasedShield = false;
+            airDodged = true;
+            releasedAirDodged = false;
+       
+    }
+
+    // -----------------------------------------------------
+    // OnReleaseShield
+    // -----------------------------------------------------
     void OnReleaseShield()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1705,12 +1780,22 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnReleaseShieldServerRpc()
     {
-        releasedShield = true;
-        pressedShield = false;
-        airDodged = false;
-        releasedAirDodged = true;
+        OnReleaseShieldClientRpc();
     }
 
+    [ClientRpc]
+    private void OnReleaseShieldClientRpc()
+    {
+            releasedShield = true;
+            pressedShield = false;
+            airDodged = false;
+            releasedAirDodged = true;
+       
+    }
+
+    // -----------------------------------------------------
+    // OnDash
+    // -----------------------------------------------------
     void OnDash()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1730,10 +1815,20 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnDashServerRpc()
     {
-        pressedDash = true;
-        releasedDash = false;
+        OnDashClientRpc();
     }
 
+    [ClientRpc]
+    private void OnDashClientRpc()
+    {
+            pressedDash = true;
+            releasedDash = false;
+        
+    }
+
+    // -----------------------------------------------------
+    // OnReleaseDash
+    // -----------------------------------------------------
     void OnReleaseDash()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1753,10 +1848,20 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnReleaseDashServerRpc()
     {
-        pressedDash = false;
-        releasedDash = true;
+        OnReleaseDashClientRpc();
     }
 
+    [ClientRpc]
+    private void OnReleaseDashClientRpc()
+    {
+            pressedDash = false;
+            releasedDash = true;
+        
+    }
+
+    // -----------------------------------------------------
+    // OnAButtonDown
+    // -----------------------------------------------------
     void OnAButtonDown()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1776,10 +1881,20 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnAButtonDownServerRpc()
     {
-        pressedWaveDash = true;
-        releasedWaveDash = false;
+        OnAButtonDownClientRpc();
     }
 
+    [ClientRpc]
+    private void OnAButtonDownClientRpc()
+    {
+            pressedWaveDash = true;
+            releasedWaveDash = false;
+       
+    }
+
+    // -----------------------------------------------------
+    // OnAButtonUp
+    // -----------------------------------------------------
     void OnAButtonUp()
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
@@ -1799,23 +1914,33 @@ public class PlayerController : NetworkBehaviour
     [ServerRpc]
     private void OnAButtonUpServerRpc()
     {
-        pressedWaveDash = false;
-        releasedWaveDash = true;
+        OnAButtonUpClientRpc();
     }
 
+    [ClientRpc]
+    private void OnAButtonUpClientRpc()
+    {
+            pressedWaveDash = false;
+            releasedWaveDash = true;
+        
+    }
+
+    // -----------------------------------------------------
+    // OnReset (Local only)
+    // -----------------------------------------------------
     void OnReset()
     {
-        // Typically a local/offline operation. If you want all players to reset,
-        // you'd do this differently. But here, local only is fine:
         if (GameConfigurationManager.Instance != null)
         {
             GameConfigurationManager.Instance.ResetToGameModeSelect();
         }
     }
 
+    // -----------------------------------------------------
+    // OnStartButton (Local only)
+    // -----------------------------------------------------
     void OnStartButton()
     {
-        // Usually local for pause menus
         if (GameConfigurationManager.Instance != null)
         {
             GameConfigurationManager.Instance.Pause();
@@ -1823,6 +1948,7 @@ public class PlayerController : NetworkBehaviour
     }
 
     #endregion
+
 
 
 }
