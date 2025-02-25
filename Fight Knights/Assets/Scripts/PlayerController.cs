@@ -71,12 +71,9 @@ public class PlayerController : NetworkBehaviour
     {
         if (!IsOffline())
         {
-            var netTransform = gameObject.AddComponent<NetworkTransform>();
-            netTransform.Interpolate = false;
-            netTransform.SyncScaleX = false;
-            netTransform.SyncScaleY = false;
-            netTransform.SyncScaleZ = false;
-            var netRigidbody = gameObject.AddComponent<NetworkRigidbody>();
+            NetworkTransform nt = this.gameObject.AddComponent<NetworkTransform>();
+            nt.Interpolate = false;
+            this.gameObject.AddComponent<NetworkRigidbody>();
         }
         Application.targetFrameRate = 600;
         rb = GetComponent<Rigidbody>();
@@ -252,10 +249,6 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void FixedHandleMovement()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         float yVelo;
         if (rb.linearVelocity.y < 0)
         {
@@ -496,10 +489,6 @@ public class PlayerController : NetworkBehaviour
     public virtual void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
         HitImpact(direction);
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
 
         if (grabbing)
         {
@@ -539,10 +528,6 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void HandleKnockback()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
 
         if (knockbackSmoke != null)
         {
@@ -1195,10 +1180,6 @@ public class PlayerController : NetworkBehaviour
     
     protected virtual void FaceLookDirection()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         if (punchedLeft || punchedRight || returningRight || returningLeft) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
@@ -1435,38 +1416,14 @@ public class PlayerController : NetworkBehaviour
     // -----------------------------------------------------
     void OnMove(InputValue value)
     {
-        if (IsOffline())
+        Debug.Log("Is offline triggering movement " + value.Get<Vector2>());
+        inputMovement = value.Get<Vector2>();
+        if (currentControlScheme == "Gamepad")
         {
-            Debug.Log("Is offline triggering movement " + value.Get<Vector2>());
-            inputMovement = value.Get<Vector2>();
-            if (currentControlScheme == "Gamepad")
-            {
-                lookDirection = value.Get<Vector2>();
-            }
-        }
-        else
-        {
-            if (IsOwner)
-            {
-                OnMoveServerRpc(value.Get<Vector2>());
-            }
+            lookDirection = value.Get<Vector2>();
         }
     }
 
-    [ServerRpc]
-    private void OnMoveServerRpc(Vector2 direction)
-    {
-        // Broadcast to all clients (including Host client)
-        OnMoveClientRpc(direction);
-    }
-
-    [ClientRpc]
-    private void OnMoveClientRpc(Vector2 direction)
-    {
-            inputMovement = direction;
-            lookDirection = direction;
-       
-    }
 
     // -----------------------------------------------------
     // OnMouseMove
@@ -1477,46 +1434,16 @@ public class PlayerController : NetworkBehaviour
 
         Vector2 mousePosition = value.Get<Vector2>();
 
-        if (IsOffline())
+        // Offline logic
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
         {
-            // Offline logic
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
-            {
-                lookDirection = new Vector2(
-                    hit.point.x - transform.position.x,
-                    hit.point.z - transform.position.z
-                );
-            }
+            lookDirection = new Vector2(
+                hit.point.x - transform.position.x,
+                hit.point.z - transform.position.z
+            );
         }
-        else
-        {
-            if (!IsOwner) return;
-            OnMouseMoveServerRpc(mousePosition);
-        }
-    }
-
-    [ServerRpc]
-    private void OnMouseMoveServerRpc(Vector2 mousePosition)
-    {
-        // Replicate to all clients
-        OnMouseMoveClientRpc(mousePosition);
-    }
-
-    [ClientRpc]
-    private void OnMouseMoveClientRpc(Vector2 mousePosition)
-    {
-            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
-            {
-                lookDirection = new Vector2(
-                    hit.point.x - transform.position.x,
-                    hit.point.z - transform.position.z
-                );
-            }
-      
     }
 
     // -----------------------------------------------------
