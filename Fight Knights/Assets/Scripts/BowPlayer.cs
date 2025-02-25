@@ -92,26 +92,19 @@ public class BowPlayer : PlayerController
                 {
                     Destroy(glowParentInst);
                 }
-                if (NetworkManager.Singleton == null)
+                arrowInstantiated = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
+                arrowInstantiated.GetComponent<Rigidbody>().AddForce((transform.right) * (arrowSpeed * (heldArrowTime + .8f)), ForceMode.Impulse);
+                arrowInstantiated.GetComponent<HandleCollider>().SetPlayer(this, rightHandTransform);
+
+                arrowInstantiated.GetComponent<HandleCollider>().greatestDamage = (int)((heldArrowTime + 1f) * 6f);
+
+
+                if (maxCharged)
                 {
-                    arrowInstantiated = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
-                    arrowInstantiated.GetComponent<Rigidbody>().AddForce((transform.right) * (arrowSpeed * (heldArrowTime + .8f)), ForceMode.Impulse);
-                    arrowInstantiated.GetComponent<HandleCollider>().SetPlayer(this, rightHandTransform);
+                    arrowInstantiated.GetComponent<HandleCollider>().breaksShield = true;
+                    Debug.Log("Setting break shield to true");
 
-                    arrowInstantiated.GetComponent<HandleCollider>().greatestDamage = (int)((heldArrowTime + 1f) * 6f);
-
-
-                    if (maxCharged)
-                    {
-                        arrowInstantiated.GetComponent<HandleCollider>().breaksShield = true;
-                        Debug.Log("Setting break shield to true");
-
-                        maxCharged = false;
-                    }
-                }
-                else
-                {
-                    SpawnArrowServerRpc(transform.right, arrowSpeed, heldArrowTime, maxCharged);
+                    maxCharged = false;
                 }
                 
                 //Debug.Log((arrowInstantiated.GetComponent<HandleCollider>().greatestDamage));
@@ -197,31 +190,6 @@ public class BowPlayer : PlayerController
             returnSpeed = 12f;
         }
 
-    }
-
-    [ServerRpc]
-    private void SpawnArrowServerRpc(Vector3 direction, float arrowSpeed, float heldArrowTime, bool maxCharged)
-    {
-        SpawnArrowClientRpc(transform.right, arrowSpeed, heldArrowTime, maxCharged);
-    }
-
-    [ClientRpc]
-    private void SpawnArrowClientRpc(Vector3 direction, float arrowSpeed, float heldArrowTime, bool maxCharged)
-    {
-        GameObject arrow = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
-
-        // 3. Apply force, damage, etc., just like your offline code
-        Rigidbody rb = arrow.GetComponent<Rigidbody>();
-        rb.AddForce(direction * (arrowSpeed * (heldArrowTime + 0.8f)), ForceMode.Impulse);
-
-        var handleCollider = arrow.GetComponent<HandleCollider>();
-        handleCollider.SetPlayer(this, rightHandTransform);
-        handleCollider.greatestDamage = (int)((heldArrowTime + 1f) * 6f);
-
-        if (maxCharged)
-        {
-            handleCollider.breaksShield = true;
-        }
     }
 
 

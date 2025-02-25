@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 public class BallCharacter : PlayerController
@@ -13,6 +14,11 @@ public class BallCharacter : PlayerController
     bool canWaveDash;
     public override void Awake()
     {
+        if (!IsOffline())
+        {
+            var netTransform = gameObject.AddComponent<NetworkTransform>();
+            var netRigidbody = gameObject.AddComponent<NetworkRigidbody>();
+        }
         Application.targetFrameRate = 600;
         rb = GetComponentInChildren<Rigidbody>();
         state = State.Normal;

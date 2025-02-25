@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Unity.Multiplayer;
+using static UnityEngine.Rendering.DebugUI;
+using Unity.Netcode.Components;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -66,6 +68,11 @@ public class PlayerController : NetworkBehaviour
     
     public virtual void Awake()
     {
+        if (!IsOffline())
+        {
+            var netTransform = gameObject.AddComponent<NetworkTransform>();
+            var netRigidbody = gameObject.AddComponent<NetworkRigidbody>();
+        }
         Application.targetFrameRate = 600;
         rb = GetComponent<Rigidbody>();
         state = State.Normal;
@@ -97,7 +104,6 @@ public class PlayerController : NetworkBehaviour
         _playerInput = GetComponent<PlayerInput>();
         // Retrieve the local player's config from PlayerConfigurationManager
 
-        return;
         var configs = PlayerConfigurationManager.Instance.GetPlayerConfigs();
         if (configs.Count == 0)
         {
@@ -131,13 +137,6 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void Update()
     {
-        if (NetworkManager.Singleton != null)
-        {
-            if (!IsOwner)
-            {
-                return;
-            }
-        }
         switch (state)
         {
             case State.Normal:
@@ -197,17 +196,16 @@ public class PlayerController : NetworkBehaviour
 
         CheckForInputs();
         FaceLookDirection();
+        // If we're online, only the server runs the core logic;
+        // If we're offline, run it locally.
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
     }
 
     protected virtual void FixedUpdate()
     {
-        if (NetworkManager.Singleton != null)
-        {
-            if (!IsOwner)
-            {
-                return;
-            }
-        }
         switch (state)
         {
             case State.Normal:
@@ -223,6 +221,11 @@ public class PlayerController : NetworkBehaviour
                 FixedHandleMovement();
                 break;
         }
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
+
     }
 
 
@@ -264,6 +267,7 @@ public class PlayerController : NetworkBehaviour
         rb.linearVelocity = newVelocity;
 
     }
+
 
     protected virtual void HandleThrowingHands()
     {
@@ -489,13 +493,11 @@ public class PlayerController : NetworkBehaviour
 
     public virtual void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
-        if (NetworkManager.Singleton != null)
+        if (!IsOffline()) // means we are online
         {
-            if (!IsOwner)
-            {
-                return;
-            }
+            if (!IsServer) return;
         }
+
         if (grabbing)
         {
             EndGrab();
@@ -535,13 +537,11 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void HandleKnockback()
     {
-        if (NetworkManager.Singleton != null)
+        if (!IsOffline()) // means we are online
         {
-            if (!IsOwner)
-            {
-                return;
-            }
+            if (!IsServer) return;
         }
+
         if (knockbackSmoke != null)
         {
             knockbackSmoke.gameObject.SetActive(true);
@@ -1147,183 +1147,11 @@ public class PlayerController : NetworkBehaviour
         animatorUpdated.SetTrigger("Stunned");
     }
 
+
+
+
     #region inputRegion
-    void OnMove(InputValue value)
-    {
-        inputMovement = value.Get<Vector2>();
-        if (currentControlScheme == "Gamepad")
-        {
-            lookDirection = value.Get<Vector2>();
-        }
-    }
-
-    private void OnButtonSouth()
-    {
-    }
-    void OnPunchRight()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedRight = true;
-        releasedRight = false;
-    }
-    void OnPunchLeft()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedLeft = true;
-        releasedLeft = false;
-    }
-    void OnReleaseRight()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedRight = false;
-        releasedRight = true;
-    }
-    void OnReleaseLeft()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedLeft = false;
-        releasedLeft = true;
-    }
-    void OnAltPunchRight()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedRight = true;
-        releasedRight = false;
-    }
-    void OnAltPunchLeft()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedLeft = true;
-        releasedLeft = false;
-    }
-    void OnAltReleaseRight()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedRight = false;
-        releasedRight = true;
-    }
-    void OnAltReleaseLeft()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedLeft = false;
-        releasedLeft = true;
-    }
-    void OnShield()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedShield = true;
-        releasedShield = false;
-        airDodged = true;
-        releasedAirDodged = false;
-    }
-    void OnReleaseShield()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        releasedShield = true;
-        pressedShield = false;
-        airDodged = false;
-        releasedAirDodged = true;
-    }
-    void OnDash()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedDash = true;
-        releasedDash = false;
-    }
-    void OnReleaseDash()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedDash = false;
-        releasedDash = true;
-    }
-    void OnAButtonDown()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedWaveDash = true;
-        releasedWaveDash = false;
-    }
-
-    void OnAButtonUp()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        pressedWaveDash = false;
-        releasedWaveDash = true;
-    }
-    void OnMouseMove(InputValue value)
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            if (GameConfigurationManager.Instance.isPaused) return;
-        }
-        Vector2 mousePosition;
-        mousePosition = value.Get<Vector2>();
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000, layerMask)&& currentControlScheme == "Keyboard and Mouse")
-        {
-            lookDirection = new Vector2(hit.point.x - transform.position.x, hit.point.z - transform.position.z);
-            Debug.Log("looking " + lookDirection);
-        }
-
-    }
-
-    void OnReset()
-    {
-        if (GameConfigurationManager.Instance != null)
-        {
-            GameConfigurationManager.Instance.ResetToGameModeSelect();
-        }
-        
-            
-    }
-
-    void OnStartButton()
-    {
-        GameConfigurationManager.Instance.Pause();
-    }
-
+    
     protected virtual void FaceLookDirection()
     {
         if (punchedLeft || punchedRight || returningRight || returningLeft) if (state != State.Grabbing) return;
@@ -1343,7 +1171,7 @@ public class PlayerController : NetworkBehaviour
     {
         if (state == State.Knockback) return;
 
-        transform.right = lastLookedPosition;
+        transform.right = Vector3.MoveTowards(transform.right, lastLookedPosition, 100 * Time.deltaTime);
     }
 
     protected void CheckForInputs()
@@ -1549,4 +1377,415 @@ public class PlayerController : NetworkBehaviour
 
 
     #endregion
+
+    #region Input Callbacks
+
+    public bool IsOffline()
+    {
+        return NetworkManager.Singleton == null || !NetworkManager.Singleton.IsListening;
+    }
+    // -----------------------------------------------------
+    // New approach: Each local input callback checks for offline mode or IsOwner
+    // -----------------------------------------------------
+    void OnMove(InputValue value)
+    {
+        if (IsOffline())
+        {
+            Debug.Log("Is offline triggering movement " + value.Get<Vector2>());
+            inputMovement = value.Get<Vector2>();
+            if (currentControlScheme == "Gamepad")
+            {
+                lookDirection = value.Get<Vector2>();
+            }
+        }
+        else
+        {
+            if (IsOwner)
+            {
+                OnMoveServerRpc(value.Get<Vector2>());
+            }
+        }
+    }
+
+    [ServerRpc]
+    private void OnMoveServerRpc(Vector2 direction)
+    {
+        inputMovement = direction;
+        if (currentControlScheme == "Gamepad")
+        {
+            lookDirection = direction;
+        }
+    }
+
+    [ClientRpc]
+    private void OnMoveClientRpc(Vector2 direction)
+    {
+    }
+
+    void OnMouseMove(InputValue value)
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        Vector2 mousePosition = value.Get<Vector2>();
+
+        if (IsOffline())
+        {
+            // Offline logic
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
+            {
+                lookDirection = new Vector2(
+                    hit.point.x - transform.position.x,
+                    hit.point.z - transform.position.z
+                );
+            }
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnMouseMoveServerRpc(mousePosition);
+        }
+    }
+
+    [ServerRpc]
+    private void OnMouseMoveServerRpc(Vector2 mousePosition)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
+        {
+            lookDirection = new Vector2(
+                hit.point.x - transform.position.x,
+                hit.point.z - transform.position.z
+            );
+        }
+    }
+
+    void OnPunchRight()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            // Offline
+            pressedRight = true;
+            releasedRight = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnPunchRightServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnPunchRightServerRpc()
+    {
+        pressedRight = true;
+        releasedRight = false;
+    }
+
+    void OnPunchLeft()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedLeft = true;
+            releasedLeft = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnPunchLeftServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnPunchLeftServerRpc()
+    {
+        pressedLeft = true;
+        releasedLeft = false;
+    }
+
+    void OnReleaseRight()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedRight = false;
+            releasedRight = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnReleaseRightServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnReleaseRightServerRpc()
+    {
+        pressedRight = false;
+        releasedRight = true;
+    }
+
+    void OnReleaseLeft()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedLeft = false;
+            releasedLeft = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnReleaseLeftServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnReleaseLeftServerRpc()
+    {
+        pressedLeft = false;
+        releasedLeft = true;
+    }
+
+    // AltPunchRight/Left can simply call the same logic:
+    void OnAltPunchRight()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedRight = true;
+            releasedRight = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnPunchRightServerRpc();
+        }
+    }
+
+    void OnAltPunchLeft()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedLeft = true;
+            releasedLeft = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnPunchLeftServerRpc();
+        }
+    }
+
+    void OnAltReleaseRight()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedRight = false;
+            releasedRight = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnReleaseRightServerRpc();
+        }
+    }
+
+    void OnAltReleaseLeft()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedLeft = false;
+            releasedLeft = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnReleaseLeftServerRpc();
+        }
+    }
+
+    void OnShield()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedShield = true;
+            releasedShield = false;
+            airDodged = true;
+            releasedAirDodged = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnShieldServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnShieldServerRpc()
+    {
+        pressedShield = true;
+        releasedShield = false;
+        airDodged = true;
+        releasedAirDodged = false;
+    }
+
+    void OnReleaseShield()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            releasedShield = true;
+            pressedShield = false;
+            airDodged = false;
+            releasedAirDodged = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnReleaseShieldServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnReleaseShieldServerRpc()
+    {
+        releasedShield = true;
+        pressedShield = false;
+        airDodged = false;
+        releasedAirDodged = true;
+    }
+
+    void OnDash()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedDash = true;
+            releasedDash = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnDashServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnDashServerRpc()
+    {
+        pressedDash = true;
+        releasedDash = false;
+    }
+
+    void OnReleaseDash()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedDash = false;
+            releasedDash = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnReleaseDashServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnReleaseDashServerRpc()
+    {
+        pressedDash = false;
+        releasedDash = true;
+    }
+
+    void OnAButtonDown()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedWaveDash = true;
+            releasedWaveDash = false;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnAButtonDownServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnAButtonDownServerRpc()
+    {
+        pressedWaveDash = true;
+        releasedWaveDash = false;
+    }
+
+    void OnAButtonUp()
+    {
+        if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
+
+        if (IsOffline())
+        {
+            pressedWaveDash = false;
+            releasedWaveDash = true;
+        }
+        else
+        {
+            if (!IsOwner) return;
+            OnAButtonUpServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    private void OnAButtonUpServerRpc()
+    {
+        pressedWaveDash = false;
+        releasedWaveDash = true;
+    }
+
+    void OnReset()
+    {
+        // Typically a local/offline operation. If you want all players to reset,
+        // you'd do this differently. But here, local only is fine:
+        if (GameConfigurationManager.Instance != null)
+        {
+            GameConfigurationManager.Instance.ResetToGameModeSelect();
+        }
+    }
+
+    void OnStartButton()
+    {
+        // Usually local for pause menus
+        if (GameConfigurationManager.Instance != null)
+        {
+            GameConfigurationManager.Instance.Pause();
+        }
+    }
+
+    #endregion
+
+
 }

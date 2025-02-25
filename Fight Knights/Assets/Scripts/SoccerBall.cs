@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 public class SoccerBall : PlayerController
@@ -7,6 +8,11 @@ public class SoccerBall : PlayerController
     [SerializeField]public int billiardBallColor;
     public override void Awake()
     {
+        if (!IsOffline())
+        {
+            var netTransform = gameObject.AddComponent<NetworkTransform>();
+            var netRigidbody = gameObject.AddComponent<NetworkRigidbody>();
+        }
         rb = GetComponent<Rigidbody>();
         state = State.Normal;
         cameraShake = FindObjectOfType<CameraShake>();
