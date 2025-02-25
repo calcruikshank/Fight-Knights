@@ -10,48 +10,7 @@ using Unity.Multiplayer;
 
 public class PlayerController : NetworkBehaviour
 {
-    private PlayerInput _playerInput;
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-        // Only apply the local device/scheme if we own this object
-        if (!IsOwner) return;
-
-        _playerInput = GetComponent<PlayerInput>();
-        Debug.Log(" dwadwaddddddddddddddd!!!!!!!!!!!!!jiojiojoiijojijio");
-        return;
-        // Retrieve the local player's config from PlayerConfigurationManager
-        var configs = PlayerConfigurationManager.Instance.GetPlayerConfigs();
-        if (configs.Count == 0)
-        {
-            Debug.LogWarning("No local config found. Did you set one offline?");
-            return;
-        }
-
-        // If there's only 1 local player, just grab index [0]
-        var localConfig = configs[0];
-
-        // Switch the local PlayerInput to the correct scheme and device
-        // so that it picks up exactly what the user was using offline
-        if (_playerInput != null)
-        {
-            _playerInput.SwitchCurrentControlScheme(
-                localConfig.ControlScheme,
-                new InputDevice[] { localConfig.CurrentDevice }
-            );
-
-            // If you need color, team, etc.:
-            var teamComponent = GetComponent<TeamID>();
-            if (teamComponent != null)
-            {
-                teamComponent.SetColorOnMat(localConfig.PlayerColor);
-                teamComponent.SetTeamID(localConfig.PlayerTeam);
-            }
-
-            // Make sure input is active
-            _playerInput.ActivateInput();
-        }
-    }
+   
 
 
     protected Rigidbody rb;
@@ -128,9 +87,55 @@ public class PlayerController : NetworkBehaviour
     {
         currentControlScheme = this.gameObject.GetComponent<PlayerInput>().currentControlScheme;
     }
+    private PlayerInput _playerInput;
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        // Only apply the local device/scheme if we own this object
+        if (!IsOwner) return;
 
+        _playerInput = GetComponent<PlayerInput>();
+        // Retrieve the local player's config from PlayerConfigurationManager
+        var configs = PlayerConfigurationManager.Instance.GetPlayerConfigs();
+        if (configs.Count == 0)
+        {
+            Debug.LogWarning("No local config found. Did you set one offline?");
+            return;
+        }
+
+        // If there's only 1 local player, just grab index [0]
+        var localConfig = configs[0];
+
+        // Switch the local PlayerInput to the correct scheme and device
+        // so that it picks up exactly what the user was using offline
+        if (_playerInput != null)
+        {
+            _playerInput.SwitchCurrentControlScheme(
+                localConfig.ControlScheme,
+                new InputDevice[] { localConfig.CurrentDevice }
+            );
+
+            // If you need color, team, etc.:
+            var teamComponent = GetComponent<TeamID>();
+            if (teamComponent != null)
+            {
+                teamComponent.SetColorOnMat(localConfig.PlayerColor);
+                teamComponent.SetTeamID(localConfig.PlayerTeam);
+            }
+
+            // Make sure input is active
+            _playerInput.ActivateInput();
+        }
+    }
     protected virtual void Update()
     {
+        if (NetworkManager.Singleton != null)
+        {
+            if (!IsOwner)
+            {
+                return;
+            }
+        }
         switch (state)
         {
             case State.Normal:
@@ -194,7 +199,13 @@ public class PlayerController : NetworkBehaviour
 
     protected virtual void FixedUpdate()
     {
-
+        if (NetworkManager.Singleton != null)
+        {
+            if (!IsOwner)
+            {
+                return;
+            }
+        }
         switch (state)
         {
             case State.Normal:
