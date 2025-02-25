@@ -94,6 +94,10 @@ public class BallCharacter : PlayerController
     protected override void HandleKnockback()
     {
 
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         bodyCollider.enabled = false;
         if (rb.linearVelocity.magnitude < 20f && !hasChangedFromKnockbackToFallingAnimation)
         {
@@ -151,6 +155,11 @@ public class BallCharacter : PlayerController
 
     public override void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
+
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
 
         this.transform.GetComponentInChildren<SphereCollider>().material.frictionCombine = PhysicsMaterialCombine.Minimum;
 
@@ -285,7 +294,11 @@ public class BallCharacter : PlayerController
     }
     protected override void FaceLookDirection()
     {
-        
+
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
 
         Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
         if (lookTowards.magnitude != 0f)

@@ -16,6 +16,10 @@ public class FirePlayer : PlayerController
 
     protected override void Update()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         switch (state)
         {
             case State.Normal:
@@ -321,6 +325,11 @@ public class FirePlayer : PlayerController
     }
     public override void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
+
         if (bigInstantiated != null)
         {
             bigInstantiated.GetComponentInChildren<Collider>().enabled = false;

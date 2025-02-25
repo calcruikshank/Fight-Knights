@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using Unity.Multiplayer;
 using static UnityEngine.Rendering.DebugUI;
 using Unity.Netcode.Components;
+using System;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -656,16 +657,41 @@ public class PlayerController : NetworkBehaviour
             {
                 isParrying = false;
             }
+
+            if (!shield.gameObject.activeSelf)
+            {
+                EnableShieldServerRpc(true);
+            }
             shield.gameObject.SetActive(true);
+
         }
         if (!shielding && state != State.ParryState)
         {
             isParrying = false;
             shield.gameObject.SetActive(false);
+            EnableShieldServerRpc(false);
         }
     }
+    [ServerRpc (RequireOwnership = false)]
+    private void EnableShieldServerRpc(bool enabled)
+    {
+        EnableShieldClientRpc(enabled);
+    }
+    [ClientRpc (RequireOwnership = false)]
+    private void EnableShieldClientRpc(bool enabled)
+    {
+        if (!IsServer)
+        {
+            shield.gameObject.SetActive(enabled);
+        }
+    }
+
     public void Parry()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         rb.linearDamping = 0f;
         punchedRight = false;
         punchedLeft = false;
@@ -686,7 +712,12 @@ public class PlayerController : NetworkBehaviour
     }
     protected void HandleParry()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         shield.gameObject.SetActive(true);
+        EnableShieldServerRpc(true);
         Time.timeScale = .2f;
         isParryingTimer += Time.deltaTime;
 
@@ -753,6 +784,10 @@ public class PlayerController : NetworkBehaviour
 
     protected void PowerDash(Vector3 powerDashDirection, float sentSpeed)
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         shielding = false;
         canShieldAgainTimer = 0f;
         powerDashSpeed = sentSpeed;
@@ -783,7 +818,6 @@ public class PlayerController : NetworkBehaviour
 
     public void Stunned(float stunTime, float damage)
     {
-
         Debug.Log("Initial parry stun");
         if(animatorUpdated != null)
         {
@@ -1086,6 +1120,7 @@ public class PlayerController : NetworkBehaviour
     {
         isParrying = true;
         shield.gameObject.SetActive(true);
+        EnableShieldServerRpc(true);
         parryTimer = 0f;
         state = State.AirDodging;
     }
@@ -1096,6 +1131,7 @@ public class PlayerController : NetworkBehaviour
         {
             isParrying = false;
             shield.gameObject.SetActive(false);
+            EnableShieldServerRpc(false);
             shielding = false;
         }
     }
@@ -1154,6 +1190,10 @@ public class PlayerController : NetworkBehaviour
     
     protected virtual void FaceLookDirection()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         if (punchedLeft || punchedRight || returningRight || returningLeft) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
@@ -1411,10 +1451,7 @@ public class PlayerController : NetworkBehaviour
     private void OnMoveServerRpc(Vector2 direction)
     {
         inputMovement = direction;
-        if (currentControlScheme == "Gamepad")
-        {
-            lookDirection = direction;
-        }
+        lookDirection = direction;
     }
 
     [ClientRpc]

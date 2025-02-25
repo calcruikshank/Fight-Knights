@@ -36,6 +36,10 @@ public class SoccerBall : PlayerController
     }
     protected override void Update()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         base.Update();
         if (state != State.Grabbed && state != State.Stunned)
         {
@@ -52,6 +56,11 @@ public class SoccerBall : PlayerController
     }
     public override void Knockback(float damage, Vector3 direction, PlayerController playerSent)
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
+
         canAirDodgeTimer = 0f;
 
         currentPercentage += damage;

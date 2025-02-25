@@ -18,6 +18,10 @@ public class HammerPlayer : PlayerController
 
     protected override void Update()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         switch (state)
         {
             case State.Normal:

@@ -13,6 +13,10 @@ public class ClawPlayer : PlayerController
 
     protected override void Update()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         switch (state)
         {
             case State.Normal:
@@ -379,6 +383,10 @@ public class ClawPlayer : PlayerController
     }
     protected override void FaceLookDirection()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         if (punchedLeft || punchedRight || returningLeft) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
