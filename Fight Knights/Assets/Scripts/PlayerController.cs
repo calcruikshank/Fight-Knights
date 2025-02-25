@@ -137,6 +137,12 @@ public class PlayerController : NetworkBehaviour
     }
     protected virtual void Update()
     {
+        // If we're online, only the server runs the core logic;
+        // If we're offline, run it locally.
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         switch (state)
         {
             case State.Normal:
@@ -196,16 +202,14 @@ public class PlayerController : NetworkBehaviour
 
         CheckForInputs();
         FaceLookDirection();
-        // If we're online, only the server runs the core logic;
-        // If we're offline, run it locally.
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
     }
 
     protected virtual void FixedUpdate()
     {
+        if (!IsOffline()) // means we are online
+        {
+            if (!IsServer) return;
+        }
         switch (state)
         {
             case State.Normal:
@@ -220,10 +224,6 @@ public class PlayerController : NetworkBehaviour
             case State.Dashing:
                 FixedHandleMovement();
                 break;
-        }
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
         }
 
     }
