@@ -1418,10 +1418,7 @@ public class PlayerController : NetworkBehaviour
     {
         Debug.Log("Is offline triggering movement " + value.Get<Vector2>());
         inputMovement = value.Get<Vector2>();
-        if (currentControlScheme == "Gamepad")
-        {
-            lookDirection = value.Get<Vector2>();
-        }
+        lookDirection = value.Get<Vector2>();
     }
 
 
@@ -1437,13 +1434,13 @@ public class PlayerController : NetworkBehaviour
         // Offline logic
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
+        /*if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
         {
             lookDirection = new Vector2(
                 hit.point.x - transform.position.x,
                 hit.point.z - transform.position.z
             );
-        }
+        }*/
     }
 
     // -----------------------------------------------------
