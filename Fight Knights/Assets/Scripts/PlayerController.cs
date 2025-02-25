@@ -96,6 +96,8 @@ public class PlayerController : NetworkBehaviour
 
         _playerInput = GetComponent<PlayerInput>();
         // Retrieve the local player's config from PlayerConfigurationManager
+
+        return;
         var configs = PlayerConfigurationManager.Instance.GetPlayerConfigs();
         if (configs.Count == 0)
         {
