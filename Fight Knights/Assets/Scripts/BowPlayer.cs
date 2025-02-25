@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 public class BowPlayer : PlayerController
@@ -92,20 +94,37 @@ public class BowPlayer : PlayerController
                 {
                     Destroy(glowParentInst);
                 }
-                arrowInstantiated = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
-                arrowInstantiated.GetComponent<Rigidbody>().AddForce((transform.right) * (arrowSpeed * (heldArrowTime + .8f)), ForceMode.Impulse);
-                arrowInstantiated.GetComponent<HandleCollider>().SetPlayer(this, rightHandTransform);
-
-                arrowInstantiated.GetComponent<HandleCollider>().greatestDamage = (int)((heldArrowTime + 1f) * 6f);
-
-
-                if (maxCharged)
+                if (IsOffline())
                 {
-                    arrowInstantiated.GetComponent<HandleCollider>().breaksShield = true;
-                    Debug.Log("Setting break shield to true");
+                    arrowInstantiated = Instantiate(arrowPrefab, GrabPosition.position, transform.rotation);
 
-                    maxCharged = false;
+                    arrowInstantiated.GetComponent<Rigidbody>().AddForce((transform.right) * (arrowSpeed * (heldArrowTime + .8f)), ForceMode.Impulse);
+                    arrowInstantiated.GetComponent<HandleCollider>().SetPlayer(this, rightHandTransform);
+
+                    arrowInstantiated.GetComponent<HandleCollider>().greatestDamage = (int)((heldArrowTime + 1f) * 6f);
+
+
+                    if (maxCharged)
+                    {
+                        arrowInstantiated.GetComponent<HandleCollider>().breaksShield = true;
+                        Debug.Log("Setting break shield to true");
+
+                        maxCharged = false;
+                    }
                 }
+                else
+                {
+                    if (IsServer)
+                    {
+                        FireArrowServerRpc(GrabPosition.position,
+                               transform.rotation,
+                               transform.right,
+                               arrowSpeed,
+                               heldArrowTime,
+                               maxCharged);
+                    }
+                }
+                
                 
                 //Debug.Log((arrowInstantiated.GetComponent<HandleCollider>().greatestDamage));
                 heldArrowTime = 0f;
@@ -191,10 +210,47 @@ public class BowPlayer : PlayerController
         }
 
     }
+    [ServerRpc(RequireOwnership = false)]
+    private void FireArrowServerRpc(
+        Vector3 positionToInstantiate,
+        Quaternion rotationSent,
+        Vector3 directionOfArrow,
+        float speedOfArrow,
+        float localHeldArrowTime,
+        bool localMaxCharged
+    )
+    {
+        // Ensure we're on the server side
+        if (!IsServer) return;
 
+        // 1) Instantiate the arrow on the server
+        GameObject arrowInstantiated = Instantiate(arrowPrefab, positionToInstantiate, rotationSent);
+        // 2) Get the NetworkObject component and Spawn it.
+        NetworkObject netObj = arrowInstantiated.GetComponent<NetworkObject>();
+        netObj.Spawn();
 
+        // 3) Apply force / damage / etc. (server-side)
+        Rigidbody rb = arrowInstantiated.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.AddForce(directionOfArrow * speedOfArrow * (localHeldArrowTime + 0.8f),
+                        ForceMode.Impulse);
+        }
 
+        // 4) Update the arrow’s collider script, etc.
+        HandleCollider handleCollider = arrowInstantiated.GetComponent<HandleCollider>();
+        handleCollider.SetPlayer(this, rightHandTransform);
+        handleCollider.greatestDamage = (int)((localHeldArrowTime + 1f) * 6f);
 
+        if (localMaxCharged)
+        {
+            handleCollider.breaksShield = true;
+            Debug.Log("Setting break shield to true (server).");
+
+            // Reset your charged logic if desired
+            maxCharged = false;
+        }
+    }
 
     public override void EndPunchRight()
     {

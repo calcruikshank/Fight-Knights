@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class HandleCollider : MonoBehaviour
+public class HandleCollider : NetworkBehaviour
 {
     public PlayerController player;
     PlayerController opponent;
@@ -18,9 +19,68 @@ public class HandleCollider : MonoBehaviour
     void Start()
     {
         setDirection = false;
+
+        // Cache the Rigidbody
+        colRb = GetComponent<Rigidbody>();
+        if (colRb == null)
+        {
+            colRb = GetComponentInChildren<Rigidbody>();
+        }
     }
+    private Rigidbody colRb;
 
+    // We'll only use these if we're doing manual server->client sync
+    // (If offline, we won't use them, but they won't hurt being here)
+    private NetworkVariable<Vector3> colliderpos = new NetworkVariable<Vector3>(
+        writePerm: NetworkVariableWritePermission.Owner);
+    private NetworkVariable<Quaternion> colliderrot = new NetworkVariable<Quaternion>(
+        writePerm: NetworkVariableWritePermission.Owner);
+    private bool IsOffline()
+    {
+        // If there's no NetworkManager or it's not running/hosting/connected, treat as offline
+        return NetworkManager.Singleton == null || !NetworkManager.Singleton.IsListening;
+    }
+    
+    private void FixedUpdate()
+    {
+        // ----------------------------------------
+        // OFFLINE: local physics simulation
+        // ----------------------------------------
+        if (IsOffline())
+        {
+            // If offline, just let normal local physics run.
+            // No server, no client. So do nothing special here.
+            return;
+        }
 
+        // ----------------------------------------
+        // ONLINE: server -> updates, client -> follows
+        // ----------------------------------------
+        if (IsServer)
+        {
+            // SERVER simulates normal physics (rigidbody) and writes transform to NetworkVariables
+            if (colRb != null)
+            {
+                // Let the server do its usual physics
+                // Then store the transform each physics step
+                colliderpos.Value = transform.position;
+                colliderrot.Value = transform.rotation;
+            }
+        }
+        else
+        {
+            if (colliderpos.Value != Vector3.zero)
+            {
+                // CLIENT just follows server’s authoritative transform
+                if (colRb != null)
+                {
+                    colRb.isKinematic = true;
+                }
+                transform.position = colliderpos.Value;
+                transform.rotation = colliderrot.Value;
+            }
+        }
+    }
 
     public void SetPlayer(PlayerController player, Transform handSent)
     {
@@ -30,6 +90,10 @@ public class HandleCollider : MonoBehaviour
 
     public void HandleCollision(float hitId, float damage, PlayerController sentOpponent)
     {
+        if (NetworkManager.Singleton != null && !IsServer)
+        {
+            return;
+        }
         if (greatestDamage < damage)
         {
             //Debug.Log(greatestDamage + " greatest before changing");
@@ -64,7 +128,15 @@ public class HandleCollider : MonoBehaviour
                 if (gameObjectDestroyedOnImpact)
                 {
                     Debug.Log("destroy");
+                    if (!IsOffline())
+                    {
+                        if (IsServer)
+                        {
+                            GetComponent<NetworkObject>().Despawn();
+                        }
+                    }
                     Destroy(this.gameObject);
+
                 }
                 return;
             }
@@ -95,7 +167,15 @@ public class HandleCollider : MonoBehaviour
                 if (gameObjectDestroyedOnImpact)
                 {
                     Debug.Log("destroy");
+                    if (!IsOffline())
+                    {
+                        if (IsServer)
+                        {
+                            GetComponent<NetworkObject>().Despawn();
+                        }
+                    }
                     Destroy(this.gameObject);
+                    
                 }
                 return;
             }
@@ -122,8 +202,16 @@ public class HandleCollider : MonoBehaviour
                 }
                 if (gameObjectDestroyedOnImpact)
                 {
-                    Debug.Log("destroy");
+                    Debug.Log("destroy"); 
+                    if (!IsOffline())
+                    {
+                        if (IsServer)
+                        {
+                            GetComponent<NetworkObject>().Despawn();
+                        }
+                    }
                     Destroy(this.gameObject);
+                    
                 }
                 opponent.Stunned(.1f, 0);
                 return;
@@ -154,7 +242,15 @@ public class HandleCollider : MonoBehaviour
             if (gameObjectDestroyedOnImpact)
             {
                 Debug.Log("destroy");
+                if (!IsOffline())
+                {
+                    if (IsServer)
+                    {
+                        GetComponent<NetworkObject>().Despawn();
+                    }
+                }
                 Destroy(this.gameObject);
+                
             }
             if (destroyedOnImpact)
             {
@@ -174,16 +270,20 @@ public class HandleCollider : MonoBehaviour
                         particle.Stop();
                     }
                 }
+                if (!IsOffline())
+                {
+                    if (IsServer)
+                    {
+                        GetComponent<NetworkObject>().Despawn();
+                    }
+                }
             }
         }
     }
 
     public void SetKnockbackDirection(Vector3 direction)
     {
-        
-        
         punchTowards = direction;
         setDirection = true;
-
     }
 }
