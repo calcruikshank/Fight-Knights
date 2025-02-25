@@ -1417,7 +1417,10 @@ public class PlayerController : NetworkBehaviour
     void OnMove(InputValue value)
     {
         inputMovement = value.Get<Vector2>();
-        lookDirection = value.Get<Vector2>();
+        if (currentControlScheme == "Gamepad")
+        {
+            lookDirection = value.Get<Vector2>();
+        }
         //UpdateRotationOnServerRpc(value.Get<Vector2>());
     }
     [ServerRpc]
@@ -1447,18 +1450,29 @@ public class PlayerController : NetworkBehaviour
     {
         if (GameConfigurationManager.Instance != null && GameConfigurationManager.Instance.isPaused) return;
 
+        Debug.Log("mouse movement " + " no raycast though ");
         Vector2 mousePosition = value.Get<Vector2>();
 
         // Offline logic
+        Plane groundPlane = new Plane(Vector3.up, 0f);
+
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        /*if (Physics.Raycast(ray, out hit, 1000, layerMask) && currentControlScheme == "Keyboard and Mouse")
+        float distance;
+
+        if (groundPlane.Raycast(ray, out distance))
         {
+            // Get the point along the ray that intersects the plane
+            Vector3 pointOnPlane = ray.GetPoint(distance);
+
+            // Now you have a position at y = 0 
+            // exactly below or above the mouse pointer, ignoring scene colliders.
             lookDirection = new Vector2(
-                hit.point.x - transform.position.x,
-                hit.point.z - transform.position.z
+                pointOnPlane.x - transform.position.x,
+                pointOnPlane.z - transform.position.z
             );
-        }*/
+
+            Debug.Log("mouse movement " + lookDirection);
+        }
     }
 
     // -----------------------------------------------------

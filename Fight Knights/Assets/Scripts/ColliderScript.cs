@@ -25,27 +25,31 @@ public class ColliderScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        opponent = other.transform.parent.GetComponent<PlayerController>();
-        if (opponent != null && collideTimer <= colliderThreshold)
+        if (other.transform.parent)
         {
-            if (!moreDamageIfStunned || opponent.state != PlayerController.State.Stunned)
+
+            opponent = other.transform.parent.GetComponent<PlayerController>();
+            if (opponent != null && collideTimer <= colliderThreshold)
             {
-                this.transform.parent.transform.parent.GetComponent<HandleCollider>().HandleCollision(hitID, damage, opponent);
-            }
-            if (moreDamageIfStunned && opponent.state == PlayerController.State.Stunned)
-            {
-                this.transform.parent.transform.parent.GetComponent<HandleCollider>().HandleCollision(hitID, stunDamage, opponent);
-            }
-            Collider[] colliders = opponent.transform.GetComponentsInChildren<Collider>();
-            Collider[] collidersInColliderParents = this.transform.parent.GetComponentsInChildren<Collider>();
-            foreach (Collider collider in colliders)
-            {
-                foreach (Collider collidersInParent in collidersInColliderParents)
+                if (!moreDamageIfStunned || opponent.state != PlayerController.State.Stunned)
                 {
-                    Physics.IgnoreCollision(collider, collidersInParent);
+                    this.transform.parent.transform.parent.GetComponent<HandleCollider>().HandleCollision(hitID, damage, opponent);
                 }
+                if (moreDamageIfStunned && opponent.state == PlayerController.State.Stunned)
+                {
+                    this.transform.parent.transform.parent.GetComponent<HandleCollider>().HandleCollision(hitID, stunDamage, opponent);
+                }
+                Collider[] colliders = opponent.transform.GetComponentsInChildren<Collider>();
+                Collider[] collidersInColliderParents = this.transform.parent.GetComponentsInChildren<Collider>();
+                foreach (Collider collider in colliders)
+                {
+                    foreach (Collider collidersInParent in collidersInColliderParents)
+                    {
+                        Physics.IgnoreCollision(collider, collidersInParent);
+                    }
+                }
+
             }
-            
         }
         
     }
