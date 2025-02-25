@@ -1196,7 +1196,7 @@ public class PlayerController : NetworkBehaviour
     protected virtual void Look()
     {
         if (state == State.Knockback) return;
-
+        Debug.Log("Client is looking " + OwnerClientId);
         transform.right = Vector3.MoveTowards(transform.right, lastLookedPosition, 100 * Time.deltaTime);
     }
 
@@ -1416,11 +1416,29 @@ public class PlayerController : NetworkBehaviour
     // -----------------------------------------------------
     void OnMove(InputValue value)
     {
-        Debug.Log("Is offline triggering movement " + value.Get<Vector2>());
         inputMovement = value.Get<Vector2>();
         lookDirection = value.Get<Vector2>();
+        //UpdateRotationOnServerRpc(value.Get<Vector2>());
+    }
+    [ServerRpc]
+    private void UpdateRotationOnServerRpc(Vector2 newLookDir)
+    {
+        UpdateRotationOnClientRpc(newLookDir);
     }
 
+    [ClientRpc]
+    private void UpdateRotationOnClientRpc(Vector2 newLookDir)
+    {
+        if (IsOwner)
+        {
+            // The server does the actual rotation
+            Vector3 lookTowards = new Vector3(newLookDir.x, 0, newLookDir.y);
+            if (lookTowards.magnitude > 0.01f)
+            {
+                transform.right = lookTowards.normalized;
+            }
+        }
+    }
 
     // -----------------------------------------------------
     // OnMouseMove

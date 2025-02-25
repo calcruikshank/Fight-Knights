@@ -314,10 +314,6 @@ public class SwordPlayer : PlayerController
 
     protected override void FaceLookDirection()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         if (punchedLeft || punchedRight || returningRight || returningLeft) if (state != State.Grabbing) return;
         if (state == State.WaveDahsing) return;
         if (state == State.Dashing) return;

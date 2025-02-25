@@ -406,10 +406,6 @@ public class BowPlayer : PlayerController
 
     protected override void FaceLookDirection()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         if (state == State.WaveDahsing) return;
         if (grabbing) return;
         if (punchedRight || returningRight && rightHandTransform.localPosition.x > punchRange - 1f) return;

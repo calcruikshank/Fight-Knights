@@ -294,12 +294,6 @@ public class BallCharacter : PlayerController
     }
     protected override void FaceLookDirection()
     {
-
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
-
         Vector3 lookTowards = new Vector3(lookDirection.x, 0, lookDirection.y);
         if (lookTowards.magnitude != 0f)
         {
