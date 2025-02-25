@@ -199,6 +199,13 @@ public class PlayerController : NetworkBehaviour
 
     protected virtual void FixedUpdate()
     {
+        if (NetworkManager.Singleton != null)
+        {
+            if (!IsOwner)
+            {
+                return;
+            }
+        }
         switch (state)
         {
             case State.Normal:

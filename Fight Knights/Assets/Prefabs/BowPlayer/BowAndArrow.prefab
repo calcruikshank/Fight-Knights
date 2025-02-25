@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 8729400969877952854}
   - component: {fileID: 1577203052994481050}
   - component: {fileID: 4664032501054178618}
-  - component: {fileID: 4572326968332819847}
   - component: {fileID: 8817737351365288135}
   m_Layer: 0
   m_Name: BowAndArrow
@@ -288,23 +287,6 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &4572326968332819847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5136723789652709543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkRigidbodyBaseExpanded: 0
-  UseRigidBodyForMotion: 0
-  AutoUpdateKinematicState: 1
-  AutoSetKinematicOnDespawn: 1
 --- !u!114 &8817737351365288135
 MonoBehaviour:
   m_ObjectHideFlags: 0
