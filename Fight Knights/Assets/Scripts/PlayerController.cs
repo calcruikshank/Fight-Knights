@@ -44,7 +44,24 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] GameObject arrow, deathEffect;
     public bool lostStock = false;
     string currentControlScheme;
-   
+
+    private float lastNetUpdateTime = 0f;
+    // Position, Velocity, and Rotation
+    private NetworkVariable<Vector3> netPosition = new NetworkVariable<Vector3>(
+        writePerm: NetworkVariableWritePermission.Owner,
+        readPerm: NetworkVariableReadPermission.Everyone
+    );
+    private NetworkVariable<Vector3> netVelocity = new NetworkVariable<Vector3>(
+        writePerm: NetworkVariableWritePermission.Owner,
+        readPerm: NetworkVariableReadPermission.Everyone
+    );
+    private NetworkVariable<Quaternion> netRotation = new NetworkVariable<Quaternion>(
+        writePerm: NetworkVariableWritePermission.Owner,
+        readPerm: NetworkVariableReadPermission.Everyone
+    );
+
+
+
     public State state;
     public enum State
     {
@@ -69,12 +86,6 @@ public class PlayerController : NetworkBehaviour
     
     public virtual void Awake()
     {
-        if (!IsOffline())
-        {
-            NetworkTransform nt = this.gameObject.AddComponent<NetworkTransform>();
-            nt.Interpolate = false;
-            this.gameObject.AddComponent<NetworkRigidbody>();
-        }
         Application.targetFrameRate = 600;
         rb = GetComponent<Rigidbody>();
         state = State.Normal;
@@ -100,6 +111,23 @@ public class PlayerController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        if (!IsOwner)
+        {
+            // For non-owners, subscribe to position changes (or velocity) to record the time
+            netPosition.OnValueChanged += (oldPos, newPos) =>
+            {
+                lastNetUpdateTime = Time.time;
+            };
+            // If you want, also attach to netVelocity.OnValueChanged
+            // netVelocity.OnValueChanged += (oldVel, newVel) => { lastNetUpdateTime = Time.time; };
+
+            // Initialize
+            lastNetUpdateTime = Time.time;
+        }
+        else
+        {
+            // The owner sets position/velocity in Update() or FixedUpdate().
+        }
         // Only apply the local device/scheme if we own this object
         if (!IsOwner) return;
         _playerInput = GetComponent<PlayerInput>();
@@ -149,11 +177,56 @@ public class PlayerController : NetworkBehaviour
             _playerInput.ActivateInput();
         }
     }
+    private Vector3 lastNetPos;                 // last position we received from netPosition
+    private Vector3 lastNetPosBeforeUpdate;     // previous position from the last update
+    private float lastNetPosUpdateTime;         // local time when we last received an update
+    private Vector3 remoteVelocity;
+    private void OnNetPositionChanged(Vector3 oldValue, Vector3 newValue)
+    {
+        // 1) How long since our last update?
+        float dt = Time.time - lastNetPosUpdateTime;
+        lastNetPosUpdateTime = Time.time;
+
+        // 2) Compute velocity = (newPos - oldPos) / deltaTime
+        if (dt > 0f)
+        {
+            remoteVelocity = (newValue - oldValue) / dt;
+        }
+
+        // 3) Update the local references
+        lastNetPosBeforeUpdate = oldValue;
+        lastNetPos = newValue;
+    }
+    private void ExtrapolateRemoteMovement()
+    {
+        // 1) How long since the last update arrived?
+        float timeSinceUpdate = Time.time - lastNetUpdateTime;
+
+        // 2) Predict the new position:
+        //    last known position plus velocity * time
+        Vector3 predictedPos = netPosition.Value + new Vector3( netVelocity.Value.x, netPosition.Value.y, netVelocity.Value.z ) * timeSinceUpdate;
+
+        // 3) Smoothly move (LERP) toward that predicted position to avoid snapping
+        float lerpSpeed = 100f; // tweak to taste
+        transform.position = Vector3.Lerp(transform.position, predictedPos, Time.deltaTime * lerpSpeed);
+
+        // 4) For rotation, we can just snap or slerp, depending on your preference:
+        transform.rotation = netRotation.Value;
+    }
+
     protected virtual void Update()
     {
-        // If we're online, only the server runs the core logic;
-        // If we're offline, run it locally.
-        
+        if (IsOwner)
+        {
+            netPosition.Value = transform.position;
+            netVelocity.Value = rb.linearVelocity; // or however you track velocity
+            netRotation.Value = transform.rotation;
+        }
+        else
+        {
+            // Non-owner logic: we do extrapolation
+            ExtrapolateRemoteMovement();
+        }
         switch (state)
         {
             case State.Normal:
@@ -669,10 +742,6 @@ public class PlayerController : NetworkBehaviour
 
     public void Parry()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         rb.linearDamping = 0f;
         punchedRight = false;
         punchedLeft = false;
@@ -693,10 +762,6 @@ public class PlayerController : NetworkBehaviour
     }
     protected void HandleParry()
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         shield.gameObject.SetActive(true);
         Time.timeScale = .2f;
         isParryingTimer += Time.deltaTime;
@@ -764,10 +829,6 @@ public class PlayerController : NetworkBehaviour
 
     protected void PowerDash(Vector3 powerDashDirection, float sentSpeed)
     {
-        if (!IsOffline()) // means we are online
-        {
-            if (!IsServer) return;
-        }
         shielding = false;
         canShieldAgainTimer = 0f;
         powerDashSpeed = sentSpeed;
