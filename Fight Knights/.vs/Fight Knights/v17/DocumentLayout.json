@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\teamid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\teamid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\soccerball.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\soccerball.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\bowplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2316E8AE-2DA9-47D6-473A-0311F84883C5}|Assembly-CSharp.csproj|C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\assets\\scripts\\uiscripts\\initializelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -140,14 +140,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAlwNIAAAB+AAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAlwNEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T08:44:39.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TeamID.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\TeamID.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TeamID.cs",
@@ -171,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerConfigurationManager.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\UiScripts\\PlayerConfigurationManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UiScripts\\PlayerConfigurationManager.cs",
@@ -207,15 +207,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "BowPlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BowPlayer.cs",
               "ToolTip": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BowPlayer.cs",
               "RelativeToolTip": "Assets\\Scripts\\BowPlayer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T09:35:57.427Z"
+              "WhenOpened": "2025-02-24T09:35:57.427Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -231,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ClawPlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Prefabs\\ClawCharacter\\ClawPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Prefabs\\ClawCharacter\\ClawPlayer.cs",
@@ -243,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "SoccerBall.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SoccerBall.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SoccerBall.cs",
@@ -255,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Bichette.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\Bichette.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Bichette.cs",
@@ -279,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BallCharacter.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\BallCharacter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\BallCharacter.cs",
@@ -291,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "FirePlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\FirePlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\FirePlayer.cs",
@@ -303,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HammerPlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\HammerPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HammerPlayer.cs",
@@ -315,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "NinjaScript.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\NinjaScript.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NinjaScript.cs",
@@ -327,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SwordPlayer.cs",
               "DocumentMoniker": "C:\\Users\\calcr\\Documents\\GitHub\\Fight-Knights\\Fight Knights\\Assets\\Scripts\\SwordPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SwordPlayer.cs",

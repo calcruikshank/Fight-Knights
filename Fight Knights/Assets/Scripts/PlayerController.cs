@@ -207,7 +207,7 @@ public class PlayerController : NetworkBehaviour
         Vector3 predictedPos = netPosition.Value + new Vector3( netVelocity.Value.x, netPosition.Value.y, netVelocity.Value.z ) * timeSinceUpdate;
 
         // 3) Smoothly move (LERP) toward that predicted position to avoid snapping
-        float lerpSpeed = 100f; // tweak to taste
+        float lerpSpeed = 15f; // tweak to taste
         transform.position = Vector3.Lerp(transform.position, new Vector3(predictedPos.x, transform.position.y, predictedPos.z) , Time.deltaTime * lerpSpeed);
 
         // 4) For rotation, we can just snap or slerp, depending on your preference:
